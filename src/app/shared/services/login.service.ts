@@ -8,16 +8,17 @@ export class LoginService {
   url = '';
   constructor(private http: HttpClient) { }
 
-  validateUsername(username: string) {
-    console.log(username);
+  validateUsername(uname: string) {
+    console.log(uname);
     const obj = {
-      'username': username
-    }
+      username: uname
+    };
     return this.http.post(this.url, obj)
-    .pipe(
-      map((data) => {
-        return data
-      })
-    );  }
-  
+      .pipe(
+        map((data) => {
+          return data;
+        })
+      );
+  }
+
 }

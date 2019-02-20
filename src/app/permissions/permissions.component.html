@@ -1,0 +1,10 @@
+<select>
+  <option *ngFor="let c of perm">{{c.clientName}}</option>
+</select>
+  <br>
+  <div *ngFor="let c of perm">
+      <input *ngIf="c.face=='y'" type="checkbox" name="face" value="face">Face<br>    
+      <input *ngIf="c.voice=='y'" type="checkbox" name="face" value="face">Voice<br>    
+      <input *ngIf="c.otp=='y'" type="checkbox" name="face" value="face">OTP<br>    
+  </div>
+

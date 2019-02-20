@@ -9,12 +9,13 @@ import { LoginService } from '../shared/services/login.service';
   styleUrls: ['./login.component.css'],
   providers: [LoginService]
 })
+
 export class LoginComponent implements OnInit {
 
   username: string;
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private ls: LoginService) { 
+  constructor(private fb: FormBuilder, private router: Router, private ls: LoginService) {
     this.loginForm = fb.group({
       username: this.fb.control('', [Validators.required]),
     });
@@ -33,8 +34,13 @@ export class LoginComponent implements OnInit {
       err => {
         console.log(err);
       }
-      
+
     );
     this.router.navigate(['/face-scan']);
+  }
+
+  redirectToRegister() {
+    this.router.navigate(['/register']);
+
   }
 }

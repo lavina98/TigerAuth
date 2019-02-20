@@ -11,6 +11,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FaceScanComponent } from './face-scan/face-scan.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PermissionsComponent } from './permissions/permissions.component';
+import { ClientLoginComponent } from './client-login/client-login.component';
+import { ClientPermissionsComponent } from './client-permissions/client-permissions.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
+import { ClientRegisterComponent } from './client-register/client-register.component';
+import { AudioRecordComponent } from './audio-record/audio-record.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +26,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NavbarComponent,
     FaceScanComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    PermissionsComponent,
+    ClientLoginComponent,
+    ClientPermissionsComponent,
+    ProfileComponent,
+    ClientDashboardComponent,
+    ClientRegisterComponent,
+    AudioRecordComponent
   ],
   imports: [
     BrowserModule,

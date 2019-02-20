@@ -1,59 +1,68 @@
-<form [formGroup]="registerForm">
-  <div class="form-group">
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
 
-    <div class="form-control">
-      <label for="first_name">First Name</label>
-      <br>
-      <input type="text" formControlName="first_name" placeholder="First Name">
     </div>
-    <br>
-    
-    <div class="form-control" style="border: none">
-      <label for="last_name">Last Name</label>
-      <br>
-      <input type="text" formControlName="last_name" placeholder="Last Name">
+    <div class="col-md-4">
+      <h4>Welcome to TigerAuth</h4>
+      <form [formGroup]="registerForm">
+        <div class="form-group">
+      
+          <div class="form-control">
+            <label for="first_name">First Name</label>
+            <br>
+            <input type="text" formControlName="first_name" placeholder="First Name">
+          </div>
+          <br>
+      
+          <div class="form-control" style="border: none">
+            <label for="last_name">Last Name</label>
+            <br>
+            <input type="text" formControlName="last_name" placeholder="Last Name">
+          </div>
+          <br>
+      
+          <div class="form-control">
+            <label for="email">Email ID</label>
+            <br>
+            <input type="email" formControlName="email" placeholder="Email ID">
+          </div>
+          <br>
+      
+          <!-- Put this in a modal later -->
+          <div class="form-control">
+            <label for="username">Username</label>
+            <br>
+            <input type="text" formControlName="username" placeholder="Username">
+          </div>
+          <br>
+      
+      
+          <div class="form-control">
+            <label for="mobile">Mobile</label>
+            <br>
+            <input type="number" formControlName="mobile" placeholder="Mobile">
+          </div>
+          <br>
+      
+          <div class="form-control">
+            <label for="dob">Date of Birth</label>
+            <br>
+            <input type="date" formControlName="dob" placeholder="Date of Birth">
+          </div>
+          <br>
+      
+        </div>
+        <br>
+      
+        <button class="btn btn-secondary" (click)="getUsername()" routerLink="face-scan">Register</button>
+        <br>
+      </form>
+      
     </div>
-    <br>
-  
-    <div class="form-control">
-      <label for="email">Email ID</label>
-      <br>
-      <input type="email" formControlName="email" placeholder="Email ID">
-    </div>
-    <br>
+    <div class="col-md-4">
 
-<!-- Put this in a modal later -->
-    <div class="form-control">
-      <label for="username">Username</label>
-      <br>
-      <input type="text" formControlName="username" placeholder="Username">
     </div>
-    <br>
-
-
-    <div class="form-control">
-      <label for="mobile">Mobile</label>
-      <br>
-      <input type="number" formControlName="mobile" placeholder="Mobile">
-    </div>
-    <br>
-
-    <div class="form-control">
-      <label for="dob">Date of Birth</label>
-      <br>
-      <input type="date" formControlName="dob" placeholder="Date of Birth">
-    </div>
-    <br>
 
   </div>
-  <br>
-  
-  <button class="btn btn-secondary" (click)="getUsername()" routerLink="face-scan">Register</button>
-  <br>
-</form>
-
-<!-- <div id="container">
-  <video autoplay="true" id="videoElement">
-   
-  </video>
-</div> -->
+</div>
