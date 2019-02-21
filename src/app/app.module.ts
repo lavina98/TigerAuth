@@ -18,6 +18,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
 import { ClientRegisterComponent } from './client-register/client-register.component';
 import { AudioRecordComponent } from './audio-record/audio-record.component';
+import { RedirectComponent } from './redirect/redirect.component';
+import { OtpComponent } from './otp/otp.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { AudioRecordComponent } from './audio-record/audio-record.component';
     ProfileComponent,
     ClientDashboardComponent,
     ClientRegisterComponent,
-    AudioRecordComponent
+    AudioRecordComponent,
+    RedirectComponent,
+    OtpComponent
   ],
   imports: [
     BrowserModule,

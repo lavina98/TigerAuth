@@ -1,0 +1,7 @@
+<div *ngIf="faceOpen && !faceValid">
+  <app-face-scan></app-face-scan>
+</div>
+<div *ngIf="voiceOpen && !voiceValid">
+<app-audio-record></app-audio-record></div>
+<div *ngIf="otpOpen && !otpValid">
+<app-otp></app-otp></div>

@@ -11,6 +11,7 @@ import { ClientPermissionsComponent } from './client-permissions/client-permissi
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
 import { ClientRegisterComponent } from './client-register/client-register.component';
 import { AudioRecordComponent } from './audio-record/audio-record.component';
+import { RedirectComponent } from './redirect/redirect.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'client-login', component: ClientLoginComponent},
   { path: 'client-register', component: ClientRegisterComponent},
   { path: 'client-dashboard', component: ClientDashboardComponent},
-  { path: 'client-permissions', component: ClientPermissionsComponent}
+  { path: 'client-permissions', component: ClientPermissionsComponent},
+  { path: 'redirect', component: RedirectComponent},
 
 ];
 
