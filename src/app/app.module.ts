@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { FaceScanComponent } from './face-scan/face-scan.component';
+import { FaceScanComponent } from './biometrics/face-scan/face-scan.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PermissionsComponent } from './permissions/permissions.component';
@@ -17,9 +17,15 @@ import { ClientPermissionsComponent } from './client-permissions/client-permissi
 import { ProfileComponent } from './profile/profile.component';
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
 import { ClientRegisterComponent } from './client-register/client-register.component';
-import { AudioRecordComponent } from './audio-record/audio-record.component';
+import { AudioRecordComponent } from './biometrics/audio-record/audio-record.component';
 import { RedirectComponent } from './redirect/redirect.component';
-import { OtpComponent } from './otp/otp.component';
+import { OtpComponent } from './biometrics/otp/otp.component';
+import { ClientService } from './shared/services/client.service';
+import { FaceValidateService } from './shared/services/face-validate.service';
+import { VoiceValidateService } from './shared/services/voice-validate.service';
+import { OtpValidateService } from './shared/services/otp-validate.service';
+import { UserService } from './shared/services/user.service';
+import { BiometricsComponent } from './biometrics/biometrics.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +43,8 @@ import { OtpComponent } from './otp/otp.component';
     ClientRegisterComponent,
     AudioRecordComponent,
     RedirectComponent,
-    OtpComponent
+    OtpComponent,
+    BiometricsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +52,13 @@ import { OtpComponent } from './otp/otp.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    ClientService,
+    FaceValidateService,
+    VoiceValidateService,
+    OtpValidateService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
