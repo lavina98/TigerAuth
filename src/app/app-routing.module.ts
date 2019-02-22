@@ -27,6 +27,7 @@ const routes: Routes = [
   {path: 'add-client', component: AddClientComponent},
   { path: 'redirect', component: RedirectComponent},
 
+
 ];
 
 @NgModule({

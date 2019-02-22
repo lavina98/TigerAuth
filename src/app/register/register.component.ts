@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../shared/services/user.service';
 import { Router } from '@angular/router';
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
   usernameValid: boolean;
   registerForm: FormGroup;
 
@@ -16,14 +17,6 @@ export class RegisterComponent implements OnInit {
   faceOK = false;
   voiceOK = false;
   optOK = false;
-
-  @ViewChild('video')
-  public video: ElementRef;
-
-  @ViewChild('canvas')
-  public canvas: ElementRef;
-
-  public captures: Array<any>;
 
 
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
@@ -68,33 +61,9 @@ export class RegisterComponent implements OnInit {
     //   }
 
     // );
-    // this.router.navigate(['face-scan']);
-    this.initCamera();
+    this.router.navigate(['face-scan']);
     this.formOK = true;
 
-  }
-
-  initCamera() {
-    this.captures = [];
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
-        // console.log(stream);
-        this.video.nativeElement.srcObject = stream;
-        this.video.nativeElement.play();
-      });
-    }
-  }
-
-  public capture() {
-    const context = this.canvas.nativeElement.getContext('2d').drawImage(this.video.nativeElement, 100, 100, 640, 480);
-    // console.log(this.canvas.nativeElement.getContext('2d'));
-    this.captures.push(this.canvas.nativeElement.toDataURL('image/png', 1.0));
-    // console.log(this.captures.length);
-    console.log(this.canvas.nativeElement.toDataURL('image/png'));
-    const obj = {
-      image: this.canvas.nativeElement.toDataURL('image/png')
-    };
-    // console.log(obj);
   }
 
 }
