@@ -25,8 +25,7 @@ const routes: Routes = [
   { path: 'client-register', component: ClientRegisterComponent},
   { path: 'client-dashboard', component: ClientDashboardComponent},
   { path: 'client-permissions', component: ClientPermissionsComponent},
-  { path: 'redirect', component: RedirectComponent},
-
+  { path: 'redirect', component: RedirectComponent}
 ];
 
 @NgModule({
