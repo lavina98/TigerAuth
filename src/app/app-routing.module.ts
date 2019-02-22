@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FaceScanComponent } from './biometrics/face-scan/face-scan.component';
+import { FaceScanComponent } from './face-scan/face-scan.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -9,7 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ClientLoginComponent } from './client-login/client-login.component';
 import { ClientPermissionsComponent } from './client-permissions/client-permissions.component';
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
-import { AudioRecordComponent } from './biometrics/audio-record/audio-record.component';
+import { AudioRecordComponent } from './audio-record/audio-record.component';
 import { RedirectComponent } from './redirect/redirect.component';
 import {AddClientComponent} from './add-client/add-client.component';
 
