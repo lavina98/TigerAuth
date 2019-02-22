@@ -28,11 +28,11 @@ export class RegisterComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
     this.registerForm = fb.group({
-      first_name: this.fb.control('', [Validators.required]),
-      last_name: this.fb.control('', [Validators.required]),
-      username: this.fb.control('', [Validators.required]),
+      firstName: this.fb.control('', [Validators.required]),
+      lastName: this.fb.control('', [Validators.required]),
+      userName: this.fb.control('', [Validators.required]),
       mobile: this.fb.control('', [Validators.required]),
-      dob: this.fb.control('', [Validators.required]),
+      dateOfBirth: this.fb.control('', [Validators.required]),
 
     });
   }
