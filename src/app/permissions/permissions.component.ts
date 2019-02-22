@@ -9,38 +9,17 @@ export class PermissionsComponent implements OnInit {
 
   constructor() { }
 
-  clientPermissions = {
-   hackerrank: ['face'],
-   paytm: ['face', 'otp', 'voice'],
-   github: ['face', 'otp'],
-   hotstar: ['face', 'otp']
-  };
-
-  perm = [
-    {
-      clientName: 'Hackerrank',
-      face: 'y',
-      otp: 'n',
-      voice: 'n',
-    },
-    {
-      clientName: 'PayTM',
-      face: 'y',
-      otp: 'y',
-      voice: 'y',
-    },
-    {
-      clientName: 'GitHub',
-      face: 'y',
-      otp: 'y',
-      voice: 'n',
-    }
+  clientPermissions = [
+   {client: 'hackerrank' , permissions: ['face']},
+   {client: 'paytm', permissions: ['face', 'otp', 'voice']},
+   {client: 'github', permissions: ['face', 'otp']},
+   {client: 'hotstar', permissions: ['face', 'otp']}
   ];
+
   ngOnInit() {
   }
 
   selectClient() {
-    console.log('selected');
   }
 
 }

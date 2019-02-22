@@ -1,6 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2">
+      <form [formGroup]="selectClient">
+        <div class="form-group">
+          <select formControlName="clientName" [value]="clients[0]">
+            <option *ngFor="let  client of clients" [value]="client">{{client}}</option>
+          </select>
+        </div>
+      </form>
       <h5>Total Users</h5>
       <h4>2904</h4>
     </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-client-dashboard',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientDashboardComponent implements OnInit {
 
-  constructor() { }
+  selectClient: FormGroup;
+  clients = ['site1', 'site2', 'site3'];
+  constructor(private fb: FormBuilder) { }
+
 
   ngOnInit() {
+    // get client list from api
+    // client =
+    this.selectClient = this.fb.group({
+      clientName: this.fb.control('')
+    });
   }
 
 }

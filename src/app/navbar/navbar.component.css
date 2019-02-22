@@ -1,3 +1,9 @@
 img {
     width: 50px;
 }
+
+.rightalign {
+    position: absolute;
+    float: right;
+    right:0 px
+}
