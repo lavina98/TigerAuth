@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+
+    <div class="col-md-4">
+      <h4>Welcome to TigerAuth</h4>
+      <form [formGroup]="clientRegisterForm">
+        <div class="form-group">
+          <div class="form-control" style="border: none">
+            <label for="website">Website Name</label>
+            <br />
+            <input
+              type="text"
+              formControlName="website"
+              placeholder="Website"
+            />
+          </div>
+          <br />
+
+          <div class="form-control">
+            <label for="redirect_url">Redirect URL</label>
+            <br />
+            <input
+              type="text"
+              formControlName="redirectUrl"
+              placeholder="Redirect URL"
+            />
+          </div>
+          <br />
+          <br>
+          <p>Enter User Details you want</p>
+          <div class="form-control" *ngFor="let field of userData">
+            <label [for]="field"></label>
+            <br />
+            <input type="checkbox" [formControlName]="field" />{{ field }}
+          </div>
+        </div>
+        <br />
+        <div class="form-control">
+          <label for="authenticationFactor"> Select authentication method</label>
+          <select formControlName="authenticationMethod" [value]="'1FA'" >
+            <option value="1FA">1 Factor Auth</option>
+            <option value="2FA">2 Factor Auth</option>
+            <option value="3FA">3 factor Auth</option>
+          </select>
+        </div>
+        <div> 1 factor auth includes face recognition 
+          2 factor auth includes face+otp
+          3 factor auth includes face+voice+otp 
+        </div>
+        <button
+          class="btn btn-primary"
+          [disabled]="!this.clientRegisterForm.valid"
+          (click)="registerClient()"
+        >
+          Register
+        </button>
+        <br />
+      </form>
+    </div>
+
+    <div class="col-md-4"></div>
+  </div>
+  <div *ngIf="registrationSuccessful">
+    <p>Congrats ! registration Successfull . View dashboard for more details</p>
+  </div>
+</div>

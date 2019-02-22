@@ -16,7 +16,6 @@ import { ClientLoginComponent } from './client-login/client-login.component';
 import { ClientPermissionsComponent } from './client-permissions/client-permissions.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
-import { ClientRegisterComponent } from './client-register/client-register.component';
 import { AudioRecordComponent } from './biometrics/audio-record/audio-record.component';
 import { RedirectComponent } from './redirect/redirect.component';
 import { OtpComponent } from './biometrics/otp/otp.component';
@@ -26,6 +25,7 @@ import { VoiceValidateService } from './shared/services/voice-validate.service';
 import { OtpValidateService } from './shared/services/otp-validate.service';
 import { UserService } from './shared/services/user.service';
 import { BiometricsComponent } from './biometrics/biometrics.component';
+import { AddClientComponent } from './add-client/add-client.component';
 
 @NgModule({
   declarations: [
@@ -40,11 +40,11 @@ import { BiometricsComponent } from './biometrics/biometrics.component';
     ClientPermissionsComponent,
     ProfileComponent,
     ClientDashboardComponent,
-    ClientRegisterComponent,
     AudioRecordComponent,
     RedirectComponent,
     OtpComponent,
-    BiometricsComponent
+    BiometricsComponent,
+    AddClientComponent
   ],
   imports: [
     BrowserModule,
