@@ -1,4 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { UserService } from '../shared/services/user.service';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-face-scan',
@@ -16,7 +19,7 @@ export class FaceScanComponent implements OnInit {
 
     public captures: Array<any>;
 
-    public constructor() {
+    public constructor(private userService: UserService, private router: Router, private http: HttpClient) {
         this.captures = [];
     }
 
@@ -37,10 +40,21 @@ export class FaceScanComponent implements OnInit {
         this.captures.push(this.canvas.nativeElement.toDataURL('image/png', 1.0));
         // console.log(this.captures.length);
         console.log(this.canvas.nativeElement.toDataURL('image/png'));
-        const obj = {
-            image: this.canvas.nativeElement.toDataURL('image/png')
-        };
+
+        const img = this.canvas.nativeElement.toDataURL('image/png');
+
         // console.log(obj);
+        // this.userService.setUserImage(img);
+        const obj = {
+            image: img
+        };
+        this.http.post('http://172.16.40.53:3000/img', obj).subscribe(
+            res => {
+                console.log(res);
+            }
+        );
+
+        // this.router.navigate(['/audio-record']);
     }
 
 }

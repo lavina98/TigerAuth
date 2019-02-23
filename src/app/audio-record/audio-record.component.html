@@ -2,5 +2,7 @@
 <a (click)="stopRecording()" class="btn btn-danger" *ngIf="recording"> Stop Recording </a>
 <div class="clearfix"></div>
 <audio controls="" *ngIf="url">
-  <source [src]="sanitize(url)" type="audio/wav">
+  <source [src]="sanitize(url)" type="audio/mp3">
 </audio>
+
+
