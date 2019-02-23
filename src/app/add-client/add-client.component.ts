@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { IClient } from '../shared/models/client.model';
+import { ClientService } from '../shared/services/client.service';
 
 @Component({
   selector: 'app-add-client',
@@ -9,8 +11,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class AddClientComponent implements OnInit {
   clientRegisterForm: FormGroup;
   registrationSuccessful: boolean;
+  client: IClient;
   userData = ['userName', 'phone', 'dateOfBirth', 'profilePicture'];
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder , private clientService: ClientService ) {
     this.clientRegisterForm = this.fb.group({
       website: this.fb.control('', [Validators.required]),
       redirectUrl: this.fb.control('', [Validators.required]),
@@ -29,6 +32,8 @@ export class AddClientComponent implements OnInit {
   registerClient() {
     console.log(this.clientRegisterForm.value);
     this.registrationSuccessful = true;
+    this.client = this.clientRegisterForm.value;
+    this.clientService.registerClient(this.client);
     // consume api and give user the clientID and clientSecret
     // redirecting to dashboard
   }

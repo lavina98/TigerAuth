@@ -22,7 +22,6 @@ const routes: Routes = [
   { path: 'permissions', component: PermissionsComponent },
   { path: 'profile', component: ProfileComponent },
   // { path: 'client-login', component: ClientLoginComponent},
-  { path: 'client-register', component: AddClientComponent},
   { path: 'client-dashboard', component: ClientDashboardComponent},
   // { path: 'client-permissions', component: ClientPermissionsComponent},
   {path: 'add-client', component: AddClientComponent},

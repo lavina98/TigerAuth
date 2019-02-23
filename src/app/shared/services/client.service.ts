@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
 import { IClient } from '../models/client.model';
+import { HttpClient } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ClientService {
-  static client: IClient;
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
-  login() {}
+  registerClient(client: IClient) {
+    //post request to register client;
+  }
+
+  getClientDetails (website: string) {
+    //get req send website as params
+    // also get users,requests
+    
+  }
 }
