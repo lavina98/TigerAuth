@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as RecordRTC from 'recordrtc';
+import * as b64 from 'base-64';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/services/user.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -11,9 +12,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./audio-record.component.css']
 })
 export class AudioRecordComponent implements OnInit {
+  static str: string;
+  // @ViewChild('video')
+  // public video: ElementRef;
 
+  // @ViewChild('audio')
+  // public audio: ElementRef;
 
-  blob: Blob;
+  // blob: Blob;
   private record;
   private recording = false;
   private url;
@@ -27,7 +33,6 @@ export class AudioRecordComponent implements OnInit {
   ngOnInit() { }
 
   sanitize(url: string) {
-    // console.log(this.domSanitizer.bypassSecurityTrustUrl(url));
     return this.domSanitizer.bypassSecurityTrustUrl(url);
   }
 
@@ -45,9 +50,11 @@ export class AudioRecordComponent implements OnInit {
   /**
    * Will be called automatically.
    */
-  successCallback(stream) {
+  successCallback(stream: MediaStream) {
     const options = {
       mimeType: 'audio/wav',
+      type: 'audio',
+      recorderType: 'StereoAudioRecorder',
       numberOfAudioChannels: 1
     };
 
@@ -64,54 +71,48 @@ export class AudioRecordComponent implements OnInit {
     console.log(this);
   }
 
-  processRecording(blob) {
-    // console.log(blob);
-    // console.log(this.blobToFile(blob));
-    // const obj = {
-    //   audio: blob
-    // };
-    console.log(blob);
-    console.log('before http');
-    this.http.post('http://192.168.43.57:3000/audio', blob).subscribe(
+  async processRecording(blob: Blob) {
+
+    const reader = new FileReader();
+    reader.readAsDataURL(blob);
+    reader.onloadend = () => {
+      const abcd = reader.result;
+      console.log(abcd);
+      AudioRecordComponent.str = abcd.toString();
+      console.log(AudioRecordComponent.str);
+      this.postData();
+    };
+
+
+
+    // this.url = URL.createObjectURL(blob);
+
+  }
+
+  postData() {
+    const obj = {
+      audio: AudioRecordComponent.str
+    };
+    const header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'true'
+      })
+
+    };
+    this.http.post('http://192.168.43.57:3000/audio', obj).subscribe(
       res => {
         console.log('response:');
         console.log(res);
       }
     );
-    this.url = URL.createObjectURL(blob);
-    // this.blob = blob;
-    // console.log(blob);
-    // console.log(this.url);
-    // this.userService.setUserAudio(this.blob);
   }
+
   /**
    * Process Error.
    */
   errorCallback(error) {
     this.error = 'Can not play audio in your browser';
-  }
-
-  blobToFile(blob: Blob) {
-    const b: any = blob;
-    // b.blob = blob;
-    b.lastModifiedDate = new Date();
-    b.name = 'front-end.wav';
-
-    return b as File;
-    // const file = new File([blob], 'audio.wav', { type: 'audio/wav', lastModified: Date.now() });
-    // console.log(file);
-    // // return file;
-    // const obj = {
-    //   audio: file
-    // };
-
-    // console.log(blob);
-    // this.http.post('http://172.16.40.53:3000/audio', blob).subscribe(
-    //   res => {
-    //     console.log('response:');
-    //     console.log(res);
-    //   }
-    // );
   }
 
 }

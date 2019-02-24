@@ -36,15 +36,11 @@ export class FaceScanComponent implements OnInit {
 
     public capture() {
         const context = this.canvas.nativeElement.getContext('2d').drawImage(this.video.nativeElement, 100, 100, 640, 480);
-        // console.log(this.canvas.nativeElement.getContext('2d'));
         this.captures.push(this.canvas.nativeElement.toDataURL('image/png', 1.0));
-        // console.log(this.captures.length);
         console.log(this.canvas.nativeElement.toDataURL('image/png'));
 
         const img = this.canvas.nativeElement.toDataURL('image/png');
 
-        // console.log(obj);
-        // this.userService.setUserImage(img);
         const obj = {
             image: img
         };

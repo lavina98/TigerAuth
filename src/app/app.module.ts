@@ -21,9 +21,6 @@ import { AudioRecordComponent } from './audio-record/audio-record.component';
 import { RedirectComponent } from './redirect/redirect.component';
 import { OtpComponent } from './otp/otp.component';
 import { ClientService } from './shared/services/client.service';
-import { FaceValidateService } from './shared/services/face-validate.service';
-import { VoiceValidateService } from './shared/services/voice-validate.service';
-import { OtpValidateService } from './shared/services/otp-validate.service';
 import { UserService } from './shared/services/user.service';
 import { BiometricsComponent } from './biometrics/biometrics.component';
 import { AddClientComponent } from './add-client/add-client.component';
@@ -55,9 +52,6 @@ import { AddClientComponent } from './add-client/add-client.component';
   ],
   providers: [
     ClientService,
-    FaceValidateService,
-    VoiceValidateService,
-    OtpValidateService,
     UserService
   ],
   bootstrap: [AppComponent]

@@ -12,11 +12,13 @@ import { ClientDashboardComponent } from './client-dashboard/client-dashboard.co
 import { AudioRecordComponent } from './audio-record/audio-record.component';
 import { RedirectComponent } from './redirect/redirect.component';
 import {AddClientComponent} from './add-client/add-client.component';
+import { OtpComponent } from './otp/otp.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'otp', component: OtpComponent },
   { path: 'face-scan', component: FaceScanComponent },
   { path: 'audio-record', component: AudioRecordComponent },
   { path: 'permissions', component: PermissionsComponent },
@@ -26,8 +28,6 @@ const routes: Routes = [
   // { path: 'client-permissions', component: ClientPermissionsComponent},
   {path: 'add-client', component: AddClientComponent},
   { path: 'redirect', component: RedirectComponent},
-
-
 ];
 
 @NgModule({

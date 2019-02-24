@@ -7,12 +7,11 @@ export class ClientService {
   constructor(private httpClient: HttpClient) { }
 
   registerClient(client: IClient) {
-    //post request to register client;
+    // post request to register client;
   }
 
-  getClientDetails (website: string) {
-    //get req send website as params
+  getClientDetails(website: string) {
+    // get req send website as params
     // also get users,requests
-    
   }
 }

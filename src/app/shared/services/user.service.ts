@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { InnerSubscriber } from 'rxjs/internal/InnerSubscriber';
 import { IUser } from '../models/user.model';
+import { ip } from '../backend-ip';
 
 @Injectable({
   providedIn: 'root'
@@ -25,28 +26,6 @@ export class UserService {
     }
   }
 
-  verifyUsername(uname: string) {
-    const obj = {
-      username: uname
-    };
-    return this.http.post('', obj);
-  }
-
-  verifyOtp() {
-    const obj = {};
-    const url = '';
-    return this.http.post(url, obj);
-  }
-
-  register(obj: any) {
-    return this.http.post('', obj);
-  }
-
-  login(obj: any) {
-    const url = '';
-    return this.http.post(url, obj);
-  }
-
   setUserData(user: IUser) {
     console.log(user);
     UserService.user = user;
@@ -56,13 +35,4 @@ export class UserService {
     return UserService.user;
   }
 
-  setUserImage(image: string) {
-    UserService.userImage = image;
-  }
-
-  setUserAudio(audio: Blob) {
-    // UserService.audio = audio;
-    // console.log(audio);
-    // console.log(typeof(audio));
-  }
 }
