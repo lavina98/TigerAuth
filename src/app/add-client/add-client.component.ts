@@ -12,7 +12,7 @@ export class AddClientComponent implements OnInit {
   clientRegisterForm: FormGroup;
   registrationSuccessful: boolean;
   client: IClient;
-  userData = ['userName', 'phone', 'dateOfBirth', 'profilePicture'];
+  userData = ['phone', 'dateOfBirth', 'profilePicture'];
   constructor(private fb: FormBuilder , private clientService: ClientService ) {
     this.clientRegisterForm = this.fb.group({
       website: this.fb.control('', [Validators.required]),
