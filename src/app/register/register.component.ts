@@ -18,7 +18,6 @@ export class RegisterComponent implements OnInit {
   voiceOK = false;
   optOK = false;
 
-
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
     this.registerForm = fb.group({
       firstName: this.fb.control('', [Validators.required]),
@@ -29,6 +28,7 @@ export class RegisterComponent implements OnInit {
 
     });
   }
+
   ngOnInit() { }
 
   verifyUsername() {
@@ -61,6 +61,8 @@ export class RegisterComponent implements OnInit {
     //   }
 
     // );
+    this.userService.setUserData(obj);
+
     this.router.navigate(['face-scan']);
     this.formOK = true;
 

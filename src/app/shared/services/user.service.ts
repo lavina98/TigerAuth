@@ -1,21 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { InnerSubscriber } from 'rxjs/internal/InnerSubscriber';
+import { IUser } from '../models/user.model';
+import { ip } from '../backend-ip';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
+  static audio: string;
+  static username: string;
+  static user: IUser;
+  static userImage: string;
   constructor(private http: HttpClient) { }
 
-  verifyUsername(uname: string) {
-    const obj = {
-      username: uname
-    };
-    return this.http.post('', obj);
+  setUsername(username: string) {
+    UserService.username = username;
   }
 
-  register(obj: any) {
-    return this.http.post('', obj);
+  getUsername() {
+    if (UserService.username !== undefined) {
+      return UserService.username;
+    } else {
+      return undefined;
+    }
   }
+
+  setUserData(user: IUser) {
+    console.log(user);
+    UserService.user = user;
+  }
+
+  getUserData() {
+    return UserService.user;
+  }
+
 }

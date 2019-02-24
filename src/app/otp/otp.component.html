@@ -1,0 +1,10 @@
+<form [formGroup]="otpForm">
+  <div class="form-group">
+    <div class="form-control">
+      <input type="number" formControlName="otp" placeholder="Enter OTP">
+    </div>
+  </div>
+  <button class="btn btn-primary" (click)="verify()"> Verify
+
+  </button>
+</form>
