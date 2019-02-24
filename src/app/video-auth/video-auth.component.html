@@ -1,0 +1,11 @@
+<div>
+    <button *ngIf="!recordingStarted" (click)="recordingStart()">
+      Start recording
+    </button>
+  </div>
+  <div>
+    <button *ngIf="recordingStarted" (click)="recordingStop()">
+      Stop recording
+    </button>
+  </div>
+  <div><video #video id="video" width="640" height="480" autoplay></video></div>
