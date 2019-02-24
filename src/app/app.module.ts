@@ -24,6 +24,7 @@ import { ClientService } from './shared/services/client.service';
 import { UserService } from './shared/services/user.service';
 import { BiometricsComponent } from './biometrics/biometrics.component';
 import { AddClientComponent } from './add-client/add-client.component';
+import { VideoAuthComponent } from './video-auth/video-auth.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AddClientComponent } from './add-client/add-client.component';
     RedirectComponent,
     OtpComponent,
     BiometricsComponent,
-    AddClientComponent
+    AddClientComponent,
+    VideoAuthComponent
   ],
   imports: [
     BrowserModule,

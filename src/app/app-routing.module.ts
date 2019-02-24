@@ -13,6 +13,7 @@ import { AudioRecordComponent } from './audio-record/audio-record.component';
 import { RedirectComponent } from './redirect/redirect.component';
 import {AddClientComponent} from './add-client/add-client.component';
 import { OtpComponent } from './otp/otp.component';
+import { VideoAuthComponent } from './video-auth/video-auth.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'client-dashboard', component: ClientDashboardComponent},
   // { path: 'client-permissions', component: ClientPermissionsComponent},
   {path: 'add-client', component: AddClientComponent},
+  {path: 'video-auth', component: VideoAuthComponent},
   { path: 'redirect', component: RedirectComponent},
 ];
 
