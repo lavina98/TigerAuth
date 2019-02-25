@@ -13,7 +13,7 @@ export class UserLoginService {
     const obj = {
       username: uname
     };
-    const url = ip + '/login/verifyOTP';
+    const url = ip + '/check/username';
     return this.http.post(url, obj);
   }
 

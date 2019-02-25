@@ -12,7 +12,9 @@ export class UserService {
   static username: string;
   static user: IUser;
   static userImage: string;
+  static method: string;
   constructor(private http: HttpClient) { }
+
 
   setUsername(username: string) {
     UserService.username = username;
@@ -21,6 +23,18 @@ export class UserService {
   getUsername() {
     if (UserService.username !== undefined) {
       return UserService.username;
+    } else {
+      return undefined;
+    }
+  }
+
+  setMethod(method: string) {
+    UserService.method = method;
+  }
+
+  getMethod() {
+    if (UserService.method !== undefined) {
+      return UserService.method;
     } else {
       return undefined;
     }
