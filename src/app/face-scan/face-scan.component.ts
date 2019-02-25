@@ -8,6 +8,7 @@ import {
 import { UserService } from '../shared/services/user.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { UserRegisterService } from '../shared/services/user-register.service';
 @Component({
   selector: 'app-face-scan',
   templateUrl: './face-scan.component.html',
@@ -22,6 +23,7 @@ export class FaceScanComponent implements OnInit {
   public captures: Array<any>;
   public constructor(
     private userService: UserService,
+    private userRegisterService: UserRegisterService,
     private router: Router,
     private http: HttpClient
   ) {
@@ -57,9 +59,12 @@ export class FaceScanComponent implements OnInit {
     const obj = {
       image: img
     };
-    this.http.post('http://172.16.40.53:3000/img', obj).subscribe(res => {
-      console.log(res);
-    });
+
+    this.userRegisterService.setUserImage(img);
+    this.router.navigate(['/otp']);
+    // this.http.post('http://172.16.40.53:3000/img', obj).subscribe(res => {
+    //   console.log(res);
+    // });
 
     // this.router.navigate(['/audio-record']);
   }

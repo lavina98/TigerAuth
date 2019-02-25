@@ -4,13 +4,15 @@ import {
   ViewChild,
   ElementRef,
   AfterViewInit
-} from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import * as RecordRTC from "recordrtc";
+} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import * as RecordRTC from 'recordrtc';
+import { ip } from '../shared/backend-ip';
+
 @Component({
-  selector: "app-video-auth",
-  templateUrl: "./video-auth.component.html",
-  styleUrls: ["./video-auth.component.css"]
+  selector: 'app-video-auth',
+  templateUrl: './video-auth.component.html',
+  styleUrls: ['./video-auth.component.css']
 })
 export class VideoAuthComponent implements OnInit, AfterViewInit {
   @ViewChild('video')
@@ -18,7 +20,7 @@ export class VideoAuthComponent implements OnInit, AfterViewInit {
   private stream: MediaStream;
   private recordRTC: any;
   recordingStarted: boolean;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -71,7 +73,7 @@ export class VideoAuthComponent implements OnInit, AfterViewInit {
     this.recordRTC = RecordRTC(stream, options);
     this.recordRTC.startRecording();
     const video: HTMLVideoElement = this.video.nativeElement;
-    video.src = window.URL.createObjectURL(stream);
+    // video.src = window.URL.createObjectURL(stream);
     this.toggleControls();
   }
 
@@ -94,28 +96,31 @@ export class VideoAuthComponent implements OnInit, AfterViewInit {
     recordRTC.getDataURL((dataURL) => {
       console.log(dataURL);
       this.sendRequest(dataURL);
-          // console.log('sending req');
-          // const data = {
-          //   video: dataURL
-          // };
-          // const Headers = {
-          //   'Content-Type': 'application/json',
+      // console.log('sending req');
+      // const data = {
+      //   video: dataURL
+      // };
+      // const Headers = {
+      //   'Content-Type': 'application/json',
 
-          // };
-          // this.http.post('http://192.168.43.57:3000/video', data).subscribe( (res) => {
-          //       console.log(res);
-          // });
+      // };
+      // this.http.post('http://192.168.43.57:3000/video', data).subscribe( (res) => {
+      //       console.log(res);
+      // });
     });
   }
   sendRequest(dataURL) {
     console.log('sending req');
     const data = {
-      video: dataURL
+      username: 'siddharthp538',
+      video: dataURL,
+      blinks: 3
     };
     const Headers = {
       'Content-Type': 'application/json'
     };
-    this.http.post('http://192.168.43.57:3000/video', data).subscribe(res => {
+    const url = ip + '/check/videoAndBlinks';
+    this.http.post(url, data).subscribe(res => {
       console.log(res);
     });
   }
