@@ -10,10 +10,10 @@ export class PermissionsComponent implements OnInit {
   constructor() { }
 
   clientPermissions = [
-   {client: 'hackerrank' , permissions: ['face']},
-   {client: 'paytm', permissions: ['face', 'otp', 'voice']},
-   {client: 'github', permissions: ['face', 'otp']},
-   {client: 'hotstar', permissions: ['face', 'otp']}
+   {client: 'hackerrank' , permissions: ['username', 'phone']},
+   {client: 'paytm', permissions: ['username', 'dateOfBirth']},
+   {client: 'github', permissions: ['username', 'dateOfBirth']},
+   {client: 'hotstar', permissions: ['username', 'phone', 'dateOfBirth']}
   ];
 
   ngOnInit() {
