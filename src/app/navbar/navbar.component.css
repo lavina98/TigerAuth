@@ -1,13 +1,25 @@
 img {
-    width: 50px;
+    width: 30;
+    height:30;
+}
+nav, a{
+    background-color:#72cee3;
+    color:rgb(51, 50, 50);
+    font-family: 'Noticia Text', serif;
+    max-height: 10%;
+}
+a{
+    float: left;
+    background-size:contain;
 }
 
-.rightalign {
-    position: absolute;
-    float: right;
-    right:0 px
+.navbar-brand {
+    position: relative;
+    height:auto;
+    width:auto;
+    /*background-size:contain;*/
 }
-/*.navbar{
-    opacity: 0.5; 
-    filter: alpha(opacity=50);
-}*/
+/*
+li{
+    border-left: 1px solid rgb(51, 50, 50);
+} */
