@@ -1,28 +1,28 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-2">
+<body>
+  <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
+  <div class="container">
+    <div class="card">
       <form [formGroup]="selectClient">
         <div class="form-group">
-          <select formControlName="clientName" [value]="clients[0]">
+          <label for="Website">Select your website:</label>
+          <select id="Website" formControlName="clientName" [value]="clients[0]">
             <option *ngFor="let  client of clients" [value]="client">{{client}}</option>
           </select>
         </div>
       </form>
-      <h5>Total Users</h5>
-      <h4>2904</h4>
-    </div>
-    <div class="col-md-1">
-
-    </div>
-    <div class="col-md-2">
-      <h5>Total Requests</h5>
-      <h4>112586</h4>
-    </div>
-    <div class="col-md-1">
-
-    </div>
-    <div class="col-md-6">
-      Graph
+      <div class="row">
+        <div class="col-md-3 inner_card1">
+          <h6>Total Users</h6>
+          <p>2904</p>
+        </div>
+        <div class="col-md-3 inner_card2">
+          <h6>Total Requests</h6>
+          <p>112586</p>
+        </div>
+        <div class="col-md-6">
+          <img class="image" src="../../assets/graph.png">
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</body>
