@@ -1,3 +1,27 @@
+<<<<<<< HEAD:src/app/biometrics/face-scan/face-scan.component.html
+
+<body>
+  <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6" id="app">
+      <div class="card">
+        <div><video #video id="video" autoplay></video></div>
+        <div><button id="submit_button" (click)="capture()">Snap Photo</button></div>
+        <canvas #canvas id="canvas"></canvas>
+        <!--<ul>
+          <li *ngFor="let c of captures">
+            <img src="{{ c }}" height="50" download />
+          </li>
+        </ul>-->
+      </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+</body>
+=======
 <div id="app">
   <div><video #video id="video" width="640" height="480" autoplay></video></div>
   <div><button id="snap" (click)="capture()">Snap Photo</button></div>
@@ -9,3 +33,4 @@
   </ul>
  
 </div>
+>>>>>>> 76c65b9f8f7778b639b858f6c8f6c7869c945b07:src/app/face-scan/face-scan.component.html

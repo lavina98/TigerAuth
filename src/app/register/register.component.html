@@ -1,63 +1,68 @@
+<body>
+<link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
 <div class="container">
   <div class="row">
     <div class="col-md-4">
 
     </div>
     <div class="col-md-4">
+      <div class="card">
+        <div class="card_header">
+        <h4>Welcome to TigerAuth</h4>
+      </div>
+        <form [formGroup]="registerForm">
+          <div class="form-group">
 
-      <h4>Welcome to TigerAuth</h4>
-      <form [formGroup]="registerForm">
-        <div class="form-group">
-
-          <div class="form-control">
-            <label for="firstName">First Name</label>
+            <div class="form-control form_element">
+              <label class="label" for="first_name">First Name</label>
+              <br>
+              <input class="input_field" type="text" formControlName="first_name" placeholder="First Name" (change)="change()">
+            </div>
             <br>
-            <input type="text" formControlName="firstName" placeholder="First Name" (change)="change()">
+
+            <div class="form-control form_element" style="border: none">
+              <label class="label" for="last_name">Last Name</label>
+              <br>
+              <input class="input_field" type="text" formControlName="last_name" placeholder="Last Name">
+            </div>
+            <br>
+
+            <div class="form-control form_element">
+              <label class="label" for="username">Username</label>
+              <br>
+              <input class="input_field" type="text" (change)="verifyUsername()" formControlName="username" placeholder="Username">
+            </div>
+            <br>
+            <h3 *ngIf="registerForm.get('username').touched && !usernameValid">Please enter a valid username</h3>
+
+            <div class="form-control form_element">
+              <label class="label" for="mobile">Mobile</label>
+              <br>
+              <input class="input_field" type="number" formControlName="mobile" placeholder="Mobile">
+            </div>
+            <br>
+
+            <div class="form-control form_element">
+              <label class="label" for="dob">Date of Birth</label>
+              <br>
+              <input class="input_field" type="date" formControlName="dob" placeholder="Date of Birth">
+            </div>
+            <br>
+
           </div>
           <br>
 
-          <div class="form-control" style="border: none">
-            <label for="lastName">Last Name</label>
-            <br>
-            <input type="text" formControlName="lastName" placeholder="Last Name">
-          </div>
+          <button class="btn btn-secondary" [disabled]="!registerForm.valid || !usernameValid"
+            (click)="submitForm()" id="submit_button">Register</button>
           <br>
-
-          <div class="form-control">
-            <label for="username">Username</label>
-            <br>
-            <input type="text" (change)="verifyUsername()" formControlName="username" placeholder="Username">
-          </div>
-          <br>
-          <h3 *ngIf="registerForm.get('username').touched && !usernameValid">Please enter a valid username</h3>
-
-          <div class="form-control">
-            <label for="mobile">Mobile</label>
-            <br>
-            <input type="number" formControlName="mobile" placeholder="Mobile">
-          </div>
-          <br>
-
-          <div class="form-control">
-            <label for="dob">Date of Birth</label>
-            <br>
-            <input type="date" formControlName="dob" placeholder="Date of Birth">
-          </div>
-          <br>
-
-        </div>
-        <br>
-
-        <button class="btn btn-secondary" [disabled]="!registerForm.valid || !usernameValid"
-          (click)="submitForm()">Register</button>
-        <br>
-      </form>
+        </form>
 
 
+      </div>
+      <div class="col-md-4">
+
+      </div>
     </div>
-    <div class="col-md-4">
-
-    </div>
-
   </div>
 </div>
+</body>
