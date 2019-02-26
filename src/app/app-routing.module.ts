@@ -30,8 +30,8 @@ const routes: Routes = [
   {path: 'add-client', component: AddClientComponent},
   {path: 'video-auth', component: VideoAuthComponent},
   { path: 'redirect', component: RedirectComponent},
-  {path: 'user-list/:clientName/:clientToken', component: UserloginListComponent},
-  {path: ':clientName/:clientToken' , component: LoginComponent}
+  {path: 'user-list/:clientName/:clientToken/:trusted', component: UserloginListComponent},
+  {path: ':clientName/:clientToken/:trusted' , component: LoginComponent}
 ];
 
 @NgModule({

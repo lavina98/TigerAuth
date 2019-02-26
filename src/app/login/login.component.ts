@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   clientName: string;
   clientToken: string;
+  trusted: string;
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.clientName = this.activatedRoute.snapshot.params.clientName;
     this.clientToken = this.activatedRoute.snapshot.params.clientToken;
+    this.trusted = this.activatedRoute.snapshot.params.trusted;
     console.log(this.clientName + ' ' + this.clientToken);
   }
 
