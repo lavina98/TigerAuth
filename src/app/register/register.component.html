@@ -33,7 +33,7 @@
               <input class="input_field" type="text" (change)="verifyUsername()" formControlName="username" placeholder="Username">
             </div>
             <br>
-            <h3 *ngIf="registerForm.get('username').touched && !usernameValid">Please enter a valid username</h3>
+            <h6 *ngIf="registerForm.get('username').touched && !usernameValid">Please enter a valid username</h6>
 
             <div class="form-control form_element">
               <label class="label" for="mobile">Mobile</label>

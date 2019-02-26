@@ -2,7 +2,7 @@
   <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
   <div class="container">
     <div class="card">
-      <form [formGroup]="selectClient">
+      <form [formGroup]="selectClient" class="select_text">
         <div class="form-group">
           <label for="Website">Select your website:</label>
           <select id="Website" formControlName="clientName" [value]="clients[0]">
@@ -11,17 +11,18 @@
         </div>
       </form>
       <div class="row">
-        <div class="col-md-3 inner_card1">
+        <div class="col-md-6" id="inner_card1">
           <h6>Total Users</h6>
           <p>2904</p>
         </div>
-        <div class="col-md-3 inner_card2">
+        <div class="col-md-6" id="inner_card2">
           <h6>Total Requests</h6>
           <p>112586</p>
         </div>
-        <div class="col-md-6">
-          <img class="image" src="../../assets/graph.png">
-        </div>
+      </div>
+      <div class="graph">
+        <hr>
+        <img class="image" src="../../assets/graph.png">
       </div>
     </div>
   </div>
