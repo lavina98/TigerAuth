@@ -1,19 +1,26 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { InnerSubscriber } from 'rxjs/internal/InnerSubscriber';
+import { IUserDetails } from '../models/user-details.model';
 import { IUser } from '../models/user.model';
 import { ip } from '../backend-ip';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  static audio: string;
-  static username: string;
-  static user: IUser;
-  static userImage: string;
-  static method: string;
   static status: string;
+  public audio: string;
+  public username: string;
+  public user: IUserDetails;
+  public userImage: string;
+  headers = {
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      Authorization: 'tolek'
+    })
+  };
   constructor(private http: HttpClient) { }
 
   setLoginStatus(status: string) {
@@ -29,36 +36,34 @@ export class UserService {
   }
 
   setUsername(username: string) {
-    UserService.username = username;
+    this.username = username;
   }
 
   getUsername() {
-    if (UserService.username !== undefined) {
-      return UserService.username;
+    if (this.username !== undefined) {
+      return this.username;
     } else {
       return undefined;
     }
   }
 
-  setMethod(method: string) {
-    UserService.method = method;
-  }
-
-  getMethod() {
-    if (UserService.method !== undefined) {
-      return UserService.method;
-    } else {
-      return undefined;
-    }
-  }
-
-  setUserData(user: IUser) {
+  setUserData(user: IUserDetails) {
     console.log(user);
-    UserService.user = user;
+    this.user = user;
   }
 
   getUserData() {
-    return UserService.user;
+    return this.user;
+  }
+
+  getUserListAndFactorAuth(siteName: string) {
+    // get list of users
+
+    return this.http.get('', { observe: 'response' }).subscribe(
+      (res) => {
+        console.log(res);
+      }
+    );
   }
 
 }

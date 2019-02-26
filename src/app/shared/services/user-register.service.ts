@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ip } from '../backend-ip';
-import { IUser } from '../models/user.model';
+import { IUserDetails } from '../models/user-details.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserRegisterService {
-  static user: IUser;
+  static user: IUserDetails;
   static image: string;
   static audio: string;
   constructor(private http: HttpClient) { }
@@ -22,7 +22,7 @@ export class UserRegisterService {
     return this.http.post(url, obj);
   }
 
-  setFormData(user: IUser) {
+  setFormData(user: IUserDetails) {
     UserRegisterService.user = user;
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as RecordRTC from 'recordrtc';
-import * as b64 from 'base-64';
+// import * as b64 from 'base-64';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/services/user.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -18,7 +18,6 @@ export class AudioRecordComponent implements OnInit {
 
   // @ViewChild('audio')
   // public audio: ElementRef;
-
   // blob: Blob;
   private record;
   private recording = false;

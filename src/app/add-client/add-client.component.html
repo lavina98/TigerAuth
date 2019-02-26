@@ -36,40 +36,23 @@
                 <br>
                 <input class=" form-check-input input_field" type="checkbox" [formControlName]="field" />{{ field }}
               </div>
-            </div>
-            <br />
-            <div class="form-control form_element">
-              <label class="label" for="authenticationFactor"> Select authentication method
-              <!--<select formControlName="authenticationMethod" [value]="'1FA'" >
-            <option value="1FA">1 Factor Auth</option>
-            <option value="2FA">2 Factor Auth</option>
-            <option value="3FA">3 factor Auth</option>
-          </select> -->
-              <div class="btn-group">
-
-                <label class="radio-inline">
-                  <div > <input formControlName="authenticationMethod" type="radio" value="1FA"
-                      >1 Factor Auth</div>
-                </label>
-
-                <label class="radio-inline">
-                  <div > <input formControlName="authenticationMethod" type="radio" value="2FA"
-                   >2 Factor Auth</div>
-                </label>
-
-                <label class="radio-inline">
-                  <div ><input formControlName="authenticationMethod" type="radio" value="3FA"
-                     >3 Factor Auth</div>
-                </label>
-              </div>
-            </label>
-            </div>
-            <button class="submit_button btn btn-primary" [disabled]="!this.clientRegisterForm.valid" (click)="registerClient()">
-              Register
-            </button>
-            <br />
-          </form>
+        <br />
+        <p>Select methods of authecation (Can be multiple)</p>
+        <div class="form-control" *ngFor="let auth of authentication">
+          <label [for]="auth"></label>
+          <input type="checkbox" [formControlName]="auth">{{auth}}
         </div>
+      </div>
+        <button
+          class="btn btn-primary"
+          [disabled]="!this.clientRegisterForm.valid"
+          (click)="registerClient()"
+        >
+          Register
+        </button>
+        <br />
+      </form>
+    </div>
 
         <div class="col-md-4"></div>
       </div>

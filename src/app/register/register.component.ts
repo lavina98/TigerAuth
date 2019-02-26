@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../shared/services/user.service';
 import { Router } from '@angular/router';
 import { UserRegisterService } from '../shared/services/user-register.service';
+import { IResponse } from '../shared/models/single-word-response.model';
 
 @Component({
   selector: 'app-register',
@@ -40,9 +41,12 @@ export class RegisterComponent implements OnInit {
     console.log(this.registerForm.value.username);
     const username = this.registerForm.value.username;
     this.userRegisterService.verifyUsername(username).subscribe(
-      res => {
-        console.log(res);
-        if (res.toString() === 'Valid') {
+      (res: IResponse) => {
+        // console.log(res);
+        // const response = JSON.parse()
+        const message = res.message;
+        if (message === 'VALID') {
+          console.log('valid');
           this.usernameValid = true;
         } else {
           this.usernameValid = false;
@@ -61,10 +65,11 @@ export class RegisterComponent implements OnInit {
   submitForm() {
     const method = 'register';
     this.userService.setUsername(this.registerForm.value.username);
-    this.userService.setMethod(method);
+    // this.userService.setLoginStatus('Invalid');
+    this.userService.setUserData(this.registerForm.value);
     const obj = this.registerForm.value;
     this.userService.setUserData(obj);
-    this.router.navigate(['/otp']);
+    this.router.navigate(['/face-scan']);
   }
 
 }

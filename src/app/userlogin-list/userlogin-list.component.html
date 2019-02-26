@@ -1,0 +1,9 @@
+<p>
+  {{client}} requires {{factorLogin}}
+</p> 
+
+<div *ngFor="let user of userList" (click)="selectUser()"  >
+  <li>{{user.userName}}</li>
+  <!-- <li *ngIf="user.factorLoggedIn!==0">{{user.factorLoggedIn}}</li>
+  <li *ngIf="user.factorLoggedIn===0">Signed out</li> -->
+</div>

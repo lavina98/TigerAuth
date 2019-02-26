@@ -13,7 +13,6 @@ import { FaceScanComponent } from './face-scan/face-scan.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PermissionsComponent } from './permissions/permissions.component';
-import { ClientLoginComponent } from './client-login/client-login.component';
 import { ClientPermissionsComponent } from './client-permissions/client-permissions.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
@@ -25,6 +24,7 @@ import { UserService } from './shared/services/user.service';
 import { BiometricsComponent } from './biometrics/biometrics.component';
 import { AddClientComponent } from './add-client/add-client.component';
 import { VideoAuthComponent } from './video-auth/video-auth.component';
+import { UserloginListComponent } from './userlogin-list/userlogin-list.component';
 import { UserLoginService } from './shared/services/user-login.service';
 import { UserRegisterService } from './shared/services/user-register.service';
 
@@ -37,7 +37,6 @@ import { UserRegisterService } from './shared/services/user-register.service';
     LoginComponent,
     DashboardComponent,
     PermissionsComponent,
-    ClientLoginComponent,
     ClientPermissionsComponent,
     ProfileComponent,
     ClientDashboardComponent,
@@ -46,7 +45,8 @@ import { UserRegisterService } from './shared/services/user-register.service';
     OtpComponent,
     BiometricsComponent,
     AddClientComponent,
-    VideoAuthComponent
+    VideoAuthComponent,
+    UserloginListComponent
   ],
   imports: [
     BrowserModule,

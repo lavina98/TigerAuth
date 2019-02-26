@@ -22,6 +22,7 @@ export class VideoAuthComponent implements OnInit, AfterViewInit {
   private stream: MediaStream;
   private recordRTC: any;
   recordingStarted: boolean;
+  randomBlinks: number;
   username: string;
   constructor(private http: HttpClient, private userService: UserService, private router: Router) { }
 
@@ -38,6 +39,8 @@ export class VideoAuthComponent implements OnInit, AfterViewInit {
       });
     }
     this.recordingStarted = false;
+    this.randomBlinks = Math.floor( (Math.random() *  5)) + 1;
+    console.log(this.randomBlinks);
   }
 
   ngAfterViewInit(): void {
@@ -119,9 +122,9 @@ export class VideoAuthComponent implements OnInit, AfterViewInit {
   sendRequest(dataURL) {
     console.log('sending req');
     const data = {
-      username: 'siddharthp538',
       video: dataURL,
-      blinks: 3
+      blinks: this.randomBlinks,
+      username: 'siddharthp538'
     };
     const Headers = {
       'Content-Type': 'application/json'
