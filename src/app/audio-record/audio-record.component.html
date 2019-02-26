@@ -8,8 +8,8 @@
         <p>Please click on the Start button and read out the sentence which will appear on screen.</p>
         <p class="sentence">Hello demo sentence</p>
         <!--<button id="recButton"></button>-->
-        <a (click)="initiateRecording()" class="btn btn-primary button" *ngIf="!recording"> Start Recording </a>
-        <a (click)="stopRecording()" class="btn btn-danger button" *ngIf="recording"> Stop Recording </a>
+        <a (click)="initiateRecording()" class="btn btn-primary button submit_button" *ngIf="!recording"> Start Recording </a>
+        <a (click)="stopRecording()" class="btn btn-danger button submit_button" *ngIf="recording"> Stop Recording </a>
         <div class="clearfix"></div>
        <audio controls="" *ngIf="url">
           <source [src]="sanitize(url)" type="audio/wav">

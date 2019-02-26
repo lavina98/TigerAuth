@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://localhost:4200/dashboard -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Client</title>
+  <!--<base href="/">--><base href=".">
+  <link rel="stylesheet" href="./Client_files/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="./Client_files/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="./Client_files/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="./Client_files/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="http://localhost:4200/favicon.ico">
+<style type="text/css">/* You can add global styles to this file, and also import other style files */
+.form-control {
+    border: none;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9zdHlsZXMuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLDhFQUE4RTtBQUM5RTtJQUNJLFlBQVk7QUFDaEIiLCJmaWxlIjoic3JjL3N0eWxlcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBZb3UgY2FuIGFkZCBnbG9iYWwgc3R5bGVzIHRvIHRoaXMgZmlsZSwgYW5kIGFsc28gaW1wb3J0IG90aGVyIHN0eWxlIGZpbGVzICovXG4uZm9ybS1jb250cm9sIHtcbiAgICBib3JkZXI6IG5vbmU7XG59Il19 */</style><style>
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */</style><style>img[_ngcontent-c1] {
+    width: 30;
+    height:30;
+}
+nav[_ngcontent-c1]{
+    background-image: linear-gradient(to right,#2f2f89,#448bc8);
+    color:white;
+    font-family: 'Noticia Text', serif;
+    max-height: 10%;
+    font-weight:40;
+    font-size: 18px;
+}
+a[_ngcontent-c1]{
+    float: left;
+    background-size:contain;
+    color:white;
+    font-family: 'Noticia Text', serif;
+    max-height: 10%;
+    font-weight:20;
+}
+.navbar-brand[_ngcontent-c1] {
+    position: relative;
+    height:auto;
+    width:auto;
+    
+}
+li[_ngcontent-c1]{
+    opacity:0.75;
+}
+li[_ngcontent-c1]:hover{
+    opacity:1;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbmF2YmFyL25hdmJhci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksU0FBUztJQUNULFNBQVM7QUFDYjtBQUNBO0lBQ0ksMkRBQTJEO0lBQzNELFdBQVc7SUFDWCxrQ0FBa0M7SUFDbEMsZUFBZTtJQUNmLGNBQWM7SUFDZCxlQUFlO0FBQ25CO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsdUJBQXVCO0lBQ3ZCLFdBQVc7SUFDWCxrQ0FBa0M7SUFDbEMsZUFBZTtJQUNmLGNBQWM7QUFDbEI7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixXQUFXO0lBQ1gsVUFBVTtJQUNWLDJCQUEyQjtBQUMvQjtBQUVBO0lBQ0ksWUFBWTtBQUNoQjtBQUNBO0lBQ0ksU0FBUztBQUNiIiwiZmlsZSI6InNyYy9hcHAvbmF2YmFyL25hdmJhci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW1nIHtcbiAgICB3aWR0aDogMzA7XG4gICAgaGVpZ2h0OjMwO1xufVxubmF2e1xuICAgIGJhY2tncm91bmQtaW1hZ2U6IGxpbmVhci1ncmFkaWVudCh0byByaWdodCwjMmYyZjg5LCM0NDhiYzgpO1xuICAgIGNvbG9yOndoaXRlO1xuICAgIGZvbnQtZmFtaWx5OiAnTm90aWNpYSBUZXh0Jywgc2VyaWY7XG4gICAgbWF4LWhlaWdodDogMTAlO1xuICAgIGZvbnQtd2VpZ2h0OjQwO1xuICAgIGZvbnQtc2l6ZTogMThweDtcbn1cbmF7XG4gICAgZmxvYXQ6IGxlZnQ7XG4gICAgYmFja2dyb3VuZC1zaXplOmNvbnRhaW47XG4gICAgY29sb3I6d2hpdGU7XG4gICAgZm9udC1mYW1pbHk6ICdOb3RpY2lhIFRleHQnLCBzZXJpZjtcbiAgICBtYXgtaGVpZ2h0OiAxMCU7XG4gICAgZm9udC13ZWlnaHQ6MjA7XG59XG5cbi5uYXZiYXItYnJhbmQge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBoZWlnaHQ6YXV0bztcbiAgICB3aWR0aDphdXRvO1xuICAgIC8qYmFja2dyb3VuZC1zaXplOmNvbnRhaW47Ki9cbn1cblxubGl7XG4gICAgb3BhY2l0eTowLjc1O1xufVxubGk6aG92ZXJ7XG4gICAgb3BhY2l0eToxO1xufSJdfQ== */</style><style>
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LmNzcyJ9 */</style></head>
+<body>
+  <app-root _nghost-c0="" ng-version="7.2.4"><body _ngcontent-c0=""><link _ngcontent-c0="" href="./Client_files/css" rel="stylesheet"><app-navbar _ngcontent-c0="" _nghost-c1=""><body _ngcontent-c1=""><link _ngcontent-c1="" href="./Client_files/css" rel="stylesheet"><nav _ngcontent-c1="" class="navbar navbar-expand-lg default-color"><a _ngcontent-c1="" class="navbar-brand" href="http://localhost:4200/#"><img _ngcontent-c1="" alt="app logo" height="30" src="./Client_files/paw.jpeg"></a><button _ngcontent-c1="" aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent-333" data-toggle="collapse" type="button"><span _ngcontent-c1="" class="navbar-toggler-icon"></span></button><div _ngcontent-c1="" class="collapse navbar-collapse" id="navbarSupportedContent-333"><ul _ngcontent-c1="" class="navbar-nav mr-auto"><li _ngcontent-c1="" class="nav-item active"><a _ngcontent-c1="" class="nav-link" href="http://localhost:4200/#">Dashboard <span _ngcontent-c1="" class="sr-only">(current)</span></a></li><li _ngcontent-c1="" class="nav-item"><a _ngcontent-c1="" class="nav-link" href="http://localhost:4200/#">Permissions</a></li><li _ngcontent-c1="" class="nav-item"><a _ngcontent-c1="" class="nav-link" href="http://localhost:4200/#">Link your website to TigerAuth</a></li></ul><ul _ngcontent-c1="" class="navbar-nav ml-auto nav-flex-icons"><li _ngcontent-c1="" class="nav-item dropdown show"><a _ngcontent-c1="" aria-expanded="true" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink-333"> mihirnd </a><div _ngcontent-c1="" aria-labelledby="navbarDropdownMenuLink-333" class="dropdown-menu dropdown-menu-right dropdown-default show"><a _ngcontent-c1="" class="dropdown-item" href="http://localhost:4200/#">My Profile</a><a _ngcontent-c1="" class="dropdown-item" href="http://localhost:4200/#">Logout</a></div></li></ul></div></nav></body></app-navbar><router-outlet _ngcontent-c0="" style="width: 100%"></router-outlet><app-dashboard _nghost-c2=""><div _ngcontent-c2="" class="container"><div _ngcontent-c2="" class="row"><div _ngcontent-c2="" class="col-md-1"></div><div _ngcontent-c2="" class="col-md-10"><table _ngcontent-c2=""><tbody _ngcontent-c2=""><tr _ngcontent-c2=""><th _ngcontent-c2="" style="width:10%">No.</th><th _ngcontent-c2="" style="width:20%">IP Address</th><th _ngcontent-c2="" style="width:20%">Client</th><th _ngcontent-c2="" style="width:20%">Time of Login</th><th _ngcontent-c2="" style="width:20%">Type of Device</th><th _ngcontent-c2="" style="width:10%">Status</th></tr><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--><tr _ngcontent-c2=""><td _ngcontent-c2="">1</td><td _ngcontent-c2="">172.158.16.40</td><td _ngcontent-c2="">www.hackerrank.com</td><td _ngcontent-c2="">4 :08 PM</td><td _ngcontent-c2="">Trusted</td><td _ngcontent-c2="">Active</td></tr><tr _ngcontent-c2=""><td _ngcontent-c2="">2</td><td _ngcontent-c2="">192.168.15.210</td><td _ngcontent-c2="">www.github.com</td><td _ngcontent-c2="">8:10 AM</td><td _ngcontent-c2="">Unrusted</td><td _ngcontent-c2="">Inactive</td></tr></tbody></table></div><div _ngcontent-c2="" class="col-md-1"></div></div></div></app-dashboard></body></app-root>
+<script type="text/javascript" src="./Client_files/runtime.js"></script><script type="text/javascript" src="./Client_files/es2015-polyfills.js" nomodule=""></script><script type="text/javascript" src="./Client_files/polyfills.js"></script><script type="text/javascript" src="./Client_files/styles.js"></script><script type="text/javascript" src="./Client_files/vendor.js"></script><script type="text/javascript" src="./Client_files/main.js"></script>
+
+</body></html>
