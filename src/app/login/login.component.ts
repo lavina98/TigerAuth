@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,14 +12,18 @@ export class LoginComponent implements OnInit {
 
   username: string;
   loginForm: FormGroup;
-
-  constructor(private fb: FormBuilder, private router: Router) {
+  clientName: string;
+  clientToken: string;
+  constructor(private fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) {
     this.loginForm = fb.group({
       username: this.fb.control('', [Validators.required]),
     });
   }
 
   ngOnInit() {
+      this.clientName = this.activatedRoute.snapshot.params.clientName;
+      this.clientToken = this.activatedRoute.snapshot.params.clientToken;
+      console.log(this.clientName + ' ' + this.clientToken);
   }
 
   checkUsername() {

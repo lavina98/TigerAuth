@@ -6,7 +6,6 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PermissionsComponent } from './permissions/permissions.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ClientLoginComponent } from './client-login/client-login.component';
 import { ClientPermissionsComponent } from './client-permissions/client-permissions.component';
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
 import { AudioRecordComponent } from './audio-record/audio-record.component';
@@ -14,6 +13,7 @@ import { RedirectComponent } from './redirect/redirect.component';
 import {AddClientComponent} from './add-client/add-client.component';
 import { OtpComponent } from './otp/otp.component';
 import { VideoAuthComponent } from './video-auth/video-auth.component';
+import { UserloginListComponent } from './userlogin-list/userlogin-list.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -30,6 +30,8 @@ const routes: Routes = [
   {path: 'add-client', component: AddClientComponent},
   {path: 'video-auth', component: VideoAuthComponent},
   { path: 'redirect', component: RedirectComponent},
+  {path: 'user-list/:clientName/:clientToken', component: UserloginListComponent},
+  {path: ':clientName/:clientToken' , component: LoginComponent}
 ];
 
 @NgModule({

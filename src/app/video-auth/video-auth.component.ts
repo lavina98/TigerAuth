@@ -4,13 +4,13 @@ import {
   ViewChild,
   ElementRef,
   AfterViewInit
-} from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import * as RecordRTC from "recordrtc";
+} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import * as RecordRTC from 'recordrtc';
 @Component({
-  selector: "app-video-auth",
-  templateUrl: "./video-auth.component.html",
-  styleUrls: ["./video-auth.component.css"]
+  selector: 'app-video-auth',
+  templateUrl: './video-auth.component.html',
+  styleUrls: ['./video-auth.component.css']
 })
 export class VideoAuthComponent implements OnInit, AfterViewInit {
   @ViewChild('video')
@@ -18,6 +18,7 @@ export class VideoAuthComponent implements OnInit, AfterViewInit {
   private stream: MediaStream;
   private recordRTC: any;
   recordingStarted: boolean;
+  randomBlinks: number;
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
@@ -29,6 +30,8 @@ export class VideoAuthComponent implements OnInit, AfterViewInit {
       });
     }
     this.recordingStarted = false;
+    this.randomBlinks = Math.floor( (Math.random() *  5)) + 1;
+    console.log(this.randomBlinks);
   }
 
   ngAfterViewInit(): void {
@@ -71,7 +74,7 @@ export class VideoAuthComponent implements OnInit, AfterViewInit {
     this.recordRTC = RecordRTC(stream, options);
     this.recordRTC.startRecording();
     const video: HTMLVideoElement = this.video.nativeElement;
-    video.src = window.URL.createObjectURL(stream);
+    // video.src = window.URL.createObjectURL(stream);
     this.toggleControls();
   }
 
@@ -110,7 +113,8 @@ export class VideoAuthComponent implements OnInit, AfterViewInit {
   sendRequest(dataURL) {
     console.log('sending req');
     const data = {
-      video: dataURL
+      video: dataURL,
+      blinks: this.randomBlinks
     };
     const Headers = {
       'Content-Type': 'application/json'
