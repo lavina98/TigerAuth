@@ -27,11 +27,7 @@ export class OtpComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.method = 'register';
-
-    if (this.method === 'register') {
-      // this.userRegisterService.sendOTP();
-    }
+      this.userRegisterService.sendOTP();
   }
 
   verify() {

@@ -18,7 +18,7 @@ export class UserRegisterService {
     const obj = {
       username: uname
     };
-    const url = ip + '/register/verifyOTP';
+    const url = ip + '/register/verifyUsername';
     return this.http.post(url, obj);
   }
 
@@ -26,9 +26,9 @@ export class UserRegisterService {
     UserRegisterService.user = user;
   }
 
-  sendOTP(uname: string, mobile: string) {
+  sendOTP() {
     const obj = {
-      phone: mobile
+      phone: UserRegisterService.user.mobile
     };
 
     const url = ip + '/register/verifyOTP';

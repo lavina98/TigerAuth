@@ -28,10 +28,10 @@ export class FaceScanComponent implements OnInit {
     private http: HttpClient
   ) {
     this.captures = [];
-    this.username = this.userService.getUsername();
-    if (this.username === undefined) {
-      this.router.navigate(['/']);
-    }
+    // this.username = this.userService.getUsername();
+    // if (this.username === undefined) {
+    //   this.router.navigate(['/']);
+    // }
   }
 
   public ngOnInit() {

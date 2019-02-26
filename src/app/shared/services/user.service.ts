@@ -13,8 +13,20 @@ export class UserService {
   static user: IUser;
   static userImage: string;
   static method: string;
+  static status: string;
   constructor(private http: HttpClient) { }
 
+  setLoginStatus(status: string) {
+    UserService.status = status;
+  }
+
+  getLoginStatus() {
+    if (UserService.status !== undefined) {
+      return UserService.status;
+    } else {
+      return undefined;
+    }
+  }
 
   setUsername(username: string) {
     UserService.username = username;

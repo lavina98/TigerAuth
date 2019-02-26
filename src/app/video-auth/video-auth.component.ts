@@ -26,10 +26,10 @@ export class VideoAuthComponent implements OnInit, AfterViewInit {
   constructor(private http: HttpClient, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
-    this.username = this.userService.getUsername();
-    if (this.username === undefined) {
-      this.router.navigate(['/']);
-    }
+    // this.username = this.userService.getUsername();
+    // if (this.username === undefined) {
+    //   this.router.navigate(['/']);
+    // }
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
         // console.log(stream);
