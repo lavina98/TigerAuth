@@ -25,25 +25,33 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   checkUsername() {
     console.log(this.loginForm.value);
     const username = this.loginForm.value.username;
     const method = 'login';
-    this.userLoginService.verifyUsername(username).subscribe(
-      res => {
-        if (res.toString() === 'Valid') {
-          console.log(res);
-          this.userService.setUsername(username);
-          this.userService.setMethod(method);
-          this.router.navigate(['/face-scan']);
-        } else {
-          alert('Invalid Username');
-        }
-      }
-    );
+    // Comment from here
+    if (this.loginForm.value.username === 'a') {
+      this.userService.setUsername(username);
+      this.userService.setMethod(method);
+      this.router.navigate(['/video-auth']);
+    }
+    // Comment till here
+
+    // Uncomment
+    // this.userLoginService.verifyUsername(username).subscribe(
+    //   res => {
+    //     if (res.toString() === 'Valid') {
+    //       console.log(res);
+    //       this.userService.setUsername(username);
+    //       this.userService.setMethod(method);
+    //       this.router.navigate(['/face-scan']);
+    //     } else {
+    //       alert('Invalid Username');
+    //     }
+    //   }
+    // );
 
   }
 

@@ -12,9 +12,9 @@ import { Router } from '@angular/router';
 
 export class OtpComponent implements OnInit {
 
-  method = 'register';
   otpForm: FormGroup;
   otp = 111111;
+  method: string;
 
   constructor(
     private fb: FormBuilder,
@@ -27,6 +27,8 @@ export class OtpComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.method = 'register';
+
     if (this.method === 'register') {
       // this.userRegisterService.sendOTP();
     }

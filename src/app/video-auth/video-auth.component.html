@@ -1,11 +1,37 @@
-<div>
-    <button *ngIf="!recordingStarted" (click)="recordingStart()">
-      Start recording
-    </button>
+<body>
+  <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
+
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-3">
+
+      </div>
+
+      <div class="col-md-6">
+
+        <div class="card">
+          <div>
+            <div><video #video id="video" width="100%" autoplay></video></div>
+
+            <button class="btn btn-success" *ngIf="!recordingStarted" (click)="recordingStart()">
+              Start Recording
+            </button>
+          </div>
+          <div>
+            <button class="btn btn-danger" *ngIf="recordingStarted" (click)="recordingStop()">
+              Stop Recording
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
   </div>
-  <div>
-    <button *ngIf="recordingStarted" (click)="recordingStop()">
-      Stop recording
-    </button>
-  </div>
-  <div><video #video id="video" width="640" height="480" autoplay></video></div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</body>

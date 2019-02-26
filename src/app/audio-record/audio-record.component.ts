@@ -24,12 +24,18 @@ export class AudioRecordComponent implements OnInit {
   private recording = false;
   private url;
   private error;
+  username: string;
   constructor(
     private domSanitizer: DomSanitizer,
     private router: Router,
     private userService: UserService,
     private http: HttpClient
-    ) { }
+  ) {
+    this.username = this.userService.getUsername();
+    if (this.username === undefined) {
+      this.router.navigate(['/']);
+    }
+  }
 
   ngOnInit() { }
 

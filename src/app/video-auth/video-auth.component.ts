@@ -8,6 +8,8 @@ import {
 import { HttpClient } from '@angular/common/http';
 import * as RecordRTC from 'recordrtc';
 import { ip } from '../shared/backend-ip';
+import { UserService } from '../shared/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-video-auth',
@@ -20,9 +22,14 @@ export class VideoAuthComponent implements OnInit, AfterViewInit {
   private stream: MediaStream;
   private recordRTC: any;
   recordingStarted: boolean;
-  constructor(private http: HttpClient) { }
+  username: string;
+  constructor(private http: HttpClient, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
+    this.username = this.userService.getUsername();
+    if (this.username === undefined) {
+      this.router.navigate(['/']);
+    }
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
         // console.log(stream);
