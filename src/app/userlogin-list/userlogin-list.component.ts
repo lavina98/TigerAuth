@@ -14,6 +14,7 @@ export class UserloginListComponent implements OnInit {
   userList: IUser[];
   clientName: string;
   clientToken: string;
+  trusted: string;
   constructor(
     private http: HttpClient,
     private userService: UserService,
@@ -24,7 +25,9 @@ export class UserloginListComponent implements OnInit {
   ngOnInit() {
     this.clientName = this.activatedRoute.snapshot.params.clientName;
     this.clientToken = this.activatedRoute.snapshot.params.clientToken;
+    this.trusted = this.activatedRoute.snapshot.params.trusted;
     console.log(this.clientName + ' ' + this.clientToken);
+
     // const data = this.userService.getUserListAndFactorAuth().subscribe(
     //   (data) =>{
     //       this.factorLogin = data.factorLogin;
