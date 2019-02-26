@@ -1,3 +1,80 @@
-.form-control {
+body{
+    background:url("../../assets/login8.jpg");
+    overflow: hidden;
+    background-size: cover;
+    width: 100%;
+    min-height: 100%;
+}
+.card{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.10);
     border: none;
+    border-radius: 5px;
+    margin-top: 8%;
+    margin-bottom:8%;
+    font-family: 'Noticia Text', serif;
+    font-size: 20px;
+    background:#000076;
+    opacity:0.6;
+
+}
+.card:hover{
+    box-shadow: 0 20px 30px rgba(0,0,0,0.40);
+}
+#submit_button{
+    display: block; 
+    margin-left:auto;
+    margin-right: auto;
+    width:50%;
+    padding-top:3%;
+    padding-bottom:4%;
+    background:white;
+    color:black;
+    border-radius: 10px;
+    margin-top:-8%;
+    margin-bottom:-2%;
+    font-size: 20px;
+    opacity:1;
+}
+#submit_button:hover{
+    box-shadow: 0 18px 22px 0 rgba(0,0,0,0.40)
+}
+.form_element{
+    margin-top:2%;
+    margin-bottom:1%;
+    margin-left:7%;
+    width:90%;
+    background:#000076;
+    
+}
+.input_field{
+    border: none;
+    border-bottom: 1px solid white;
+    width:90%;
+    background:#000076; 
+    filter: alpha(opacity=70);
+    color:rgb(158, 156, 156);
+   
+}
+.label{
+    font-weight:600;
+    color:white;
+   
+}
+.card_header{
+    text-align: center;
+    background:#000076;
+    color:white;
+    height:auto;
+    margin:0px;
+    padding-top:2%;
+    padding-bottom:1%;
+    font-weight: bold;
+}
+::input-placeholder{
+    padding-top:1%;
+}
+h6{
+    color:#f8901f;
+    text-align: center;
+    opacity: 1;
 }

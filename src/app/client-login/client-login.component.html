@@ -1,0 +1,39 @@
+<!--not able to see this page on localhost, it redirects to login-->
+<body>
+    <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
+<div class="container">
+  <div class="card">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="card_header">
+            <h4>Welcome to TigerAuth</h4>
+          </div>
+<form [formGroup]="clientLoginForm">
+  <div class="form-group">
+<div class="form-control form-element">
+      <label class="label" for="client_id">Client ID</label>
+      <br>
+      <input class="input_field" type="text" formControlName="client_id" placeholder="Client ID">
+    </div>
+    <br>
+    <br>
+
+    <div class="form-control form-element">
+      <label class="label" for="client_secret">Client Secret</label>
+      <br>
+      <input class="input_field" type="text" formControlName="client_secret" placeholder="Client Secret">
+    </div>
+    <br>
+    <br>
+    <button class="btn btn-primary" (click)="validateClient()">Login</button>
+    <br>
+  </div>
+</form>
+    </div>
+    <div class="col-md-4"></div>
+
+  </div>
+</div>
+</div> 
+</body>

@@ -1,9 +1,8 @@
-
 <div *ngFor="let x of clientPermissions">
   <li>
-  <p>{{ x.client }}--</p>
-  <div *ngFor="let permission of x.permissions">
-    <p>{{ permission }}</p>
-  </div>
-</li>
+    <p>{{ x.client }}</p>
+    <div *ngFor="let permission of x.permissions">
+      <p>{{ permission }}</p>
+    </div>
+  </li>
 </div>

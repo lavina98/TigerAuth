@@ -25,6 +25,8 @@ import { BiometricsComponent } from './biometrics/biometrics.component';
 import { AddClientComponent } from './add-client/add-client.component';
 import { VideoAuthComponent } from './video-auth/video-auth.component';
 import { UserloginListComponent } from './userlogin-list/userlogin-list.component';
+import { UserLoginService } from './shared/services/user-login.service';
+import { UserRegisterService } from './shared/services/user-register.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { UserloginListComponent } from './userlogin-list/userlogin-list.componen
   ],
   providers: [
     ClientService,
-    UserService
+    UserService,
+    UserLoginService,
+    UserRegisterService
   ],
   bootstrap: [AppComponent]
 })

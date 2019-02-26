@@ -1,32 +1,38 @@
-<div class="container" style="width: 100%">
+<body>
+  <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
 
-  <div class="row" style="align-content: center">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      <h2>Welcome to TigerAuth</h2>
-
-      <h3>Login</h3>
-
-      <form [formGroup]="loginForm">
-        <div class="form-group">
-
-          <div class="form-control" style="border:none">
-            <label for="username">Username</label>
-            <br>
-            <input type="text" formControlName="username" placeholder="Username">
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card_header">
+            <h4>TigerAuth Login</h4>
           </div>
-          <br>
-          <br>
-          <button class="btn btn-primary" (click)="checkUsername()">Next</button>
-          <br>
+          <form [formGroup]="loginForm">
+            <div class="form-group">
 
-          <h4>OR</h4>
-          <button class="btn btn-secondary" (click)="redirectToRegister()">Register</button>
+              <div class="form-control form_element">
+                <label class="label" for="username">Username</label>
+                <br>
+                <input class="input_field" type="text" formControlName="username" placeholder="First Name">
+              </div>
+              <br>
+              <br>
+              <br>
+
+              <button class="btn btn-secondary" (click)="checkUsername()" id="submit_button">Next</button>
+              <br>
+            </div>
+          </form>
+
 
         </div>
-      </form>
-    </div>
-    <div class="col-md-4"></div>
+        <div class="col-md-4">
 
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</body>

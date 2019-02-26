@@ -1,39 +1,41 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4"></div>
+<!--left to style-->
+<body>
+  <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
 
-    <div class="col-md-4">
-      <h4>Welcome to TigerAuth</h4>
-      <form [formGroup]="clientRegisterForm">
-        <div class="form-group">
-          <div class="form-control" style="border: none">
-            <label for="website">Website Name</label>
-            <br />
-            <input
-              type="text"
-              formControlName="website"
-              placeholder="Website"
-            />
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card_header">
+            <h4>Welcome to TigerAuth</h4>
           </div>
-          <br />
+          <form [formGroup]="clientRegisterForm">
+            <div class="form-group">
 
-          <div class="form-control">
-            <label for="redirect_url">Redirect URL</label>
-            <br />
-            <input
-              type="text"
-              formControlName="redirectUrl"
-              placeholder="Redirect URL"
-            />
-          </div>
-          <br />
-          <br>
-          <p>Enter User Details you want</p>
-          <div class="form-control" *ngFor="let field of userData">
-            <label [for]="field"></label>
-            <br />
-            <input type="checkbox" [formControlName]="field" />{{ field }}
-          </div>
+              <div class="form-control form_element">
+                <label class="label" for="website">Website Name</label>
+                <br>
+                <input class="input_field" type="text" formControlName="website" placeholder="Website Name">
+              </div>
+              <br>
+
+              <div class="form-control form_element">
+                <label class="label" for="redirect_url">Redirect URL</label>
+                <br>
+                <input class="input_field" type="text" formControlName="redirectUrl" placeholder="Redirect URL">
+              </div>
+              <br>
+              <!--this part is pending-->
+              <div class="tooltip">User Details<span class="tooltiptext">Specify the details you would want to know on
+                  user login</span></div>
+              <!--ends here-->
+              <div class="form-control form-check form-check-inline form_element" *ngFor="let field of userData">
+                <label class="label" [for]="field"></label>
+                <br>
+                <input class=" form-check-input input_field" type="checkbox" [formControlName]="field" />{{ field }}
+              </div>
         <br />
         <p>Select methods of authecation (Can be multiple)</p>
         <div class="form-control" *ngFor="let auth of authentication">
@@ -52,9 +54,11 @@
       </form>
     </div>
 
-    <div class="col-md-4"></div>
-  </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
   <div *ngIf="registrationSuccessful">
     <p>Congrats ! registration Successfull . View dashboard for more details</p>
   </div>
-</div>
+  </div>
+</body>
