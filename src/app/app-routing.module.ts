@@ -5,11 +5,8 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PermissionsComponent } from './permissions/permissions.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ClientPermissionsComponent } from './client-permissions/client-permissions.component';
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
-import { RedirectComponent } from './redirect/redirect.component';
 import { AddClientComponent } from './add-client/add-client.component';
-import { OtpComponent } from './otp/otp.component';
 import { UserloginListComponent } from './userlogin-list/userlogin-list.component';
 import { TransitionPageComponent } from './transition-page/transition-page.component';
 import { FaceRegisterComponent } from './face-register/face-register.component';
@@ -30,12 +27,10 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   // { path: 'client-login', component: ClientLoginComponent},
   { path: 'client-dashboard', component: ClientDashboardComponent },
-  // { path: 'client-permissions', component: ClientPermissionsComponent},
   { path: 'add-client', component: AddClientComponent },
   { path: 'otp-login', component: OtpLoginComponent },
   { path: 'face-login', component: FaceLoginComponent },
   { path: 'voice-login', component: VoiceLoginComponent },
-  { path: 'redirect', component: RedirectComponent },
   { path: 'transition/:clientName/:clientToken/:trusted', component: TransitionPageComponent },
   { path: 'user-list/:clientName/:clientToken/:trusted', component: UserloginListComponent },
   { path: 'login/:clientName/:clientToken/:trusted', component: LoginComponent }
