@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  static status: string;
+  static status = 'Invalid';
   public audio: string;
   public username: string;
   public user: IUserDetails;
@@ -27,13 +27,13 @@ export class UserService {
     UserService.status = status;
   }
 
-  getLoginStatus() {
-    if (UserService.status !== undefined) {
-      return UserService.status;
-    } else {
-      return undefined;
-    }
-  }
+  // getLoginStatus() {
+  //   if (UserService.status !== undefined) {
+  //     return UserService.status;
+  //   } else {
+  //     return undefined;
+  //   }
+  // }
 
   setUsername(username: string) {
     this.username = username;

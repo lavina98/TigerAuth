@@ -42,8 +42,6 @@ export class RegisterComponent implements OnInit {
     const username = this.registerForm.value.username;
     this.userRegisterService.verifyUsername(username).subscribe(
       (res: IResponse) => {
-        // console.log(res);
-        // const response = JSON.parse()
         const message = res.message;
         if (message === 'VALID') {
           console.log('valid');
@@ -66,9 +64,16 @@ export class RegisterComponent implements OnInit {
     const method = 'register';
     this.userService.setUsername(this.registerForm.value.username);
     // this.userService.setLoginStatus('Invalid');
-    this.userService.setUserData(this.registerForm.value);
-    const obj = this.registerForm.value;
-    this.userService.setUserData(obj);
+    const value = this.registerForm.value;
+    const user = {
+      username: value.username,
+      name: value.firstName + ' ' + value.lastName,
+      dob: value.dateOfBirth,
+      phone: value.mobile
+    };
+    console.log(user);
+    // this.userService.setUserData(user);
+    this.userRegisterService.setFormData(user);
     this.router.navigate(['/face-scan']);
   }
 
