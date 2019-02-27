@@ -44,14 +44,37 @@ export class UserService {
     return this.user;
   }
 
-  getUserListAndFactorAuth(siteName: string) {
+  getUserListAndFactorAuth(clientName: string , clientToken: string , trusted: string) {
     // get list of users
-
-    return this.http.get('', {observe: 'response'}).subscribe(
-      (res) => {
-          console.log(res);
-      }
-    );
+    const dataTosend = {
+      domainName : clientName,
+      id: clientToken,
+      type: trusted
+    };
+    console.log(dataTosend);
+    return this.http.post(ip + '/loginUsers/listUsers' , dataTosend);
   }
 
+  sendLocalStorageDataToServer(
+    domainName: string,
+    id: string,
+    type: string,
+    localStorageTigerAuth: any
+  ) {
+    console.log('sending request');
+    const dataTosend = {
+       domainName,
+       type,
+      id,
+       TigerAuth: localStorageTigerAuth
+    };
+    console.log(dataTosend);
+    return this.http.post(ip + '/loginUsers/listUsers', dataTosend);
+  }
+
+  //temporary function for checking
+  setLocalStorage() {
+    return this.http.get(ip + '/loginUsers/storeInLocalStorage');
+  }
 }
+

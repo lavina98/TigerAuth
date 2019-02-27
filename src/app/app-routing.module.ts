@@ -14,6 +14,7 @@ import {AddClientComponent} from './add-client/add-client.component';
 import { OtpComponent } from './otp/otp.component';
 import { VideoAuthComponent } from './video-auth/video-auth.component';
 import { UserloginListComponent } from './userlogin-list/userlogin-list.component';
+import { TransitionPageComponent } from './transition-page/transition-page.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -30,8 +31,9 @@ const routes: Routes = [
   {path: 'add-client', component: AddClientComponent},
   {path: 'video-auth', component: VideoAuthComponent},
   { path: 'redirect', component: RedirectComponent},
+  {path: 'transition/:clientName/:clientToken/:trusted' ,  component: TransitionPageComponent },
   {path: 'user-list/:clientName/:clientToken/:trusted', component: UserloginListComponent},
-  {path: ':clientName/:clientToken/:trusted' , component: LoginComponent}
+  {path: 'login/:clientName/:clientToken/:trusted' , component: LoginComponent}
 ];
 
 @NgModule({

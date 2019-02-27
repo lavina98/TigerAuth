@@ -1,19 +1,18 @@
-import { Injectable } from '@angular/core';
-import { ip } from '../backend-ip';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { ip } from "../backend-ip";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class UserLoginService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   verifyUsername(uname: string) {
     const obj = {
       username: uname
     };
-    const url = ip + '/check/username';
+    const url = ip + "/check/username";
     return this.http.post(url, obj);
   }
 
@@ -22,10 +21,21 @@ export class UserLoginService {
       phone: mobile
     };
 
-    const url = ip + '/register/verifyOTP';
+    const url = ip + "/register/verifyOTP";
     return this.http.post(url, obj);
 
     // otp as response
+  }
+
+  getUserListAndAuthenticationFactorOfClient(clientName: string, clientToken: string, trusted: string, tigerAuth: any) {
+    const objToSend = {
+      domainName: clientName,
+      type: trusted,
+      id: clientToken,
+      TigerAuth: tigerAuth
+    };
+    console.log(objToSend);
+    return  this.http.post(ip + '/loginUsers' , objToSend);
   }
 
 }
