@@ -1,13 +1,21 @@
 export interface IClient {
-    website: string;
-    redirectUrl: string;
+    domainName: string;
+    callbackUrl: string;
+    permissions: IPermission;
+    // 3 authentication methods
+    face: boolean;
+    voice: boolean;
+    otp: boolean;
+}
+
+export interface IPermission {
     // data it wants to access of a user
-    userName: boolean;
+    name: boolean;
     phone: boolean;
-    dateOfBirth: boolean;
-    profilePicture: boolean;
-    authenticationMethod: string;
-    clientSecret?: string;
+    username: boolean;
+    dob: boolean;
+    img: boolean;
+    audio: boolean;
 }
 
 

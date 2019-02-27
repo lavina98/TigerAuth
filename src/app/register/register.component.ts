@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../shared/services/user.service';
 import { Router } from '@angular/router';
+import { UserRegisterService } from '../shared/services/user-register.service';
+import { IResponse } from '../shared/models/single-word-response.model';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  usernameValid: boolean;
+  usernameValid = false;
   registerForm: FormGroup;
 
   formOK = false;
@@ -18,7 +20,11 @@ export class RegisterComponent implements OnInit {
   voiceOK = false;
   optOK = false;
 
-  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private router: Router,
+    private userRegisterService: UserRegisterService) {
     this.registerForm = fb.group({
       firstName: this.fb.control('', [Validators.required]),
       lastName: this.fb.control('', [Validators.required]),
@@ -34,19 +40,20 @@ export class RegisterComponent implements OnInit {
   verifyUsername() {
     console.log(this.registerForm.value.username);
     const username = this.registerForm.value.username;
-    // this.userService.verifyUsername(username).subscribe(
-    //   res => {
-    //     console.log(res);
-    //     if (res.toString() === 'Valid') {
-    //       this.usernameValid = true;
-    //     } else {
-    //       this.usernameValid = false;
-    //     }
-    //   }
-    // );
-    if (username === 'a') {
-      this.usernameValid = true;
-    }
+    this.userRegisterService.verifyUsername(username).subscribe(
+      (res: IResponse) => {
+        const message = res.message;
+        if (message === 'VALID') {
+          console.log('valid');
+          this.usernameValid = true;
+        } else {
+          this.usernameValid = false;
+        }
+      }
+    );
+    // if (username === 'a') {
+    //   this.usernameValid = true;
+    // }
   }
 
   change() {
@@ -54,18 +61,20 @@ export class RegisterComponent implements OnInit {
   }
 
   submitForm() {
-    const obj = this.registerForm.value;
-    // this.userService.register(obj).subscribe(
-    //   res => {
-    //     console.log(res);
-    //   }
-
-    // );
-    this.userService.setUserData(obj);
-
-    this.router.navigate(['face-scan']);
-    this.formOK = true;
-
+    const method = 'register';
+    this.userService.setUsername(this.registerForm.value.username);
+    // this.userService.setLoginStatus('Invalid');
+    const value = this.registerForm.value;
+    const user = {
+      username: value.username,
+      name: value.firstName + ' ' + value.lastName,
+      dob: value.dateOfBirth,
+      phone: value.mobile
+    };
+    console.log(user);
+    // this.userService.setUserData(user);
+    this.userRegisterService.setFormData(user);
+    this.router.navigate(['/face-scan']);
   }
 
 }

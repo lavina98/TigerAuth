@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ip } from '../backend-ip';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserLoginService {
-
-  constructor(private http: HttpClient) { }
+  username: string;
+  constructor(private http: HttpClient) {}
 
   verifyUsername(uname: string) {
     const obj = {
@@ -17,6 +17,13 @@ export class UserLoginService {
     return this.http.post(url, obj);
   }
 
+  setUsername(username: string) {
+    this.username = username;
+  }
+
+  getUsername() {
+    return this.username;
+  }
   sendOTP(uname: string, mobile: string) {
     const obj = {
       phone: mobile
@@ -28,4 +35,42 @@ export class UserLoginService {
     // otp as response
   }
 
+  getUserListAndAuthenticationFactorOfClient(clientName: string, clientToken: string, trusted: string, tigerAuth: any) {
+    const objToSend = {
+      domainName: clientName,
+      type: trusted,
+      id: clientToken,
+      TigerAuth: tigerAuth
+    };
+    console.log(objToSend);
+    return  this.http.post(ip + '/loginUsers' , objToSend);
+  }
+
+  getAccessToken(username: string , clientName: string, clientToken: string , trusted: string) {
+    const objToSend = {
+      id: clientToken,
+      domainName: clientName,
+      type: trusted,
+      username,
+      TigerAuth : JSON.parse(localStorage.getItem('TigerAuth'))
+    };
+    console.log(objToSend);
+    return this.http.post(ip + '/login' , objToSend);
+
+  }
+// check user authentication with client authentication requirements
+  getResources(headers: HttpHeaders) {
+    const objToSend = {};
+    return this.http.post(ip + '/login/resource', objToSend, {headers});
+  }
+
+  sendVideo(Video: string, numBlinks: number) {
+    const obj = {
+      username: this.username,
+      blinks: numBlinks,
+      video: Video
+    };
+    const url = ip + '/check/videoAndBlinks';
+    return this.http.post(url, obj);
+  }
 }
