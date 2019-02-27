@@ -9,6 +9,7 @@ import { DISABLED } from '@angular/forms/src/model';
 })
 export class ProfileComponent implements OnInit {
   enable = false;
+  buttonValue = 'Edit';
   private updateProfileForm: FormGroup;
   user = {
     username: 'mihirnd',
@@ -20,20 +21,38 @@ export class ProfileComponent implements OnInit {
   };
   constructor(private fb: FormBuilder) {
     this.updateProfileForm = fb.group({
-      username: this.fb.control('', [Validators.required]),
-      first_name: this.fb.control('', [Validators.required]),
-      last_name: this.fb.control('', [Validators.required]),
-      mobile: this.fb.control('', [Validators.required]),
-      email: this.fb.control('', [Validators.required]),
-      dob: this.fb.control('', [Validators.required])
+      username: this.fb.control({ value:'',disabled: true} ,[Validators.required]),
+      first_name: this.fb.control({ value:'',disabled: true} , [Validators.required]),
+      last_name: this.fb.control({ value:'',disabled: true} , [Validators.required]),
+      mobile: this.fb.control({ value:'',disabled: true} , [Validators.required]),
+      email: this.fb.control({ value:'',disabled: true} , [Validators.required]),
+      dob: this.fb.control({ value:'',disabled: true} , [Validators.required])
     });
   }
 
   ngOnInit() {
+    this.enable = false;
   }
   enableEdit() {
-    console.log(this.updateProfileForm.value);
-    this.enable = true;
+   this.enable =!this.enable;
+   if(this.enable) {
+     this.updateProfileForm.controls.username.enable();
+     this.updateProfileForm.controls.first_name.enable();
+     this.updateProfileForm.controls.last_name.enable();
+     this.updateProfileForm.controls.mobile.enable();
+     this.updateProfileForm.controls.email.enable();
+     this.updateProfileForm.controls.dob.enable();
+     this.buttonValue = 'Save';
+   }
+   else {
+    this.updateProfileForm.controls.username.disable();
+    this.updateProfileForm.controls.first_name.disable();
+    this.updateProfileForm.controls.last_name.disable();
+    this.updateProfileForm.controls.mobile.disable();
+    this.updateProfileForm.controls.email.disable();
+    this.updateProfileForm.controls.dob.disable();
+    this.buttonValue = 'Edit';
+   }
   }
 
 

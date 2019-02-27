@@ -20,6 +20,7 @@ import { AddClientComponent } from './add-client/add-client.component';
 import { UserloginListComponent } from './userlogin-list/userlogin-list.component';
 import { UserLoginService } from './shared/services/user-login.service';
 import { UserRegisterService } from './shared/services/user-register.service';
+import { AboutUsComponent } from './about-us/about-us.component';
 import { CookieService } from 'ngx-cookie-service';
 import { TransitionPageComponent } from './transition-page/transition-page.component';
 import { VoiceRegisterComponent } from './voice-register/voice-register.component';
@@ -39,6 +40,7 @@ import { OtpRegisterComponent } from './otp-register/otp-register.component';
     ProfileComponent,
     ClientDashboardComponent,
     AddClientComponent,
+    AboutUsComponent,
     UserloginListComponent,
     TransitionPageComponent,
     VoiceRegisterComponent,

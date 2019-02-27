@@ -1,8 +1,20 @@
-<div *ngFor="let x of clientPermissions">
-  <li>
-    <p>{{ x.client }}</p>
-    <div *ngFor="let permission of x.permissions">
-      <p>{{ permission }}</p>
-    </div>
-  </li>
-</div>
+<!--take help in angular-->
+<body>
+  <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
+  <div class="container">
+    <table class="table table-striped">
+        <tr>
+            <th>CLIENT</th>
+            <th>USER NAME</th>
+            <th>MOBILE</th>
+            <th>AGE (DOB)</th>
+          </tr>
+          <tr class="card1" *ngFor="let x of clientPermissions">
+              <td class="spaced_data">{{c.ip}}</td>
+              <td>{{c.client}}</td>
+              <td>{{c.time}}</td>
+              <td>{{c.device}}</td>
+            </tr>
+    </table>
+  </div>
+</body>
