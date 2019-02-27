@@ -31,7 +31,16 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit() { 
+  ngOnInit() {
+    this.clientName = this.activatedRoute.snapshot.params.clientName;
+    this.clientToken = this.activatedRoute.snapshot.params.clientToken;
+    this.trusted = this.activatedRoute.snapshot.params.trusted;
+    const tigerAuth = JSON.parse(localStorage.getItem('TigerAuth'));
+    this.userLoginService. getUserListAndAuthenticationFactorOfClient(this.clientName, this.clientToken, this.trusted, tigerAuth).subscribe(
+      (data) =>{
+          console.log(data);
+      }
+    );
     // const headers = new HttpHeaders({
     //   'Access-Control-Allow-Origin': '*',
     //   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',

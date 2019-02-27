@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { ip } from "../backend-ip";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { ip } from '../backend-ip';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class UserLoginService {
   constructor(private http: HttpClient) {}
@@ -12,7 +12,7 @@ export class UserLoginService {
     const obj = {
       username: uname
     };
-    const url = ip + "/check/username";
+    const url = ip + '/check/username';
     return this.http.post(url, obj);
   }
 
@@ -21,7 +21,7 @@ export class UserLoginService {
       phone: mobile
     };
 
-    const url = ip + "/register/verifyOTP";
+    const url = ip + '/register/verifyOTP';
     return this.http.post(url, obj);
 
     // otp as response
@@ -36,6 +36,17 @@ export class UserLoginService {
     };
     console.log(objToSend);
     return  this.http.post(ip + '/loginUsers' , objToSend);
+  }
+
+  getAccessToken(username: string , clientName: string, clientToken: string , trusted: string) {
+    const objToSend = {
+      id: clientToken,
+      domainName: clientName,
+      type: trusted,
+      username,
+      TigerAuth : JSON.parse(localStorage.getItem('TigerAuth'))
+    };
+    return this.http.post('' , objToSend , )
   }
 
 }

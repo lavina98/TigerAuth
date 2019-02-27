@@ -17,7 +17,7 @@ import { UserloginListComponent } from './userlogin-list/userlogin-list.componen
 import { TransitionPageComponent } from './transition-page/transition-page.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'otp', component: OtpComponent },

@@ -1,6 +1,6 @@
 export interface IUser {
-  userName: string;
-  faceToken: boolean;
-  voiceToken: boolean;
-  otpToken: boolean;
+  username: string;
+  faceTokenCheck: boolean;
+  voiceTokenCheck: boolean;
+  otpTokenCheck: boolean;
 }

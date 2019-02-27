@@ -21,7 +21,6 @@ import { RedirectComponent } from './redirect/redirect.component';
 import { OtpComponent } from './otp/otp.component';
 import { ClientService } from './shared/services/client.service';
 import { UserService } from './shared/services/user.service';
-import { BiometricsComponent } from './biometrics/biometrics.component';
 import { AddClientComponent } from './add-client/add-client.component';
 import { VideoAuthComponent } from './video-auth/video-auth.component';
 import { UserloginListComponent } from './userlogin-list/userlogin-list.component';
@@ -44,7 +43,6 @@ import { TransitionPageComponent } from './transition-page/transition-page.compo
     AudioRecordComponent,
     RedirectComponent,
     OtpComponent,
-    BiometricsComponent,
     AddClientComponent,
     VideoAuthComponent,
     UserloginListComponent,
