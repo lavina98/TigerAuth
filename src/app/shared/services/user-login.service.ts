@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ip } from '../backend-ip';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -46,7 +46,14 @@ export class UserLoginService {
       username,
       TigerAuth : JSON.parse(localStorage.getItem('TigerAuth'))
     };
-    return this.http.post('' , objToSend , )
+    console.log(objToSend);
+    return this.http.post(ip + '/login' , objToSend);
+
+  }
+//check user authentication with client authentication requirements
+  getResources(headers: HttpHeaders) {
+    const objToSend = {};
+    return this.http.post(ip + '/login/resource', objToSend, {headers});
   }
 
 }
