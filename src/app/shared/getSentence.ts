@@ -1,19 +1,47 @@
+
 export function getSentence(): string {
-    const nouns = ['bird', 'clock', 'boy', 'plastic', 'duck', 'teacher', 'old lady', 'professor', 'hamster', 'dog'];
-    const verbs = ['kicked', 'ran', 'flew', 'dodged', 'sliced', 'rolled', 'died', 'breathed', 'slept', 'killed'];
-    const adjectives = ['beautiful', 'lazy', 'professional', 'lovely', 'dumb', 'rough', 'soft', 'hot', 'vibrating', 'slimy'];
-    const adverbs = ['slowly', 'elegantly', 'precisely', 'quickly', 'sadly', 'humbly', 'proudly', 'shockingly', 'calmly', 'passionately'];
-    const preposition = ['down', 'into', 'up', 'on', 'upon', 'below', 'above', 'through', 'across', 'towards'];
-    const rand1 = Math.floor(Math.random() * 10);
-    const rand2 = Math.floor(Math.random() * 10);
-    const rand3 = Math.floor(Math.random() * 10);
-    const rand4 = Math.floor(Math.random() * 10);
-    const rand5 = Math.floor(Math.random() * 10);
-    const rand6 = Math.floor(Math.random() * 10);
-    const sentence = 'The ' + adjectives[rand1] + ' ' + nouns[rand2] + ' ' + adverbs[rand3]
-        + ' ' + verbs[rand4] + ' because some ' + nouns[rand1] + ' ' + adverbs[rand1] + ' '
-        + verbs[rand1] + ' ' + preposition[rand1] + ' a ' + adjectives[rand2] + ' ' +
-        nouns[rand5] + ' which, became a ' + adjectives[rand3] + ', ' + adjectives[rand4] +
-        ' ' + nouns[rand6] + '.';
-    return sentence;
+
+const verbs =
+[
+    ['go to', 'goes to', 'going to', 'went to', 'gone to'],
+    ['look at', 'looks at', 'looking at', 'looked at', 'looked at'],
+    ['choose', 'chooses', 'choosing', 'chose', 'chosen']
+];
+const tenses =
+[
+    { name: 'Present', singular: 1, plural: 0, format: '%subject %verb %complement' },
+    { name: 'Past', singular: 3, plural: 3, format: '%subject %verb %complement' },
+    { name: 'Present Continues', singular: 2, plural: 2, format: '%subject %be %verb %complement' }
+];
+const subjects =
+[
+    { name: 'I', be: 'am', singular: 0 },
+    { name: 'You', be: 'are', singular: 0 },
+    { name: 'He', be: 'is', singular: 1 }
+];
+const complementsForVerbs =
+[
+    ['cinema', 'Egypt', 'home', 'concert'],
+    ['for a map', 'them', 'the stars', 'the lake'],
+    ['a book for reading', 'a dvd for tonight']
+];
+
+const index = Math.floor(verbs.length * Math.random());
+const tense = random(tenses);
+const subject = random(subjects);
+const verb = verbs[index];
+const complement = complementsForVerbs[index];
+let str = tense.format;
+str = str.replace('%subject', subject.name).replace('%be', subject.be);
+str = str.replace('%verb', verb[subject.singular ? tense.singular : tense.plural]);
+str = str.replace('%complement', random(complement));
+return str;
+}
+
+// for (var i = 0; i < 100; i++)document.write(generate() + "<br>");
+
+
+
+function random(obj) {
+    return obj[Math.floor(Math.random() * obj.length)];
 }

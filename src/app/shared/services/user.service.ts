@@ -84,7 +84,7 @@ export class UserService {
     return this.http.post(ip + '/loginUsers/listUsers', dataTosend);
   }
 
-  //temporary function for checking
+  // temporary function for checking
   setLocalStorage() {
     return this.http.get(ip + '/loginUsers/storeInLocalStorage');
   }

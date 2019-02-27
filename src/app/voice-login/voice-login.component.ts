@@ -6,6 +6,7 @@ import { UserService } from '../shared/services/user.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserRegisterService } from '../shared/services/user-register.service';
 import { IResponse } from '../shared/models/single-word-response.model';
+import { getSentence } from '../shared/getSentence';
 
 @Component({
   selector: 'app-voice-login',
@@ -14,6 +15,7 @@ import { IResponse } from '../shared/models/single-word-response.model';
 })
 export class VoiceLoginComponent implements OnInit {
   static str: string;
+  sentence: string;
   // @ViewChild('video')
   // public video: ElementRef;
 
@@ -31,7 +33,9 @@ export class VoiceLoginComponent implements OnInit {
     private userRegisterService: UserRegisterService,
     private http: HttpClient) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.sentence = getSentence() + '. ' + getSentence();
+  }
 
   sanitize(url: string) {
     return this.domSanitizer.bypassSecurityTrustUrl(url);

@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserLoginService {
   username: string;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   verifyUsername(uname: string) {
     const obj = {
@@ -24,38 +24,7 @@ export class UserLoginService {
   getUsername() {
     return this.username;
   }
-  sendOTP(uname: string, mobile: string) {
-    const obj = {
-      phone: mobile
-    };
 
-    const url = ip + '/register/verifyOTP';
-    return this.http.post(url, obj);
-
-    // otp as response
-  }
-
-  getUserListAndAuthenticationFactorOfClient(clientName: string, clientToken: string, trusted: string, tigerAuth: any) {
-    const objToSend = {
-      domainName: clientName,
-      type: trusted,
-      id: clientToken,
-      TigerAuth: tigerAuth
-    };
-    console.log(objToSend);
-    return  this.http.post(ip + '/loginUsers' , objToSend);
-  }
-
-  getAccessToken(username: string , clientName: string, clientToken: string , trusted: string) {
-    const objToSend = {
-      id: clientToken,
-      domainName: clientName,
-      type: trusted,
-      username,
-      TigerAuth : JSON.parse(localStorage.getItem('TigerAuth'))
-    };
-    return this.http.post('' , objToSend , );
-  }
 
   sendVideo(Video: string, numBlinks: number) {
     const obj = {
@@ -66,4 +35,46 @@ export class UserLoginService {
     const url = ip + '/check/videoAndBlinks';
     return this.http.post(url, obj);
   }
+
+  sendOTP() {
+    const obj = {
+      username: this.username
+    };
+
+    const url = ip + '/register/verifyOTP';
+    return this.http.post(url, obj);
+    // otp as response
+  }
+
+  sendVoice(voice: string) {
+    const obj = {
+      username: this.username,
+      audio: voice
+    };
+
+    const url = ip + '/check/voice';
+    return this.http.post(url, obj);
+  }
+  getUserListAndAuthenticationFactorOfClient(clientName: string, clientToken: string, trusted: string, tigerAuth: any) {
+    const objToSend = {
+      domainName: clientName,
+      type: trusted,
+      id: clientToken,
+      TigerAuth: tigerAuth
+    };
+    console.log(objToSend);
+    return this.http.post(ip + '/loginUsers', objToSend);
+  }
+
+  getAccessToken(username: string, clientName: string, clientToken: string, trusted: string) {
+    const objToSend = {
+      id: clientToken,
+      domainName: clientName,
+      type: trusted,
+      username,
+      TigerAuth: JSON.parse(localStorage.getItem('TigerAuth'))
+    };
+    return this.http.post('', objToSend);
+  }
+
 }

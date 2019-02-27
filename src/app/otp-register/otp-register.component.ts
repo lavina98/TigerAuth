@@ -31,6 +31,7 @@ export class OtpRegisterComponent implements OnInit {
     this.userRegisterService.sendOTP().subscribe(
       (res: IResponse) => {
         this.otp = res.message;
+        console.log(this.otp);
       }
     );
   }
@@ -39,7 +40,7 @@ export class OtpRegisterComponent implements OnInit {
 
     if (this.otp === this.otpForm.value.otp) {
       console.log('Valid OTP');
-      this.router.navigate(['/audio-record']);
+      this.router.navigate(['/voice-register']);
     }
 
   }

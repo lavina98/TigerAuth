@@ -14,6 +14,15 @@ import { IResponse } from '../shared/models/single-word-response.model';
 })
 export class VoiceRegisterComponent implements OnInit {
   static str: string;
+  is5TimesDone = false;
+  sentences = [
+    'The waves were crashing on the shore; it was a lovely sight.',
+    'Joe made the sugar cookies; Susan decorated them.',
+    'I think I will buy the red car, or I will lease the blue one.',
+    'I love eating toasted cheese and tuna sandwiches.',
+    'Writing a list of random sentences is harder than I initially thought it would be.'
+  ];
+  sentence = this.sentences[0];
   // @ViewChild('video')
   // public video: ElementRef;
 
@@ -21,15 +30,19 @@ export class VoiceRegisterComponent implements OnInit {
   // public audio: ElementRef;
 
   // blob: Blob;
+  count = 0;
   private record;
   private recording = false;
   private url;
+  audios: any;
   private error;
   constructor(
     private domSanitizer: DomSanitizer,
     private router: Router,
     private userRegisterService: UserRegisterService,
-    private http: HttpClient) { }
+    private http: HttpClient) {
+    this.audios = [];
+  }
 
   ngOnInit() { }
 
@@ -69,7 +82,7 @@ export class VoiceRegisterComponent implements OnInit {
   stopRecording() {
     this.recording = false;
     this.record.stop(this.processRecording.bind(this));
-    console.log(this);
+    // console.log(this);
   }
 
   async processRecording(blob: Blob) {
@@ -78,9 +91,9 @@ export class VoiceRegisterComponent implements OnInit {
     reader.readAsDataURL(blob);
     reader.onloadend = () => {
       const abcd = reader.result;
-      console.log(abcd);
+      // console.log(abcd);
       VoiceRegisterComponent.str = abcd.toString();
-      console.log(VoiceRegisterComponent.str);
+      // console.log(VoiceRegisterComponent.str);
       this.postData();
     };
 
@@ -91,9 +104,25 @@ export class VoiceRegisterComponent implements OnInit {
   }
 
   postData() {
+    if (this.count < 5) {
+      const audio = VoiceRegisterComponent.str;
+      this.audios.push(audio);
+      console.log(this.count);
+      this.count++;
+      this.sentence = this.sentences[this.count];
+      if (this.count > 4) {
+        this.is5TimesDone = true;
+        this.sendReq();
+      }
+    } else {
+    }
 
-    const audio = VoiceRegisterComponent.str;
-    this.userRegisterService.setUserAudio(audio);
+
+
+  }
+
+  sendReq() {
+    this.userRegisterService.setUserAudio(this.audios);
     this.userRegisterService.submit().subscribe(
       (res: IResponse) => {
         console.log(res.message);
