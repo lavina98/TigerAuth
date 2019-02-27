@@ -1,12 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as RecordRTC from 'recordrtc';
-// import * as b64 from 'base-64';
+import * as b64 from 'base-64';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/services/user.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { UserRegisterService } from '../shared/services/user-register.service';
-import { IResponse } from '../shared/models/single-word-response.model';
 
 @Component({
   selector: 'app-audio-record',
@@ -20,24 +18,17 @@ export class AudioRecordComponent implements OnInit {
 
   // @ViewChild('audio')
   // public audio: ElementRef;
+
   // blob: Blob;
   private record;
   private recording = false;
   private url;
   private error;
-  username: string;
   constructor(
     private domSanitizer: DomSanitizer,
     private router: Router,
     private userService: UserService,
-    private userRegisterService: UserRegisterService,
-    private http: HttpClient
-  ) {
-    // this.username = this.userService.getUsername();
-    // if (this.username === undefined) {
-    //   this.router.navigate(['/']);
-    // }
-  }
+    private http: HttpClient) { }
 
   ngOnInit() { }
 
@@ -102,10 +93,17 @@ export class AudioRecordComponent implements OnInit {
     const obj = {
       audio: AudioRecordComponent.str
     };
-    this.userRegisterService.setUserAudio(AudioRecordComponent.str);
-    this.userRegisterService.submit().subscribe(
-      (res: IResponse) => {
-        console.log(res.message);
+    const header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'true'
+      })
+
+    };
+    this.http.post('http://192.168.43.57:3000/audio', obj).subscribe(
+      res => {
+        console.log('response:');
+        console.log(res);
       }
     );
   }
