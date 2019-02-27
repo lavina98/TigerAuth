@@ -1,9 +1,10 @@
-<p>
-  {{client}} requires {{factorLogin}}
-</p> 
 
-<div *ngFor="let user of userList" (click)="selectUser()"  >
-  <li>{{user.userName}}</li>
-  <!-- <li *ngIf="user.factorLoggedIn!==0">{{user.factorLoggedIn}}</li>
-  <li *ngIf="user.factorLoggedIn===0">Signed out</li> -->
+  {{clientName}} requires :
+  <div *ngIf="clientRequiresFace"> <p>Face</p></div>
+  <div *ngIf="clientRequiresOtp"><p>OTP</p></div>
+  <div *ngIf="clientRequiresVoice"><p>Voice</p></div>
+
+<div *ngFor="let user of userList" (click)="selectUser(user)"  >
+  <li>{{user.username}}</li>
+  <li> Face - {{user.faceTokenCheck}} Voice - {{user.voiceTokenCheck}}  Otp- {{user.otpTokenCheck}}</li>
 </div>

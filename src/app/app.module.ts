@@ -21,13 +21,13 @@ import { RedirectComponent } from './redirect/redirect.component';
 import { OtpComponent } from './otp/otp.component';
 import { ClientService } from './shared/services/client.service';
 import { UserService } from './shared/services/user.service';
-import { BiometricsComponent } from './biometrics/biometrics.component';
 import { AddClientComponent } from './add-client/add-client.component';
 import { VideoAuthComponent } from './video-auth/video-auth.component';
 import { UserloginListComponent } from './userlogin-list/userlogin-list.component';
 import { UserLoginService } from './shared/services/user-login.service';
 import { UserRegisterService } from './shared/services/user-register.service';
-
+import { CookieService } from 'ngx-cookie-service';
+import { TransitionPageComponent } from './transition-page/transition-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,10 +43,10 @@ import { UserRegisterService } from './shared/services/user-register.service';
     AudioRecordComponent,
     RedirectComponent,
     OtpComponent,
-    BiometricsComponent,
     AddClientComponent,
     VideoAuthComponent,
-    UserloginListComponent
+    UserloginListComponent,
+    TransitionPageComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +58,8 @@ import { UserRegisterService } from './shared/services/user-register.service';
     ClientService,
     UserService,
     UserLoginService,
-    UserRegisterService
+    UserRegisterService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

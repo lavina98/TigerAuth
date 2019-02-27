@@ -6,8 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserLoginService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   verifyUsername(uname: string) {
     const obj = {
@@ -26,6 +25,28 @@ export class UserLoginService {
     return this.http.post(url, obj);
 
     // otp as response
+  }
+
+  getUserListAndAuthenticationFactorOfClient(clientName: string, clientToken: string, trusted: string, tigerAuth: any) {
+    const objToSend = {
+      domainName: clientName,
+      type: trusted,
+      id: clientToken,
+      TigerAuth: tigerAuth
+    };
+    console.log(objToSend);
+    return  this.http.post(ip + '/loginUsers' , objToSend);
+  }
+
+  getAccessToken(username: string , clientName: string, clientToken: string , trusted: string) {
+    const objToSend = {
+      id: clientToken,
+      domainName: clientName,
+      type: trusted,
+      username,
+      TigerAuth : JSON.parse(localStorage.getItem('TigerAuth'))
+    };
+    return this.http.post('' , objToSend , )
   }
 
 }

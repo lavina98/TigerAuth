@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BiometricsComponent } from './biometrics.component';
+import { TransitionPageComponent } from './transition-page.component';
 
-describe('BiometricsComponent', () => {
-  let component: BiometricsComponent;
-  let fixture: ComponentFixture<BiometricsComponent>;
+describe('TransitionPageComponent', () => {
+  let component: TransitionPageComponent;
+  let fixture: ComponentFixture<TransitionPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BiometricsComponent ]
+      declarations: [ TransitionPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BiometricsComponent);
+    fixture = TestBed.createComponent(TransitionPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -6,10 +6,10 @@ import { HttpClient } from '@angular/common/http';
 export class ClientService {
   constructor(private http: HttpClient) { }
 
-  registerClient(client: IClient) {
+  registerClient(client) {
     const objToSend = {
       domainName : client.website,
-      callBackUrl: client.redirectUrl,
+      callbackUrl: client.redirectUrl,
       face: client.faceAuthentication,
       voice: client.voiceAuthentication,
       otp: client.otpAuthentication,

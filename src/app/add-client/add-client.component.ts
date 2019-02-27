@@ -5,6 +5,7 @@ import { ClientService } from '../shared/services/client.service';
 import { saveAs } from 'file-saver';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-add-client',
@@ -25,7 +26,8 @@ export class AddClientComponent implements OnInit {
     private fb: FormBuilder,
     private clientService: ClientService,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private cookie: CookieService
   ) {
     this.clientRegisterForm = this.fb.group({
       website: this.fb.control('', [Validators.required]),
@@ -41,8 +43,8 @@ export class AddClientComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get('');
-
+    // console.log(JSON.parse(this.cookie.get('TigerAuth')));
+    console.log(localStorage.getItem('tok'));
   }
 
   registerClient() {
