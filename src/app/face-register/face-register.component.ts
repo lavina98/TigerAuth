@@ -1,4 +1,3 @@
-
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { UserService } from '../shared/services/user.service';
 import { Router } from '@angular/router';
@@ -6,12 +5,12 @@ import { HttpClient } from '@angular/common/http';
 import { UserRegisterService } from '../shared/services/user-register.service';
 
 @Component({
-    selector: 'app-face-scan',
-    templateUrl: './face-scan.component.html',
-    styleUrls: ['./face-scan.component.css']
+    selector: 'app-face-register',
+    templateUrl: './face-register.component.html',
+    styleUrls: ['./face-register.component.css']
 })
 
-export class FaceScanComponent implements OnInit {
+export class FaceRegisterComponent implements OnInit {
 
     @ViewChild('video')
     public video: ElementRef;

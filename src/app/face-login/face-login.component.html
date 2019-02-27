@@ -14,7 +14,7 @@
         <div class="card">
           <div>
             <div><video #video id="video" width="100%" autoplay></video></div>
-
+            <h1>{{randomBlinks}}</h1>
             <button class="btn btn-success" *ngIf="!recordingStarted" (click)="recordingStart()">
               Start Recording
             </button>

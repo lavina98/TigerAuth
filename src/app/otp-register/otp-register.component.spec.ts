@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FaceScanComponent } from './face-scan.component';
+import { OtpRegisterComponent } from './otp-register.component';
 
-describe('FaceScanComponent', () => {
-  let component: FaceScanComponent;
-  let fixture: ComponentFixture<FaceScanComponent>;
+describe('OtpRegisterComponent', () => {
+  let component: OtpRegisterComponent;
+  let fixture: ComponentFixture<OtpRegisterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FaceScanComponent ]
+      declarations: [ OtpRegisterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FaceScanComponent);
+    fixture = TestBed.createComponent(OtpRegisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

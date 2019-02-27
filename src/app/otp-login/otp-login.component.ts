@@ -6,12 +6,12 @@ import { Router } from '@angular/router';
 import { IResponse } from '../shared/models/single-word-response.model';
 
 @Component({
-  selector: 'app-otp',
-  templateUrl: './otp.component.html',
-  styleUrls: ['./otp.component.css']
+  selector: 'app-otp-login',
+  templateUrl: './otp-login.component.html',
+  styleUrls: ['./otp-login.component.css']
 })
 
-export class OtpComponent implements OnInit {
+export class OtpLoginComponent implements OnInit {
 
   otpForm: FormGroup;
   otp = '111111';

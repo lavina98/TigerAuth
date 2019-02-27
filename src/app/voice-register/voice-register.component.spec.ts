@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ClientPermissionsComponent } from './client-permissions.component';
+import { VoiceRegisterComponent } from './voice-register.component';
 
-describe('ClientPermissionsComponent', () => {
-  let component: ClientPermissionsComponent;
-  let fixture: ComponentFixture<ClientPermissionsComponent>;
+describe('VoiceRegisterComponent', () => {
+  let component: VoiceRegisterComponent;
+  let fixture: ComponentFixture<VoiceRegisterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ClientPermissionsComponent ]
+      declarations: [ VoiceRegisterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ClientPermissionsComponent);
+    fixture = TestBed.createComponent(VoiceRegisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

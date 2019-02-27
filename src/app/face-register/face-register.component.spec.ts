@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AudioRecordComponent } from './audio-record.component';
+import { FaceRegisterComponent } from './face-register.component';
 
-describe('AudioRecordComponent', () => {
-  let component: AudioRecordComponent;
-  let fixture: ComponentFixture<AudioRecordComponent>;
+describe('FaceRegisterComponent', () => {
+  let component: FaceRegisterComponent;
+  let fixture: ComponentFixture<FaceRegisterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AudioRecordComponent ]
+      declarations: [ FaceRegisterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AudioRecordComponent);
+    fixture = TestBed.createComponent(FaceRegisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VideoAuthComponent } from './video-auth.component';
+import { VoiceLoginComponent } from './voice-login.component';
 
-describe('VideoAuthComponent', () => {
-  let component: VideoAuthComponent;
-  let fixture: ComponentFixture<VideoAuthComponent>;
+describe('VoiceLoginComponent', () => {
+  let component: VoiceLoginComponent;
+  let fixture: ComponentFixture<VoiceLoginComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VideoAuthComponent ]
+      declarations: [ VoiceLoginComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VideoAuthComponent);
+    fixture = TestBed.createComponent(VoiceLoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
