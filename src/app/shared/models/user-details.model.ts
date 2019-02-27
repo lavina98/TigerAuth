@@ -1,7 +1,6 @@
 export interface IUserDetails {
-    firstName: string;
-    lastName: string;
-    userName: string;
-    mobile: number;
-    dateOfBirth: string;
+    name: string;
+    username: string;
+    phone: number;
+    dob: string;
 }

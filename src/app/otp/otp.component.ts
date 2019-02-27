@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserRegisterService } from '../shared/services/user-register.service';
 import { UserLoginService } from '../shared/services/user-login.service';
 import { Router } from '@angular/router';
+import { IResponse } from '../shared/models/single-word-response.model';
 
 @Component({
   selector: 'app-otp',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 export class OtpComponent implements OnInit {
 
   otpForm: FormGroup;
-  otp = 111111;
+  otp = '111111';
   method: string;
 
   constructor(
@@ -27,14 +28,15 @@ export class OtpComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.method = 'register';
-
-    if (this.method === 'register') {
-      // this.userRegisterService.sendOTP();
-    }
+    this.userRegisterService.sendOTP().subscribe(
+      (res: IResponse) => {
+        this.otp = res.message;
+      }
+    );
   }
 
   verify() {
+
     if (this.otp === this.otpForm.value.otp) {
       console.log('Valid OTP');
       this.router.navigate(['/audio-record']);

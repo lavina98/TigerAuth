@@ -6,6 +6,7 @@ import { IUserDetails } from '../models/user-details.model';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserRegisterService {
   static user: IUserDetails;
   static image: string;
@@ -18,7 +19,7 @@ export class UserRegisterService {
     const obj = {
       username: uname
     };
-    const url = ip + '/register/verifyOTP';
+    const url = ip + '/register/verifyUsername';
     return this.http.post(url, obj);
   }
 
@@ -26,9 +27,10 @@ export class UserRegisterService {
     UserRegisterService.user = user;
   }
 
-  sendOTP(uname: string, mobile: string) {
+  sendOTP() {
+    console.log(UserRegisterService.user.phone);
     const obj = {
-      phone: mobile
+      phone: UserRegisterService.user.phone
     };
 
     const url = ip + '/register/verifyOTP';
@@ -41,17 +43,8 @@ export class UserRegisterService {
     UserRegisterService.image = image;
   }
 
-  setUserAudio(audio) {
+  setUserAudio(audio: string) {
     UserRegisterService.audio = audio;
-
-    const header = {
-      headers: new HttpHeaders({
-        'content-type': 'blob'
-      })
-    };
-    const url = ip + '/audio';
-    return this.http.post(url, audio, { headers: header.headers });
-
   }
 
 

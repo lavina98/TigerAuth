@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+  static status = 'Invalid';
   public audio: string;
   public username: string;
   public user: IUserDetails;
@@ -17,11 +18,22 @@ export class UserService {
   headers = {
     headers: new Headers({
       'Content-Type': 'application/json',
-      'Authorization': 'tolek'
+      Authorization: 'tolek'
     })
   };
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
+  setLoginStatus(status: string) {
+    UserService.status = status;
+  }
+
+  // getLoginStatus() {
+  //   if (UserService.status !== undefined) {
+  //     return UserService.status;
+  //   } else {
+  //     return undefined;
+  //   }
+  // }
 
   setUsername(username: string) {
     this.username = username;
