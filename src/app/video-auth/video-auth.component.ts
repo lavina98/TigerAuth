@@ -8,8 +8,8 @@ import {
 import { HttpClient } from '@angular/common/http';
 import * as RecordRTC from 'recordrtc';
 import { ip } from '../shared/backend-ip';
-import { UserService } from '../shared/services/user.service';
 import { Router } from '@angular/router';
+import { UserLoginService } from '../shared/services/user-login.service';
 
 @Component({
   selector: 'app-video-auth',
@@ -24,7 +24,7 @@ export class VideoAuthComponent implements OnInit, AfterViewInit {
   recordingStarted: boolean;
   randomBlinks: number;
   username: string;
-  constructor(private http: HttpClient, private userService: UserService, private router: Router) { }
+  constructor(private http: HttpClient, private userLoginService: UserLoginService, private router: Router) { }
 
   ngOnInit() {
     // this.username = this.userService.getUsername();
@@ -39,7 +39,7 @@ export class VideoAuthComponent implements OnInit, AfterViewInit {
       });
     }
     this.recordingStarted = false;
-    this.randomBlinks = Math.floor( (Math.random() *  5)) + 1;
+    this.randomBlinks = Math.floor( (Math.random() *  4)) + 3;
     console.log(this.randomBlinks);
   }
 
@@ -119,19 +119,14 @@ export class VideoAuthComponent implements OnInit, AfterViewInit {
       // });
     });
   }
+
   sendRequest(dataURL) {
     console.log('sending req');
-    const data = {
-      video: dataURL,
-      blinks: this.randomBlinks,
-      username: 'siddharthp538'
-    };
-    const Headers = {
-      'Content-Type': 'application/json'
-    };
-    const url = ip + '/check/videoAndBlinks';
-    this.http.post(url, data).subscribe(res => {
-      console.log(res);
-    });
+    this.userLoginService.sendVideo(dataURL, this.randomBlinks).subscribe(
+      res => {
+        console.log(res);
+      }
+    );
   }
+
 }

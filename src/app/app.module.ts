@@ -28,6 +28,12 @@ import { UserLoginService } from './shared/services/user-login.service';
 import { UserRegisterService } from './shared/services/user-register.service';
 import { CookieService } from 'ngx-cookie-service';
 import { TransitionPageComponent } from './transition-page/transition-page.component';
+import { VoiceRegisterComponent } from './voice-register/voice-register.component';
+import { VoiceLoginComponent } from './voice-login/voice-login.component';
+import { FaceLoginComponent } from './face-login/face-login.component';
+import { FaceRegisterComponent } from './face-register/face-register.component';
+import { OtpLoginComponent } from './otp-login/otp-login.component';
+import { OtpRegisterComponent } from './otp-register/otp-register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +52,13 @@ import { TransitionPageComponent } from './transition-page/transition-page.compo
     AddClientComponent,
     VideoAuthComponent,
     UserloginListComponent,
-    TransitionPageComponent
+    TransitionPageComponent,
+    VoiceRegisterComponent,
+    VoiceLoginComponent,
+    FaceLoginComponent,
+    FaceRegisterComponent,
+    OtpLoginComponent,
+    OtpRegisterComponent
   ],
   imports: [
     BrowserModule,

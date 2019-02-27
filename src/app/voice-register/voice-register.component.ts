@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as RecordRTC from 'recordrtc';
-import * as b64 from 'base-64';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/services/user.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -9,11 +8,11 @@ import { UserRegisterService } from '../shared/services/user-register.service';
 import { IResponse } from '../shared/models/single-word-response.model';
 
 @Component({
-  selector: 'app-audio-record',
-  templateUrl: './audio-record.component.html',
-  styleUrls: ['./audio-record.component.css']
+  selector: 'app-voice-register',
+  templateUrl: './voice-register.component.html',
+  styleUrls: ['./voice-register.component.css']
 })
-export class AudioRecordComponent implements OnInit {
+export class VoiceRegisterComponent implements OnInit {
   static str: string;
   // @ViewChild('video')
   // public video: ElementRef;
@@ -80,8 +79,8 @@ export class AudioRecordComponent implements OnInit {
     reader.onloadend = () => {
       const abcd = reader.result;
       console.log(abcd);
-      AudioRecordComponent.str = abcd.toString();
-      console.log(AudioRecordComponent.str);
+      VoiceRegisterComponent.str = abcd.toString();
+      console.log(VoiceRegisterComponent.str);
       this.postData();
     };
 
@@ -93,7 +92,7 @@ export class AudioRecordComponent implements OnInit {
 
   postData() {
 
-    const audio = AudioRecordComponent.str;
+    const audio = VoiceRegisterComponent.str;
     this.userRegisterService.setUserAudio(audio);
     this.userRegisterService.submit().subscribe(
       (res: IResponse) => {

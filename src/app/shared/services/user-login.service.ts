@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserLoginService {
+  username: string;
   constructor(private http: HttpClient) {}
 
   verifyUsername(uname: string) {
@@ -16,6 +17,13 @@ export class UserLoginService {
     return this.http.post(url, obj);
   }
 
+  setUsername(username: string) {
+    this.username = username;
+  }
+
+  getUsername() {
+    return this.username;
+  }
   sendOTP(uname: string, mobile: string) {
     const obj = {
       phone: mobile
@@ -46,7 +54,16 @@ export class UserLoginService {
       username,
       TigerAuth : JSON.parse(localStorage.getItem('TigerAuth'))
     };
-    return this.http.post('' , objToSend , )
+    return this.http.post('' , objToSend , );
   }
 
+  sendVideo(Video: string, numBlinks: number) {
+    const obj = {
+      username: this.username,
+      blinks: numBlinks,
+      video: Video
+    };
+    const url = ip + '/check/videoAndBlinks';
+    return this.http.post(url, obj);
+  }
 }
