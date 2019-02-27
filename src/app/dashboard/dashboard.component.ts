@@ -18,10 +18,24 @@ export class DashboardComponent implements OnInit {
       status: 'Active'
     },
     {
+      ip: '172.158.16.40',
+      client: 'www.hackerrank.com',
+      time: '4 :08 PM',
+      device: 'Trusted',
+      status: 'Active'
+    },
+    {
+      ip: '172.158.16.40',
+      client: 'www.hackerrank.com',
+      time: '4 :08 PM',
+      device: 'Trusted',
+      status: 'Active'
+    },
+    {
       ip: '192.168.15.210',
       client: 'www.github.com',
       time: '8:10 AM',
-      device: 'Unrusted',
+      device: 'Untrusted',
       status: 'Inactive'
     }
   ];

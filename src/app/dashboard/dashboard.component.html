@@ -1,40 +1,21 @@
 <body>
-    <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
-<div class="container">
-  <div class="row">
-    <div class="col-md-1">
-
-    </div>
-    <div class="col-md-10">
-      <div class="card">
-          <div class="card_header">
-              <h4>Activity Status</h4>
-            </div>
-      <table class="table-striped">
+  <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
+  <div class="container">
+      <table>
         <tr>
-          <th style="width:10%">No.</th>
-          <th style="width:20%">IP Address</th>
-          <th style="width:20%">Client</th>
-          <th style="width:20%">Time of Login</th>
-          <th style="width:20%">Type of Device</th>
-          <th style="width:10%">Status</th>
+          <th>IP ADDRESS</th>
+          <th>CLIENT</th>
+          <th>LOGIN TIME</th>
+          <th>DEVICE</th>
         </tr>
-        <tr *ngFor="let c of clients, let i = index">
-          <td>{{i+1}}</td>
-          <td>{{c.ip}}</td>
+      </table>
+      <table class="table-striped">
+        <tr class="card1" *ngFor="let c of clients, let i = index">
+          <td class="spaced_data">{{c.ip}}</td>
           <td>{{c.client}}</td>
           <td>{{c.time}}</td>
           <td>{{c.device}}</td>
-          <td>{{c.status}}</td>
-
         </tr>
-      </table>
-      </div>
-    </div>
-
-    <div class="col-md-1">
-
-    </div>
+      </table> 
   </div>
-</div>
 </body>

@@ -1,10 +1,28 @@
-<form [formGroup]="otpForm">
-  <div class="form-group">
-    <div class="form-control">
-      <input type="number" formControlName="otp" placeholder="Enter OTP">
+<body>
+  <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <form [formGroup]="otpForm">
+            <div class="form-group">
+              <div class="form-control form_element">
+                  <label class="label" for="OTP">Enter the OTP sent on your registered mobile number</label>
+                <input class="input_field" type="number" formControlName="otp" placeholder="Enter OTP">
+              </div>
+            </div>
+            <button class="btn btn-primary" id="submit_button1" (click)="verify()"> Verify
+            </button>
+            <hr>
+            <button class="btn btn-primary" id="submit_button2" (click)="verify()"> Resend OTP
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-4">
+      </div>
     </div>
   </div>
-  <button class="btn btn-primary" (click)="verify()"> Verify
-
-  </button>
-</form>
+</body>
