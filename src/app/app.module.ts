@@ -27,6 +27,7 @@ import { AddClientComponent } from './add-client/add-client.component';
 import { VideoAuthComponent } from './video-auth/video-auth.component';
 import { UserLoginService } from './shared/services/user-login.service';
 import { UserRegisterService } from './shared/services/user-register.service';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { UserRegisterService } from './shared/services/user-register.service';
     OtpComponent,
     BiometricsComponent,
     AddClientComponent,
-    VideoAuthComponent
+    VideoAuthComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
