@@ -15,6 +15,7 @@ export class UserService {
   public username: string;
   public user: IUserDetails;
   public userImage: string;
+  public loginStatus = 'Inactive';
   headers = {
     headers: new Headers({
       'Content-Type': 'application/json',
@@ -24,16 +25,16 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   setLoginStatus(status: string) {
-    UserService.status = status;
+    this.loginStatus = status;
   }
 
-  // getLoginStatus() {
-  //   if (UserService.status !== undefined) {
-  //     return UserService.status;
-  //   } else {
-  //     return undefined;
-  //   }
-  // }
+  getLoginStatus() {
+    if (this.loginStatus === 'Valid') {
+      return this.loginStatus;
+    } else {
+      return 'Invalid';
+    }
+  }
 
   setUsername(username: string) {
     this.username = username;

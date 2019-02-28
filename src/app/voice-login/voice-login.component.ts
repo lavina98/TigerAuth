@@ -29,6 +29,7 @@ export class VoiceLoginComponent implements OnInit {
     private domSanitizer: DomSanitizer,
     private router: Router,
     private userRegisterService: UserRegisterService,
+    private userService: UserService,
     private http: HttpClient) { }
 
   ngOnInit() { }
@@ -97,6 +98,7 @@ export class VoiceLoginComponent implements OnInit {
     this.userRegisterService.submit().subscribe(
       (res: IResponse) => {
         console.log(res.message);
+        this.userService.setLoginStatus('Valid');
       }
     );
   }
