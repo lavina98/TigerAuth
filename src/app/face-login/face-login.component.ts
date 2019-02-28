@@ -111,12 +111,12 @@ export class FaceLoginComponent implements OnInit, AfterViewInit {
 
     sendRequest(dataURL) {
         // console.log('sending req');
-        // this.userLoginService.sendVideo(dataURL, this.randomBlinks).subscribe(
-        //     res => {
-        //         console.log(res);
-        //         this.router.navigate(['/otp-login']);
-        //     }
-        // );
+        this.userLoginService.sendVideo(dataURL, this.randomBlinks).subscribe(
+            res => {
+                console.log(res);
+                this.router.navigate(['/otp-login']);
+            }
+        );
         this.router.navigate(['/otp-login']);
 
     }
