@@ -25,8 +25,8 @@ export class VoiceLoginComponent implements OnInit {
 
   // blob: Blob;
   private record;
-  private recording = false;
-  private url;
+  public recording = false;
+  public url;
   private error;
   constructor(
     private domSanitizer: DomSanitizer,

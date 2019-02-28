@@ -34,11 +34,17 @@ export class OtpLoginComponent implements OnInit {
   }
 
   verify() {
-    this.otp = '111111';
-    // if (this.otp === this.otpForm.value.otp) {
-    console.log('Valid OTP');
-    this.router.navigate(['/voice-login']);
-    // }
+
+    if (this.otp === this.otpForm.value.otp) {
+      console.log('Valid OTP');
+      //send local storage to server so it can set its token
+      // and request for access token
+      this.userLoginService.setOtpToken().subscribe((data) =>{
+        localStorage.setItem('TigerAuth', JSON.stringify(data));
+        this.userLoginService.redirectUserAsPerAuthentication();
+      });
+    }
+    //else show error and askuser to send otp again
 
   }
 

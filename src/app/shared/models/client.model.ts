@@ -19,4 +19,9 @@ export interface IPermission {
 }
 
 
+export interface IClientDetails {
+    domainName: string;
+    id: string;
+    type: string;
+}
 
