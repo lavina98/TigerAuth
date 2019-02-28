@@ -44,10 +44,11 @@ export class UserLoginService {
     // otp as response
   }
 
-  sendVoice(voice: string) {
+  sendVoice(voice: string , localStorageTokens: any) {
     const obj = {
       username: this.username,
-      audio: voice
+      audio: voice,
+      localStorageTokens
     };
 
     const url = ip + '/check/voice';
@@ -117,7 +118,6 @@ export class UserLoginService {
 
   // check user authentication with client authentication requirements
   // remove it later resource directly sent to 3rd party app
-  
   getResources(headers: HttpHeaders) {
     const objToSend = {};
     return this.http.post(ip + '/login/resource', objToSend, { headers });
@@ -131,5 +131,11 @@ export class UserLoginService {
     };
     const url = ip + '/check/videoAndBlinks';
     return this.http.post(url, obj);
+  }
+
+
+  setOtpToken() {
+    const dataToSend = {localStorageTokens: JSON.parse(localStorage.getItem('TigerAuth'))};
+    return this.http.post(ip + '/', dataToSend );
   }
 }
