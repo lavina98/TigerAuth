@@ -14,12 +14,10 @@ import { IResponse } from '../shared/models/single-word-response.model';
 export class OtpLoginComponent implements OnInit {
 
   otpForm: FormGroup;
-  otp = '111111';
-  method: string;
+  otp: string;
 
   constructor(
     private fb: FormBuilder,
-    private userRegisterService: UserRegisterService,
     private userLoginService: UserLoginService,
     private router: Router) {
     this.otpForm = fb.group({
@@ -28,19 +26,25 @@ export class OtpLoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userRegisterService.sendOTP().subscribe(
-      (res: IResponse) => {
-        this.otp = res.message;
-      }
-    );
+    // this.userLoginService.sendOTP().subscribe(
+    //   (res: IResponse) => {
+    //     this.otp = res.message;
+    //   }
+    // );
   }
 
   verify() {
 
     if (this.otp === this.otpForm.value.otp) {
       console.log('Valid OTP');
-      this.router.navigate(['/audio-record']);
+      //send local storage to server so it can set its token
+      // and request for access token
+      this.userLoginService.setOtpToken().subscribe((data) =>{
+        localStorage.setItem('TigerAuth', JSON.stringify(data));
+        this.userLoginService.redirectUserAsPerAuthentication();
+      });
     }
+    //else show error and askuser to send otp again
 
   }
 

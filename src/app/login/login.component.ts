@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private userService: UserService,
     private userLoginService: UserLoginService,
     private http: HttpClient,
     private cookie: CookieService
@@ -68,7 +67,7 @@ export class LoginComponent implements OnInit {
     // Comment from here
 
     if (this.loginForm.value.username === 'a') {
-      this.userService.setUsername(username);
+      this.userLoginService.setUsername(username);
       this.router.navigate(['/face-login']);
     }
     // Comment till here
@@ -78,9 +77,8 @@ export class LoginComponent implements OnInit {
     //   res => {
     //     if (res.toString() === 'Valid') {
     //       console.log(res);
-    //       this.userService.setUsername(username);
-    //       this.userService.setMethod(method);
-    //       this.router.navigate(['/face-scan']);
+    //       this.userLoginService.setUsername(username);
+    //       this.router.navigate(['/face-login']);
     //     } else {
     //       alert('Invalid Username');
     //     }

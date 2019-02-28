@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import { IClient } from '../models/client.model';
+import { IClient, IClientDetails } from '../models/client.model';
 import { HttpClient } from '@angular/common/http';
+import { ip } from '../backend-ip';
 
 @Injectable()
 export class ClientService {
+  public clientDetails: IClientDetails;
   constructor(private http: HttpClient) { }
 
   registerClient(client) {
     const objToSend = {
-      domainName : client.website,
+      domainName: client.website,
       callbackUrl: client.redirectUrl,
       face: client.faceAuthentication,
       voice: client.voiceAuthentication,
@@ -24,11 +26,14 @@ export class ClientService {
     };
     console.log(objToSend);
     console.log('sending request');
-    return this.http.post('http://192.168.43.124:3000/clientRegister', objToSend , {responseType: 'blob'});
+    return this.http.post(ip + '/clientRegister', objToSend, { responseType: 'blob' });
   }
 
-  getClientDetails(website: string) {
-    // get req send website as params
-    // also get users,requests
+  getClientDetails(): IClientDetails {
+    return this.clientDetails;
+  }
+
+  setClientDetails(clientDetails: IClientDetails) {
+    this.clientDetails = clientDetails;
   }
 }

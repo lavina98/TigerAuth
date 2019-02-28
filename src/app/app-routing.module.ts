@@ -17,7 +17,10 @@ import { OtpRegisterComponent } from './otp-register/otp-register.component';
 import { OtpLoginComponent } from './otp-login/otp-login.component';
 
 const routes: Routes = [
+  {path: '' , redirectTo: 'login' , pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
+
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'otp-register', component: OtpRegisterComponent },
@@ -40,6 +43,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-
 
 export class AppRoutingModule { }

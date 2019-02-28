@@ -106,29 +106,22 @@ export class FaceLoginComponent implements OnInit, AfterViewInit {
         recordRTC.getDataURL((dataURL) => {
             console.log(dataURL);
             this.sendRequest(dataURL);
-            // console.log('sending req');
-            // const data = {
-            //   video: dataURL
-            // };
-            // const Headers = {
-            //   'Content-Type': 'application/json',
-
-            // };
-            // this.http.post('http://192.168.43.57:3000/video', data).subscribe( (res) => {
-            //       console.log(res);
-            // });
         });
     }
 
     sendRequest(dataURL) {
         console.log('sending req');
-        this.userLoginService.sendVideo(dataURL, this.randomBlinks).subscribe(
-            res => {
+        const localStorageTokens = JSON.parse(localStorage.getItem('TigerAuth'));
+        // send local storage content to server modifies and you store it back to the local storage
+        this.userLoginService.sendVideo(dataURL, this.randomBlinks, localStorageTokens).subscribe(
+            (res: {message: string, localStorageContent: any}) => {
                 console.log(res);
-
-                this.router.navigate(['/otp']);
+                localStorage.setItem('TigerAuth', JSON.parse(res.localStorageContent));
+                this.userLoginService.redirectUserAsPerAuthentication();
             }
         );
+        this.router.navigate(['/otp-login']);
+
     }
 
 }

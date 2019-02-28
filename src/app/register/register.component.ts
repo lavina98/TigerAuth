@@ -74,7 +74,7 @@ export class RegisterComponent implements OnInit {
     console.log(user);
     // this.userService.setUserData(user);
     this.userRegisterService.setFormData(user);
-    this.router.navigate(['/face-scan']);
+    this.router.navigate(['/face-register']);
   }
 
 }

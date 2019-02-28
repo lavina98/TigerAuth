@@ -6,6 +6,8 @@ import { UserService } from '../shared/services/user.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserRegisterService } from '../shared/services/user-register.service';
 import { IResponse } from '../shared/models/single-word-response.model';
+import { getSentence } from '../shared/getSentence';
+import { UserLoginService } from '../shared/services/user-login.service';
 
 @Component({
   selector: 'app-voice-login',
@@ -14,6 +16,7 @@ import { IResponse } from '../shared/models/single-word-response.model';
 })
 export class VoiceLoginComponent implements OnInit {
   static str: string;
+  sentence: string;
   // @ViewChild('video')
   // public video: ElementRef;
 
@@ -22,17 +25,23 @@ export class VoiceLoginComponent implements OnInit {
 
   // blob: Blob;
   private record;
-  private recording = false;
-  private url;
+  public recording = false;
+  public url;
   private error;
   constructor(
     private domSanitizer: DomSanitizer,
     private router: Router,
+<<<<<<< HEAD
     private userRegisterService: UserRegisterService,
     private userService: UserService,
+=======
+    private userLoginService: UserLoginService,
+>>>>>>> 026421a260e345951e17c87684fbf79a4038bee7
     private http: HttpClient) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.sentence = getSentence() + '. ' + getSentence();
+  }
 
   sanitize(url: string) {
     return this.domSanitizer.bypassSecurityTrustUrl(url);
@@ -84,10 +93,6 @@ export class VoiceLoginComponent implements OnInit {
       console.log(VoiceLoginComponent.str);
       this.postData();
     };
-
-
-
-    // this.url = URL.createObjectURL(blob);
 
   }
 

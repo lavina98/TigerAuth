@@ -10,7 +10,7 @@ import { IUserDetails } from '../models/user-details.model';
 export class UserRegisterService {
   static user: IUserDetails;
   static image: string;
-  static audio: string;
+  static audios: any;
   constructor(private http: HttpClient) { }
 
 
@@ -20,6 +20,7 @@ export class UserRegisterService {
       username: uname
     };
     const url = ip + '/register/verifyUsername';
+    console.log(url);
     return this.http.post(url, obj);
   }
 
@@ -35,24 +36,34 @@ export class UserRegisterService {
 
     const url = ip + '/register/verifyOTP';
     return this.http.post(url, obj);
-
-    // otp as response
   }
 
   setUserImage(image: string) {
     UserRegisterService.image = image;
   }
 
-  setUserAudio(audio: string) {
-    UserRegisterService.audio = audio;
+  setUserAudio(audio: any) {
+    UserRegisterService.audios = {
+      audio1: audio[0],
+      audio2: audio[1],
+      audio3: audio[2],
+      audio4: audio[3],
+      audio5: audio[4]
+    };
   }
 
-
   submit() {
+    const user1 = {
+      username: UserRegisterService.user.username,
+      audio: UserRegisterService.audios,
+      name: UserRegisterService.user.name,
+      dob: UserRegisterService.user.dob,
+      phone: UserRegisterService.user.phone,
+    };
+
     const obj = {
-      user: UserRegisterService.user,
+      user: user1,
       img: UserRegisterService.image,
-      audio: UserRegisterService.audio
     };
 
     const url = ip + '/register/submit';
