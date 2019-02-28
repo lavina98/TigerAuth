@@ -21,6 +21,19 @@
   </div>
 
 </body> -->
+<!-- <script type="text/javascript">
+  function sendData() {
+    var data =
+    {
+      "callbackurl": "hackerrank.com/dashboard",
+      "domainName": "hackerrank.com",
+      "username": "sagarika12",
+      "name": "varsha kukreja"
+    };
+    Android.setResponse(JSON.stringify(data));
+    return false;
+  }
+</script> -->
 
 <h3>{{sentence}}</h3>
 <a (click)="initiateRecording()" class="btn btn-primary" *ngIf="!recording"> Start Recording </a>
@@ -29,4 +42,3 @@
 <audio #audio id="audio" controls="" *ngIf="url">
   <source [src]="sanitize(url)" type="audio/mp3">
 </audio>
-

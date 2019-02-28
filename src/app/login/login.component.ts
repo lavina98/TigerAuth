@@ -66,25 +66,24 @@ export class LoginComponent implements OnInit {
     const username = this.loginForm.value.username;
     // Comment from here
 
-    // if (this.loginForm.value.username === 'a') {
-    //   this.userService.setUsername(username);
-    //   this.router.navigate(['/face-login']);
-    // }
+    if (this.loginForm.value.username === 'a') {
+      this.userLoginService.setUsername(username);
+      this.router.navigate(['/face-login']);
+    }
     // Comment till here
 
     // Uncomment
-    this.userLoginService.verifyUsername(username).subscribe(
-      res => {
-        if (res.toString() === 'Valid') {
-          console.log(res);
-          this.userLoginService.setUsername(username);
-          // this.userService.setMethod(method);
-          this.router.navigate(['/face-login']);
-        } else {
-          alert('Invalid Username');
-        }
-      }
-    );
+    // this.userLoginService.verifyUsername(username).subscribe(
+    //   res => {
+    //     if (res.toString() === 'Valid') {
+    //       console.log(res);
+    //       this.userLoginService.setUsername(username);
+    //       this.router.navigate(['/face-login']);
+    //     } else {
+    //       alert('Invalid Username');
+    //     }
+    //   }
+    // );
   }
 
   redirectToRegister() {

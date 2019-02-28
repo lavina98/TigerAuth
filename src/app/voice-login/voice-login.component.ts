@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserRegisterService } from '../shared/services/user-register.service';
 import { IResponse } from '../shared/models/single-word-response.model';
 import { getSentence } from '../shared/getSentence';
+import { UserLoginService } from '../shared/services/user-login.service';
 
 @Component({
   selector: 'app-voice-login',
@@ -30,7 +31,7 @@ export class VoiceLoginComponent implements OnInit {
   constructor(
     private domSanitizer: DomSanitizer,
     private router: Router,
-    private userRegisterService: UserRegisterService,
+    private userLoginService: UserLoginService,
     private http: HttpClient) { }
 
   ngOnInit() {
@@ -88,21 +89,24 @@ export class VoiceLoginComponent implements OnInit {
       this.postData();
     };
 
-
-
-    // this.url = URL.createObjectURL(blob);
-
   }
 
   postData() {
 
-    const audio = VoiceLoginComponent.str;
-    this.userRegisterService.setUserAudio(audio);
-    this.userRegisterService.submit().subscribe(
-      (res: IResponse) => {
-        console.log(res.message);
-      }
-    );
+    // const audio = VoiceLoginComponent.str;
+    // this.userLoginService.sendVoice(audio).subscribe(
+    //   res => {
+    //     console.log(res);
+    //   }
+    // );
+    this.router.navigate(['/dashboard']);
+    // this.userLoginService.submit().subscribe(
+    //   (res: IResponse) => {
+    //     console.log(res.message);
+    //   }
+    // );
+
+    // Android.setResponse()
   }
 
   /**

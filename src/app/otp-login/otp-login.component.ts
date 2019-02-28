@@ -26,19 +26,19 @@ export class OtpLoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userLoginService.sendOTP().subscribe(
-      (res: IResponse) => {
-        this.otp = res.message;
-      }
-    );
+    // this.userLoginService.sendOTP().subscribe(
+    //   (res: IResponse) => {
+    //     this.otp = res.message;
+    //   }
+    // );
   }
 
   verify() {
-
-    if (this.otp === this.otpForm.value.otp) {
-      console.log('Valid OTP');
-      this.router.navigate(['/voice-login']);
-    }
+    this.otp = '111111';
+    // if (this.otp === this.otpForm.value.otp) {
+    console.log('Valid OTP');
+    this.router.navigate(['/voice-login']);
+    // }
 
   }
 
