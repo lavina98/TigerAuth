@@ -122,11 +122,13 @@ export class FaceLoginComponent implements OnInit, AfterViewInit {
 
     sendRequest(dataURL) {
         console.log('sending req');
-        this.userLoginService.sendVideo(dataURL, this.randomBlinks).subscribe(
-            res => {
+        const localStorageTokens = JSON.parse(localStorage.getItem('TigerAuth'));
+        //send local storage content to server modifies and you store it back to the local storage
+        this.userLoginService.sendVideo(dataURL, this.randomBlinks, localStorageTokens).subscribe(
+            (res: {message: string, localStorageContent: any}) => {
                 console.log(res);
-
-                this.router.navigate(['/otp']);
+                localStorage.setItem('TigerAuth', JSON.parse(res.localStorageContent));
+                this.userLoginService.redirectUserAsPerAuthentication();
             }
         );
     }
