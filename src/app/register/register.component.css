@@ -1,20 +1,20 @@
 body{
     background:url("../../assets/login8.jpg");
-    overflow: hidden;
+     overflow: hidden;
     background-size: cover;
     width: 100%;
-    min-height: 100%;
+    min-height: 100%; 
 }
 .card{
     box-shadow: 0 10px 20px rgba(0,0,0,0.10);
     border: none;
     border-radius: 5px;
-    margin-top: 8%;
-    margin-bottom:8%;
+    margin-top: 20%;
+    margin-bottom:4%;
     font-family: 'Noticia Text', serif;
     font-size: 20px;
     background:#000076;
-    opacity:0.6;
+    opacity:0.75;
 
 }
 .card:hover{
@@ -69,6 +69,7 @@ body{
     padding-top:2%;
     padding-bottom:1%;
     font-weight: bold;
+    border-radius:5px; 
 }
 ::input-placeholder{
     padding-top:1%;

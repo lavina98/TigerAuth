@@ -1,53 +1,65 @@
-<form [formGroup]="updateProfileForm">
-    <div class="form-group">
-  
-      <div class="form-control">
-        <label for="first_name">First Name</label>
-        <br>
-        <input type="text" [disabled]="!enable" formControlName="first_name" value="{{user.first_name}}" placeholder="First Name">
+<body>
+  <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
+  <div class="container">
+    <div class="card">
+      <div class="card_header">
+        User Profile
       </div>
-      <br>
-      
-      <div class="form-control" style="border: none">
-        <label for="last_name">Last Name</label>
-        <br>
-        <input type="text" formControlName="last_name" value="{{user.last_name}}" placeholder="Last Name">
+        <div class="image">
+            <img src="../../assets/profile.png">
+        </div>
+      <div class="form_text">
+      <form [formGroup]="updateProfileForm">
+        <div class="form-group">
+          <div class="form-control">
+            <label class="label" for="first_name">First Name</label>
+            <br>
+            <input class="input_field" type="text" formControlName="first_name" value="{{user.first_name}}" placeholder="First Name">
+          </div>
+          <br>
+
+          <div class="form-control" style="border: none">
+            <label class="label" for="last_name">Last Name</label>
+            <br>
+            <input class="input_field" type="text" formControlName="last_name" value="{{user.last_name}}" placeholder="Last Name">
+          </div>
+          <br>
+
+          <div class="form-control">
+            <label class="label" for="email">Email ID</label>
+            <br>
+            <input class="input_field" type="email" formControlName="email" value="{{user.email}}" placeholder="Email ID">
+          </div>
+          <br>
+
+          <!-- Put this in a modal later -->
+          <div class="form-control">
+            <label class="label" for="username">Username</label>
+            <br>
+            <input class="input_field" type="text" formControlName="username" value="{{user.username}}" placeholder="Username">
+          </div>
+          <br>
+
+
+          <div class="form-control">
+            <label class="label" for="mobile">Mobile</label>
+            <br>
+            <input class="input_field" type="number" formControlName="mobile" value="{{user.mobile}}" placeholder="Mobile">
+          </div>
+          <br>
+
+          <div class="form-control">
+            <label class="label" for="dob">Date of Birth</label>
+            <br>
+            <input class="input_field" type="date" formControlName="dob" value="{{user.dob}}" placeholder="Date of Birth">
+          </div>
+          <br>
+
+        </div>
+      </form>
       </div>
-      <br>
-    
-      <div class="form-control">
-        <label for="email">Email ID</label>
+      <button class="btn btn-secondary submit_button" (click)="enableEdit()">{{buttonValue}}</button>
         <br>
-        <input type="email" formControlName="email" value="{{user.email}}" placeholder="Email ID">
-      </div>
-      <br>
-  
-  <!-- Put this in a modal later -->
-      <div class="form-control">
-        <label for="username">Username</label>
-        <br>
-        <input type="text" formControlName="username" value="{{user.username}}" placeholder="Username">
-      </div>
-      <br>
-  
-  
-      <div class="form-control">
-        <label for="mobile">Mobile</label>
-        <br>
-        <input type="number" formControlName="mobile" value="{{user.mobile}}" placeholder="Mobile">
-      </div>
-      <br>
-  
-      <div class="form-control">
-        <label for="dob">Date of Birth</label>
-        <br>
-        <input type="date" formControlName="dob" value="{{user.dob}}" placeholder="Date of Birth">
-      </div>
-      <br>
-  
     </div>
-    <br>
-    
-    <button class="btn btn-secondary" (click)="enableEdit()">Edit</button>
-    <br>
-  </form>
+  </div>
+</body>

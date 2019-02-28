@@ -21,8 +21,9 @@
   </div>
 
 </body> -->
+{{sentence}}
 
-<a (click)="initiateRecording()" class="btn btn-primary" *ngIf="!recording"> Start Recording </a>
+<button (click)="initiateRecording()" class="btn btn-primary" [disabled]="is5TimesDone" *ngIf="!recording"> Start Recording </button>
 <a (click)="stopRecording()" class="btn btn-danger" *ngIf="recording"> Stop Recording </a>
 <div class="clearfix"></div>
 <audio #audio id="audio" controls="" *ngIf="url">

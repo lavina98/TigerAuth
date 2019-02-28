@@ -46,7 +46,7 @@ export class FaceRegisterComponent implements OnInit {
 
         console.log(img);
         this.userRegisterService.setUserImage(img);
-        this.router.navigate(['/otp']);
+        this.router.navigate(['/otp-register']);
     }
 
 }

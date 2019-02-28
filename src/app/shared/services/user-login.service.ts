@@ -32,23 +32,28 @@ export class UserLoginService {
   getUsername() {
     return this.username;
   }
-  sendOTP(uname: string, mobile: string) {
+
+
+  sendOTP() {
     const obj = {
-      phone: mobile
+      username: this.username
     };
 
     const url = ip + '/register/verifyOTP';
     return this.http.post(url, obj);
-
     // otp as response
   }
 
-  getUserListAndAuthenticationFactorOfClient(
-    clientName: string,
-    clientToken: string,
-    trusted: string,
-    tigerAuth: any
-  ) {
+  sendVoice(voice: string) {
+    const obj = {
+      username: this.username,
+      audio: voice
+    };
+
+    const url = ip + '/check/voice';
+    return this.http.post(url, obj);
+  }
+  getUserListAndAuthenticationFactorOfClient(clientName: string, clientToken: string, trusted: string, tigerAuth: any) {
     const objToSend = {
       domainName: clientName,
       type: trusted,

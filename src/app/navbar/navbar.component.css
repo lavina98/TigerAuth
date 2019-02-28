@@ -3,11 +3,12 @@ img {
     height:30;
 }
 nav{
-    background-image: linear-gradient(to right, #000076,#1c90c6);
+    background:rgb(2, 7, 73);
+    /* rgb(155, 35, 103), */
     color:white;
     font-family: 'Noticia Text', serif;
     max-height: 10%;
-    font-weight:40;
+    font-weight:bold;
     font-size: 18px;
 }
 a{
@@ -16,7 +17,7 @@ a{
     color:white;
     font-family: 'Noticia Text', serif;
     max-height: 10%;
-    font-weight:20;
+    font-weight:bold;
 }
 
 .navbar-brand {
