@@ -4,3 +4,10 @@ export interface IUser {
   voiceTokenCheck: boolean;
   otpTokenCheck: boolean;
 }
+
+export interface IUserActivity {
+  ip: string;
+  client: string;
+  time: string;
+  device: string;
+}

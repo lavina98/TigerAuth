@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../shared/services/user.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { UserActivityService } from '../shared/services/user-activity.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,12 +11,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DashboardComponent implements OnInit {
   username: string;
-  constructor(private userService: UserService, private router: Router, private http: HttpClient) {
-    // this.username = this.userService.getUsername();
-    // if (this.username === undefined) {
-    //   this.router.navigate(['/']);
-    // }
-  }
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private http: HttpClient,
+    private userActivityService: UserActivityService) { }
 
   clients = [
     {
@@ -49,12 +49,12 @@ export class DashboardComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.username = this.userService.getUsername();
-    this.http.post('http://192.168.43.57:3000/user/activity', {username: 'varsha'}).subscribe(
-      res => {
-        console.log(res);
-      }
-    );
+    // this.username = this.userService.getUsername();
+    // this.userActivityService.getAllUserActivity(this.username).subscribe(
+    //   res => {
+    //     console.log(res);
+    //   }
+    // );
   }
 
 }

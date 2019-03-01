@@ -19,6 +19,24 @@ export class ClientDashboardComponent implements OnInit {
     this.selectClient = this.fb.group({
       clientName: this.fb.control('')
     });
+    // console.log(this.getCorrectTime(1551323323));
+    const date = new Date(1551323323000).toString().split(' ');
+    console.log(date);
+    console.log(new Date(1551376323000));
   }
 
+  getCorrectTime(unix: number) {
+    const a = new Date(unix * 1000);
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const year = a.getFullYear();
+    const month = months[a.getMonth()];
+    const date = a.getDate();
+    const hour = a.getHours();
+    const min = a.getMinutes();
+    const sec = a.getSeconds();
+    const time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec;
+    return time;
+    // return Date.prototype.toISOString();
+    // console.log(timeConverter(0));
+  }
 }

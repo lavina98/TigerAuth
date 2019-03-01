@@ -1,9 +1,10 @@
 img {
-    width: 30;
-    height:30;
+    width:22%;
+    height:22%;
+    margin-right:-25%;
 }
 nav{
-    background:rgb(2, 7, 73);
+    background:rgb(37, 37, 37);
     /* rgb(155, 35, 103), */
     color:white;
     font-family: 'Noticia Text', serif;
@@ -13,19 +14,22 @@ nav{
 }
 a{
     float: left;
-    background-size:contain;
+    /* background-size:contain; */
     color:white;
     font-family: 'Noticia Text', serif;
     max-height: 10%;
     font-weight:bold;
+    /* margin-left:-5%; */
 }
 
-.navbar-brand {
-    position: relative;
+ a.navbar-brand {
+    /* position: relative;
     height:auto;
     width:auto;
-    /*background-size:contain;*/
-}
+    background-size:contain; */
+    max-width:22%;
+    margin-right:-15%;
+} 
 
 li{
     opacity:0.75;

@@ -8,15 +8,15 @@ import { UserService } from './shared/services/user.service';
 })
 export class AppComponent implements OnInit{
   title = 'client';
-  usernameValid: boolean;
+  isLogin: boolean;
   constructor(private userService: UserService) {
 
   }
   ngOnInit() {
-    if(this.userService.getUsername() === undefined) {
-      this.usernameValid = false;
+    if(this.userService.getLoginStatus() === 'Invalid') {
+      this.isLogin = false;
     } else {
-      this.usernameValid = true;
+      this.isLogin = true;
     }
   }
 }

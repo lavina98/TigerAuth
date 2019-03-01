@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserRegisterService } from '../shared/services/user-register.service';
 import { IResponse } from '../shared/models/single-word-response.model';
 import { getSentence } from '../shared/getSentence';
+import { UserLoginService } from '../shared/services/user-login.service';
 
 @Component({
   selector: 'app-voice-login',
@@ -24,13 +25,13 @@ export class VoiceLoginComponent implements OnInit {
 
   // blob: Blob;
   private record;
-  private recording = false;
-  private url;
+  public recording = false;
+  public url;
   private error;
   constructor(
     private domSanitizer: DomSanitizer,
     private router: Router,
-    private userRegisterService: UserRegisterService,
+    private userLoginService: UserLoginService,
     private http: HttpClient) { }
 
   ngOnInit() {
@@ -88,21 +89,17 @@ export class VoiceLoginComponent implements OnInit {
       this.postData();
     };
 
-
-
-    // this.url = URL.createObjectURL(blob);
-
   }
 
   postData() {
 
     const audio = VoiceLoginComponent.str;
-    this.userRegisterService.setUserAudio(audio);
-    this.userRegisterService.submit().subscribe(
-      (res: IResponse) => {
-        console.log(res.message);
-      }
-    );
+    const localStorageTokens = JSON.parse(localStorage.getItem('TigerAuth'));
+    this.userLoginService.sendVoice(audio, localStorageTokens, this.sentence).subscribe(
+      (data) => {
+        localStorage.setItem('TigerAuth', JSON.stringify(data));
+        this.userLoginService.redirectUserAsPerAuthentication();
+      });
   }
 
   /**

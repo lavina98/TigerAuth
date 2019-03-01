@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { UserLoginService } from '../shared/services/user-login.service';
 import { IClient } from '../shared/models/client.model';
 import { ip } from '../shared/backend-ip';
+import { ClientService } from '../shared/services/client.service';
 @Component({
   selector: 'app-userlogin-list',
   templateUrl: './userlogin-list.component.html',
@@ -27,7 +28,8 @@ export class UserloginListComponent implements OnInit {
     private userService: UserService,
     private userLoginService: UserLoginService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private clientService: ClientService
   ) {}
 
   ngOnInit() {
@@ -50,36 +52,16 @@ export class UserloginListComponent implements OnInit {
         this.clientRequiresVoice = data.clientData.voice;
         this.userList = data.usersData;
       });
+    this.clientService.setClientDetails({domainName: this.clientName ,id: this.clientToken, type: this.trusted});
   }
 
   selectUser(user: IUser) {
-    this.userLoginService
-      .getAccessToken(
-        user.username,
-        this.clientName,
-        this.clientToken,
-        this.trusted
-      )
-      .subscribe((data: { token: string , response:
-        { faceRequiredByClient: boolean, otpRequiredByClient: boolean ,
-         voiceRequiredByClient: boolean }}) => {
-        console.log(data);
-        if ( data.token !== null) {
-        const token = 'Bearer ' + data.token;
-        const headers = new HttpHeaders({
-          Authorization: token
-        });
-        this.userLoginService.getResources(headers).subscribe( (data) => {
-          console.log(data);
-        });
-      }
-       else {
-                //route  from here as per requirements
-       }
-      });
+    this.userService.setUsername(user.username);
+    this.userLoginService.redirectUserAsPerAuthentication();
   }
 
-  goToLogin() {
+  addAccount() {
+    console.log('routing');
     this.router.navigate(['/login', this.clientName , this.clientToken , this.trusted]);
   }
 }
