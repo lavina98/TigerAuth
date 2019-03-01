@@ -15,12 +15,12 @@
           <div>
             <div><video #video id="video" width="100%" autoplay></video></div>
             <h1>{{randomBlinks}}</h1>
-            <button class="btn btn-success" *ngIf="!recordingStarted" (click)="recordingStart()">
+            <button class="submitbutton1" *ngIf="!recordingStarted" (click)="recordingStart()">
               Start Recording
             </button>
           </div>
           <div>
-            <button class="btn btn-danger" *ngIf="recordingStarted" (click)="recordingStop()">
+            <button class="submit_button2" *ngIf="recordingStarted" (click)="recordingStop()">
               Stop Recording
             </button>
           </div>
@@ -34,10 +34,10 @@
       Stop recording
     </button>
   </div>
-  <div><video #video id="video" width="640" height="480" autoplay></video></div>
+  <!-- <div><video #video id="video" width="640" height="480" autoplay></video></div>
   <div>
     <p>Blink {{randomBlinks}} times</p>
-  </div>
+  </div> -->
   <br>
   <br>
   <br>

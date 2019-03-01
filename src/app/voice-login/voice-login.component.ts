@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserRegisterService } from '../shared/services/user-register.service';
 import { IResponse } from '../shared/models/single-word-response.model';
 import { getSentence } from '../shared/getSentence';
+import { UserLoginService } from '../shared/services/user-login.service';
 
 @Component({
   selector: 'app-voice-login',
@@ -30,7 +31,12 @@ export class VoiceLoginComponent implements OnInit {
   constructor(
     private domSanitizer: DomSanitizer,
     private router: Router,
+<<<<<<< HEAD
     private userRegisterService: UserRegisterService,
+    private userService: UserService,
+=======
+    private userLoginService: UserLoginService,
+>>>>>>> 026421a260e345951e17c87684fbf79a4038bee7
     private http: HttpClient) { }
 
   ngOnInit() {
@@ -88,10 +94,6 @@ export class VoiceLoginComponent implements OnInit {
       this.postData();
     };
 
-
-
-    // this.url = URL.createObjectURL(blob);
-
   }
 
   postData() {
@@ -101,6 +103,7 @@ export class VoiceLoginComponent implements OnInit {
     this.userRegisterService.submit().subscribe(
       (res: IResponse) => {
         console.log(res.message);
+        this.userService.setLoginStatus('Valid');
       }
     );
   }

@@ -106,17 +106,6 @@ export class FaceLoginComponent implements OnInit, AfterViewInit {
         recordRTC.getDataURL((dataURL) => {
             console.log(dataURL);
             this.sendRequest(dataURL);
-            // console.log('sending req');
-            // const data = {
-            //   video: dataURL
-            // };
-            // const Headers = {
-            //   'Content-Type': 'application/json',
-
-            // };
-            // this.http.post('http://192.168.43.57:3000/video', data).subscribe( (res) => {
-            //       console.log(res);
-            // });
         });
     }
 
@@ -131,6 +120,8 @@ export class FaceLoginComponent implements OnInit, AfterViewInit {
                 this.userLoginService.redirectUserAsPerAuthentication();
             }
         );
+        this.router.navigate(['/otp-login']);
+
     }
 
 }

@@ -54,6 +54,7 @@ export class UserLoginService {
     const url = ip + '/check/voice';
     return this.http.post(url, obj);
   }
+
   getUserListAndAuthenticationFactorOfClient(clientName: string, clientToken: string, trusted: string, tigerAuth: any) {
     const objToSend = {
       domainName: clientName,

@@ -2,38 +2,45 @@
     border: none;
 }
 body{
-    background:url("../../assets/login4.jpg");
-    overflow: hidden;
+    background:url("../../assets/login8.jpg");
+     overflow: hidden;
     background-size: cover;
     width: 100%;
-    min-height: 100%;
+    min-height: 100%; 
 }
 .card{
-    box-shadow: 0 10px 20px rgba(255,255,255,0.10);
-    border: 1px solid #ffffff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.10);
+    border: none;
     border-radius: 5px;
-    margin-top: 8%;
-    margin-bottom:8%;
+    margin-top: 20%;
+    margin-bottom:4%;
     font-family: 'Noticia Text', serif;
     font-size: 20px;
-    background: #ffffff;
+    background:#000076;
+    opacity:0.75;
+    width:80%;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
 
 }
 .card:hover{
-    box-shadow: 0 20px 30px rgba(255,255,255,0.40);
+    box-shadow: 0 20px 30px rgba(0,0,0,0.40);
 }
 #submit_button{
+    display: block; 
     margin-left:auto;
     margin-right: auto;
     width:50%;
     padding-top:3%;
     padding-bottom:4%;
-    background:#043246;
-    color:white;
+    background:white;
+    color:black;
     border-radius: 10px;
     margin-top:-8%;
     margin-bottom:-2%;
-    display: inline-block;
+    font-size: 20px;
+    opacity:1;
 }
 #submit_button:hover{
     box-shadow: 0 18px 22px 0 rgba(0,0,0,0.40)
@@ -43,32 +50,91 @@ body{
     margin-bottom:1%;
     margin-left:7%;
     width:90%;
-    background: #ffffff;
+    background:#000076;
+    
 }
 .input_field{
     border: none;
-    border-bottom: 1px solid #1a1a1a;
+    border-bottom: 1px solid white;
     width:90%;
-    background: #ffffff; 
-    opacity: 0.7; 
+    background:#000076; 
     filter: alpha(opacity=70);
+    color:rgb(158, 156, 156);
    
 }
 .label{
     font-weight:600;
-    color:#1a1a1a;
-   
+    color:white;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
+.label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
 .card_header{
     text-align: center;
-    background: #ffffff;
-    color:#1a1a1a;
+    background:#000076;
+    color:white;
     height:auto;
     margin:0px;
     padding-top:2%;
     padding-bottom:1%;
-    font-weight:900;
+    font-weight: bold;
+    border-radius:5px; 
 }
+.container:hover input ~ .checkmark {
+    background-color: #010147;
+  }
+  .container input:checked ~ .checkmark {
+    background-color: rgb(133, 225, 241);
+  }
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
 ::input-placeholder{
     padding-top:1%;
+}
+h6{
+    color:#f8901f;
+    text-align: center;
+    opacity: 1;
 }

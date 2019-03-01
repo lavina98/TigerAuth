@@ -26,11 +26,11 @@ export class OtpLoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userLoginService.sendOTP().subscribe(
-      (res: IResponse) => {
-        this.otp = res.message;
-      }
-    );
+    // this.userLoginService.sendOTP().subscribe(
+    //   (res: IResponse) => {
+    //     this.otp = res.message;
+    //   }
+    // );
   }
 
   verify() {
