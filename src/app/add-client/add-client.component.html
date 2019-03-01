@@ -34,7 +34,8 @@
               <div class="form-control form-check form-check-inline form_element" *ngFor="let field of userData">
                 <label class="label" [for]="field"></label>
                 <br>
-                <input class=" form-check-input input_field" type="checkbox" [formControlName]="field" />{{ field }}
+                
+                <input class="form-check-input" type="checkbox" [formControlName]="field" />{{ field }}
               </div>
         <br />
         <p>Select methods of authecation (Can be multiple)</p>
