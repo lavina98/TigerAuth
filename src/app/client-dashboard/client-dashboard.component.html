@@ -3,7 +3,7 @@
   <div class="container">
     <div class="card">
       <form [formGroup]="selectClient" class="select_text">
-        <div class="form-group">
+        <div class="form-group card_header">
           <label for="Website">Select your website:</label>
           <select id="Website" formControlName="clientName" [value]="clients[0]">
             <option *ngFor="let  client of clients" [value]="client">{{client}}</option>

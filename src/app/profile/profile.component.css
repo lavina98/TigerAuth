@@ -40,13 +40,13 @@ body{
     width:30%;
     padding-top:1%;
     padding-bottom:1%;
-    background:#56aee0;
+    background:#1e91ca;
     color:white;
     border-radius: 10px;
     margin-top:3%;
     margin-bottom:2%;
     font-size: 18px;
-    border: #3a94c9;
+    border: #1e91ca;
     height:20%;
 }
 .submit_button:hover{
@@ -54,7 +54,7 @@ body{
 }
 .card_header{
     text-align: center;
-    background:#56aee0;
+    background:#1e91ca;
     color:white;
     height:auto;
     /* margin:0px; */

@@ -31,7 +31,12 @@ export class VoiceLoginComponent implements OnInit {
   constructor(
     private domSanitizer: DomSanitizer,
     private router: Router,
+<<<<<<< HEAD
+    private userRegisterService: UserRegisterService,
+    private userService: UserService,
+=======
     private userLoginService: UserLoginService,
+>>>>>>> 026421a260e345951e17c87684fbf79a4038bee7
     private http: HttpClient) { }
 
   ngOnInit() {
@@ -93,20 +98,14 @@ export class VoiceLoginComponent implements OnInit {
 
   postData() {
 
-    // const audio = VoiceLoginComponent.str;
-    // this.userLoginService.sendVoice(audio).subscribe(
-    //   res => {
-    //     console.log(res);
-    //   }
-    // );
-    this.router.navigate(['/dashboard']);
-    // this.userLoginService.submit().subscribe(
-    //   (res: IResponse) => {
-    //     console.log(res.message);
-    //   }
-    // );
-
-    // Android.setResponse()
+    const audio = VoiceLoginComponent.str;
+    this.userRegisterService.setUserAudio(audio);
+    this.userRegisterService.submit().subscribe(
+      (res: IResponse) => {
+        console.log(res.message);
+        this.userService.setLoginStatus('Valid');
+      }
+    );
   }
 
   /**
