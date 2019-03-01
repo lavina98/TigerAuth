@@ -12,6 +12,7 @@ import { ip } from '../shared/backend-ip';
   styleUrls: ['./userlogin-list.component.css']
 })
 export class UserloginListComponent implements OnInit {
+  condition = true;
   factorLogin: string;
   userList: IUser[];
   clientName: string;
