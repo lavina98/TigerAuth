@@ -13,6 +13,7 @@ import { ClientService } from '../shared/services/client.service';
   styleUrls: ['./userlogin-list.component.css']
 })
 export class UserloginListComponent implements OnInit {
+  condition = true;
   factorLogin: string;
   userList: IUser[];
   clientName: string;

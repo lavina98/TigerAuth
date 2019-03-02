@@ -108,6 +108,7 @@ export class UserLoginService {
         console.log(data);
         if (data.link !== 'self') {
           console.log('redirecting');
+          console.log(data.link);
           window.open(data.link, '_self');
         } else {
           if (data.response.faceRequiredByClient) {
