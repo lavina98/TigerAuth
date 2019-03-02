@@ -2,3 +2,16 @@ p
 {
     display: inline;
 }
+.table-striped>tbody>tr:nth-child(odd){
+    background-color:#da69f6;
+}
+.table-striped>tbody>tr:nth-child(even){
+    background-color:#ebb0fa;
+}
+th {
+    background-color: #4b4b4b;
+    color: white;
+} 
+/* .table-striped>tbody>th {
+    background-color:#5e5e5e;
+} */

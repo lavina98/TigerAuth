@@ -96,13 +96,12 @@ export class VoiceLoginComponent implements OnInit {
   postData() {
 
     const audio = VoiceLoginComponent.str;
-    this.userRegisterService.setUserAudio(audio);
-    this.userRegisterService.submit().subscribe(
-      (res: IResponse) => {
-        console.log(res.message);
-        this.userService.setLoginStatus('Valid');
-      }
-    );
+    const localStorageTokens = JSON.parse(localStorage.getItem('TigerAuth'));
+    this.userLoginService.sendVoice(audio, localStorageTokens, this.sentence).subscribe(
+      (data) => {
+        localStorage.setItem('TigerAuth', JSON.stringify(data));
+        this.userLoginService.redirectUserAsPerAuthentication();
+      });
   }
 
   /**

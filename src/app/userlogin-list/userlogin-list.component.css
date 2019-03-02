@@ -1,0 +1,14 @@
+.card{
+    margin-top: 5%;
+}
+.name{
+    background-color: rgba(39, 39, 39, 0.883);
+    color: white;
+}
+p{
+    padding-top: 2%; 
+    line-height: 0.2;
+}
+.table-stripped{
+    width: 100%;
+}

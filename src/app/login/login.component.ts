@@ -6,6 +6,7 @@ import { UserLoginService } from '../shared/services/user-login.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ip } from '../../app/shared/backend-ip';
 import { CookieService } from 'ngx-cookie-service';
+import { IResponse } from '../shared/models/single-word-response.model';
 
 @Component({
   selector: 'app-login',
@@ -66,24 +67,26 @@ export class LoginComponent implements OnInit {
     const username = this.loginForm.value.username;
     // Comment from here
 
-    if (this.loginForm.value.username === 'a') {
-      this.userLoginService.setUsername(username);
-      this.router.navigate(['/face-login']);
-    }
+    // if (this.loginForm.value.username === 'a') {
+    //   this.userLoginService.setUsername(username);
+    //   this.router.navigate(['/face-login']);
+    // }
     // Comment till here
 
     // Uncomment
-    // this.userLoginService.verifyUsername(username).subscribe(
-    //   res => {
-    //     if (res.toString() === 'Valid') {
-    //       console.log(res);
-    //       this.userLoginService.setUsername(username);
-    //       this.router.navigate(['/face-login']);
-    //     } else {
-    //       alert('Invalid Username');
-    //     }
-    //   }
-    // );
+    this.userLoginService.verifyUsername(username).subscribe(
+      (res: IResponse) => {
+        console.log(res);
+        if (res.message.toString() === 'valid') {
+          console.log(res);
+          this.userLoginService.setUsername(username);
+          this.router.navigate(['/face-login']);
+          console.log('Here');
+        } else {
+          alert('Invalid Username');
+        }
+      }
+    );
   }
 
   redirectToRegister() {

@@ -44,10 +44,11 @@ export class UserLoginService {
     // otp as response
   }
 
-  sendVoice(voice: string , localStorageTokens: any) {
+  sendVoice(voice: string , localStorageTokens: any, sentence: string) {
     const obj = {
       username: this.username,
       audio: voice,
+      text: sentence,
       localStorageTokens
     };
 
