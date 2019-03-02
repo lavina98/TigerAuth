@@ -3,7 +3,8 @@ import {
     OnInit,
     ViewChild,
     ElementRef,
-    AfterViewInit
+    AfterViewInit,
+    NgZone
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as RecordRTC from 'recordrtc';
@@ -24,7 +25,11 @@ export class FaceLoginComponent implements OnInit, AfterViewInit {
     recordingStarted: boolean;
     randomBlinks: number;
     username: string;
-    constructor(private http: HttpClient, private userLoginService: UserLoginService, private router: Router) { }
+    constructor(
+        private http: HttpClient,
+        private userLoginService: UserLoginService,
+        private ngZone: NgZone,
+        private router: Router) { }
 
     ngOnInit() {
         // this.username = this.userService.getUsername();
@@ -121,11 +126,15 @@ export class FaceLoginComponent implements OnInit, AfterViewInit {
                     console.log('Face Verified');
                     // localStorage.removeItem('TigerAuth');
                     localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
-                    this.userLoginService.redirectUserAsPerAuthentication();
-                } else {
-                    alert('Please try again');
-                    localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
-                    this.router.navigate(['/face-login']);
+                    this.ngZone.run(() => {
+                        this.router.navigate(['/voice-login']);
+                    });
+                    // this.userLoginService.redirectUserAsPerAuthentication();
+                    // } else {
+                    //     alert('Please try again');
+                    //     localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
+                    //     const str = '/face-login';
+                    //     this.router.navigate([str]);
                 }
             }
         );

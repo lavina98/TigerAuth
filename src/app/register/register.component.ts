@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   verifyUsername() {
     console.log(this.registerForm.value.username);

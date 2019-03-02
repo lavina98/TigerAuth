@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Chart } from 'chart.js';
-
-
 // import * as CanvasJS from '../../../node_modules/canvasjs';
 
 @Component({
@@ -34,8 +32,6 @@ export class ClientDashboardComponent implements OnInit {
 
 
   ngOnInit() {
-    // get client list from api
-    // client =
     this.selectClient = this.fb.group({
       clientName: this.fb.control('')
     });

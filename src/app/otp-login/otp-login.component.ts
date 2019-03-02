@@ -4,6 +4,7 @@ import { UserRegisterService } from '../shared/services/user-register.service';
 import { UserLoginService } from '../shared/services/user-login.service';
 import { Router } from '@angular/router';
 import { IResponse } from '../shared/models/single-word-response.model';
+import { UserService } from '../shared/services/user.service';
 
 @Component({
   selector: 'app-otp-login',
@@ -19,6 +20,7 @@ export class OtpLoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userLoginService: UserLoginService,
+    private userService: UserService,
     private router: Router) {
     this.otpForm = fb.group({
       otp: this.fb.control('', [Validators.required]),
@@ -39,9 +41,10 @@ export class OtpLoginComponent implements OnInit {
       console.log('Valid OTP');
       // send local storage to server so it can set its token
       // and request for access token
-      this.userLoginService.setOtpToken().subscribe((data) => {
-        localStorage.setItem('TigerAuth', JSON.stringify(data));
-        this.userLoginService.redirectUserAsPerAuthentication();
+      this.userLoginService.setOtpToken().subscribe((res: { message: string, TigerAuth: any }) => {
+        localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
+        // this.userLoginService.redirectUserAsPerAuthentication();
+        this.router.navigate(['/dashboard']);
       });
     }
     // else show error and askuser to send otp again

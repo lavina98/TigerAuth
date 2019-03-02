@@ -98,9 +98,16 @@ export class VoiceLoginComponent implements OnInit {
     const audio = VoiceLoginComponent.str;
     const localStorageTokens = JSON.parse(localStorage.getItem('TigerAuth'));
     this.userLoginService.sendVoice(audio, localStorageTokens, this.sentence).subscribe(
-      (data) => {
-        localStorage.setItem('TigerAuth', JSON.stringify(data));
-        this.userLoginService.redirectUserAsPerAuthentication();
+      (res: { message: string, TigerAuth: any }) => {
+        if (res.message === 'valid') {
+          localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
+          this.router.navigate(['/otp-login']);
+
+        } else {
+          alert('Please try again');
+        }
+
+        // this.userLoginService.redirectUserAsPerAuthentication();
       });
   }
 
