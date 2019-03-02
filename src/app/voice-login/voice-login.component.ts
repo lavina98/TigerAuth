@@ -8,6 +8,7 @@ import { UserRegisterService } from '../shared/services/user-register.service';
 import { IResponse } from '../shared/models/single-word-response.model';
 import { getSentence } from '../shared/getSentence';
 import { UserLoginService } from '../shared/services/user-login.service';
+import { NavBarService } from '../shared/services/navbarservice';
 
 @Component({
   selector: 'app-voice-login',
@@ -34,9 +35,11 @@ export class VoiceLoginComponent implements OnInit {
     private userRegisterService: UserRegisterService,
     private userService: UserService,
     private userLoginService: UserLoginService,
-    private http: HttpClient) { }
+    private http: HttpClient,
+    private navBarService: NavBarService) { }
 
   ngOnInit() {
+    this.navBarService.hide();
     this.sentence = getSentence() + ' ' + getSentence();
   }
 

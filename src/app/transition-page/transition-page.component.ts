@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { UserLoginService } from '../shared/services/user-login.service';
 import { ip } from '../shared/backend-ip';
 import { UserService } from '../shared/services/user.service';
+import { NavBarService } from '../shared/services/navbarservice';
 
 @Component({
   selector: 'app-transition-page',
@@ -21,10 +22,12 @@ export class TransitionPageComponent implements OnInit {
     private http: HttpClient,
     private userLoginService: UserLoginService,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private navBarService: NavBarService
   ) {}
 
   ngOnInit() {
+    this.navBarService.hide();
     this.clientName = this.activatedRoute.snapshot.params.clientName;
     this.clientToken = this.activatedRoute.snapshot.params.clientToken;
     this.trusted = this.activatedRoute.snapshot.params.trusted;

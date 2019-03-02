@@ -31,6 +31,7 @@ import { FaceRegisterComponent } from './face-register/face-register.component';
 import { OtpLoginComponent } from './otp-login/otp-login.component';
 import { OtpRegisterComponent } from './otp-register/otp-register.component';
 import { RedirectComponent } from './redirect/redirect.component';
+import { NavBarService } from './shared/services/navbarservice';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { RedirectComponent } from './redirect/redirect.component';
     FaceRegisterComponent,
     OtpLoginComponent,
     OtpRegisterComponent,
-    RedirectComponent
+    RedirectComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +67,7 @@ import { RedirectComponent } from './redirect/redirect.component';
     UserService,
     UserLoginService,
     UserRegisterService,
+    NavBarService,
     CookieService
   ],
   bootstrap: [AppComponent]

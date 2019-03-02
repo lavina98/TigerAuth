@@ -3,6 +3,7 @@ import { UserService } from '../shared/services/user.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserActivityService } from '../shared/services/user-activity.service';
+import { NavBarService } from '../shared/services/navbarservice';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +16,8 @@ export class DashboardComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private http: HttpClient,
-    private userActivityService: UserActivityService) { }
+    private userActivityService: UserActivityService ,
+    private navBarService: NavBarService) { }
 
   clients = [
     {
@@ -49,12 +51,13 @@ export class DashboardComponent implements OnInit {
   ];
 
   ngOnInit() {
-    // this.username = this.userService.getUsername();
-    // this.userActivityService.getAllUserActivity(this.username).subscribe(
-    //   res => {
-    //     console.log(res);
-    //   }
-    // );
+    this.navBarService.show();
+    this.username = this.userService.getUsername();
+    this.userActivityService.getAllUserActivity(this.username).subscribe(
+      res => {
+        console.log(res);
+      }
+    );
   }
 
 }

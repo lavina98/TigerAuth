@@ -1,14 +1,79 @@
 .card{
     margin-top: 5%;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.10);
+    width: 100%;
+    border: 1px solid #ffffff;
+    /* margin-top: 1.5%; */
+    margin-bottom:1.5%;
+    font-family: 'Noticia Text', serif;
+    font-size: 18px;
+    background: #ffffff;
 }
 .name{
-    background-color: rgba(39, 39, 39, 0.883);
+    background-color: #1e91ca;
     color: white;
+    font-weight: bold;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px; 
+    padding: 2%;
+}
+.name_text{
+    margin-left: 2%;
 }
 p{
     padding-top: 2%; 
     line-height: 0.2;
 }
-.table-stripped{
+.table-striped{
     width: 100%;
+}
+.img_user{
+    width: 2.5%;
+    height: 51%;
+}
+.per{
+    width: 20%;
+    height: 15%;
+}
+.usr_name{
+    width: 40%;
+}
+.img_tbl{
+    width: 20%;
+    height: 70%;
+}
+/* table{
+    margin-left: 2%;
+} */
+body{
+    overflow: hidden;
+    background-size: cover;
+    width: 100%;
+    min-height: 100%;
+    background:#edeeed;
+}
+.card:hover{
+    box-shadow: 0 20px 30px rgba(0,0,0,0.20);
+}
+button{
+    display: block; 
+    margin-left:auto;
+    margin-right: auto;
+    width: 30%;
+    height: 70%;
+    padding-top:1.5%;
+    padding-bottom:1.5%;
+    padding-left:1%;
+    padding-right:1%;
+    background:rgb(255, 123, 0);
+    color:white;
+    border-radius: 10px;
+    margin-top: 1%;
+    margin-bottom:2%;
+    font-size: 100%;
+    opacity:1;
+}
+button:hover{
+    box-shadow: 0 18px 22px 0 rgba(0,0,0,0.40)
 }

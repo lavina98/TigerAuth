@@ -1,17 +1,56 @@
-p
+/* p
 {
     display: inline;
-}
-.table-striped>tbody>tr:nth-child(odd){
-    background-color:#da69f6;
-}
-.table-striped>tbody>tr:nth-child(even){
-    background-color:#ebb0fa;
-}
-th {
-    background-color: #4b4b4b;
-    color: white;
-} 
-/* .table-striped>tbody>th {
-    background-color:#5e5e5e;
 } */
+.table-striped{
+    width: 100%;
+}
+table{
+    max-width: 100%;
+}
+.card{
+    margin-top: 5%;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.10);
+    width: 100%;
+    border: 1px solid #ffffff;
+    /* margin-top: 1.5%; */
+    margin-bottom:25%;
+    font-family: 'Noticia Text', serif;
+    font-size: 18px;
+    background: #ffffff;
+}
+.card:hover{
+    box-shadow: 0 20px 30px rgba(0,0,0,0.20);
+}
+.name{
+    background-color: #1e91ca;
+    color: white;
+    font-weight: bold;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px; 
+    padding: 2%;
+}
+.name_text{
+    margin-left: 2%;
+}
+.per{
+    width: 20%;
+    height: 15%;
+}
+.spaced_data{
+    width: 40%;
+}
+body{
+    overflow: hidden;
+    background-size: 100%;
+    width: 100%;
+    min-height: 100%;
+    background:#edeeed;
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+.img_tbl{
+    width: 20%;
+    height: 70%;
+}
