@@ -30,7 +30,6 @@ export class UserLoginService {
   }
 
   setUsername(username: string) {
-    sessionStorage.setItem('username', username);
     this.username = username;
   }
 

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UserLoginService } from '../shared/services/user-login.service';
 import { IUserDetails } from '../shared/models/user-details.model';
 import { UserService } from '../shared/services/user.service';
+import { NavBarService } from '../shared/services/navbarservice';
 
 @Component({
   selector: 'app-redirect',
@@ -14,10 +15,12 @@ export class RedirectComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private userLoginService: UserLoginService,
-    private userService: UserService
+    private userService: UserService,
+    private navBarService: NavBarService
   ) {}
 
   ngOnInit() {
+    this.navBarService.hide();
     this.id = this.activatedRoute.snapshot.params.tigerAuthId;
     this.userLoginService
       .getUserDetails(this.id)

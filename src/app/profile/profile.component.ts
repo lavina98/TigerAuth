@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DISABLED } from '@angular/forms/src/model';
+import { NavBarService } from '../shared/services/navbarservice';
 
 @Component({
   selector: 'app-profile',
@@ -8,9 +9,9 @@ import { DISABLED } from '@angular/forms/src/model';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  enable = false;
-  buttonValue = 'Edit';
-  private updateProfileForm: FormGroup;
+  public enable = false;
+  public buttonValue = 'Edit';
+  public updateProfileForm: FormGroup;
   user = {
     username: 'mihirnd',
     first_name: 'Mihir',
@@ -19,7 +20,7 @@ export class ProfileComponent implements OnInit {
     mobile: '8451885129',
     dob: '11-11-1998'
   };
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder , private navBarService: NavBarService) {
     this.updateProfileForm = fb.group({
       username: this.fb.control({ value:'',disabled: true} ,[Validators.required]),
       first_name: this.fb.control({ value:'',disabled: true} , [Validators.required]),
@@ -31,6 +32,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.navBarService.show();
     this.enable = false;
   }
   enableEdit() {
