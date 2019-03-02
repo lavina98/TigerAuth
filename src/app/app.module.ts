@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {WebcamModule} from 'ngx-webcam';
+import { ChartsModule } from '../../node_modules/ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -56,7 +57,8 @@ import { RedirectComponent } from './redirect/redirect.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartsModule
   ],
   providers: [
     ClientService,

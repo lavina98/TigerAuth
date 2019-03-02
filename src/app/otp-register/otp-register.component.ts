@@ -45,4 +45,13 @@ export class OtpRegisterComponent implements OnInit {
 
   }
 
+  resendOTP() {
+    this.userRegisterService.sendOTP().subscribe(
+      (res: IResponse) => {
+        this.otp = res.message;
+        console.log(this.otp);
+      }
+    );
+  }
+
 }
