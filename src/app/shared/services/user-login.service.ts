@@ -30,6 +30,7 @@ export class UserLoginService {
   }
 
   setUsername(username: string) {
+    sessionStorage.setItem('username', username);
     this.username = username;
   }
 
@@ -147,5 +148,20 @@ export class UserLoginService {
   setOtpToken() {
     const dataToSend = {localStorageTokens: JSON.parse(localStorage.getItem('TigerAuth'))};
     return this.http.post(ip + '/', dataToSend );
+  }
+
+  getUserDetails(id: string) {
+     //add tiger auth secret key here
+     const objToSend = {
+       id,
+       //add domain name of tiger auth here
+       domainName: 'TigerAuth.com'
+     };
+     const headers = new HttpHeaders({
+       'Content-Type': 'application/json',
+      // add secret key of Tiger Auth
+      //  'Authorization': 'Bearer ',
+     });
+     return this.http.post(ip + '/login/resource', objToSend, {headers});
   }
 }

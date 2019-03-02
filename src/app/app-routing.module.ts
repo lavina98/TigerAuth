@@ -15,6 +15,7 @@ import { VoiceRegisterComponent } from './voice-register/voice-register.componen
 import { VoiceLoginComponent } from './voice-login/voice-login.component';
 import { OtpRegisterComponent } from './otp-register/otp-register.component';
 import { OtpLoginComponent } from './otp-login/otp-login.component';
+import { RedirectComponent } from './redirect/redirect.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -35,7 +36,8 @@ const routes: Routes = [
   { path: 'voice-login', component: VoiceLoginComponent },
   { path: 'transition/:clientName/:clientToken/:trusted', component: TransitionPageComponent },
   { path: 'user-list/:clientName/:clientToken/:trusted', component: UserloginListComponent },
-  { path: 'login/:clientName/:clientToken/:trusted', component: LoginComponent }
+  { path: 'login/:clientName/:clientToken/:trusted', component: LoginComponent },
+  { path: 'redirect/:tigerAuthId' , component: RedirectComponent}
 ];
 
 @NgModule({
