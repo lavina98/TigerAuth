@@ -55,8 +55,8 @@ body{
     margin-top: 2%;
     margin-left: 25%;
     margin-bottom:1%;
-    background-image:linear-gradient(to right,rgb(37, 37, 37),rgb(131, 128, 128));
-    color:white;
+    background-image:linear-gradient(to right,rgb(255, 123, 0),#fdc683);
+    color:black;
 }
 #inner_card2{
     box-shadow: 0 10px 15px rgba(0,0,0,0.10);
@@ -70,8 +70,8 @@ body{
     margin-top:2%;
     margin-right:18%;
     margin-bottom:1%;
-    background-image:linear-gradient(to right,rgb(37, 37, 37),rgb(131, 128, 128));
-    color:white;
+    background-image:linear-gradient(to right,rgb(255, 123, 0),#fdc683);
+    color:black;
 }
 p{
     font-size: 20;
@@ -104,4 +104,11 @@ hr {
     width:143.2%;
     margin-left: -43%;
 }
-
+.graph{
+    width:80%;
+    height:70%;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:2%;
+}
