@@ -10,6 +10,10 @@ import { Router } from '@angular/router';
 })
 export class UserLoginService {
   username: string;
+  faceRequiredByClient = false;
+  voiceRequiredByClient = false;
+  otpRequiredByClient = false;
+
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -110,9 +114,12 @@ export class UserLoginService {
             this.router.navigate(['/face-login']);
           } else if (data.response.voiceRequiredByClient) {
             this.router.navigate(['/voice-login']);
-          } else {
+          } else if ((data.response.otpRequiredByClient)) {
             this.router.navigate(['/otp-login']);
           }
+          // if () {
+
+          // }
         }
       }
     );
