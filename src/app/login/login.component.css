@@ -15,32 +15,53 @@ body{
     font-family: 'Noticia Text', serif;
     font-size: 20px;
     background:#000076;
-    opacity:0.6;
+    opacity:0.75;
 
 }
 .card:hover{
     box-shadow: 0 20px 30px rgba(0,0,0,0.40);
 }
-#submit_button{
+#submit_button1{
     display: block; 
     margin-left:auto;
     margin-right: auto;
     width:50%;
-    padding-top:2%;
-    padding-bottom:2%;
-    background:white;
+    height:70%;
+    padding-top:1.5;
+    padding-bottom:1.5%;
+    padding-left:1%;
+    padding-right:1%;
+    background:rgb(255, 123, 0);
     color:black;
     border-radius: 10px;
-    margin-top:1%;
-    /* margin-bottom:1%; */
-    font-size: 20px;
+    margin-top:-8%;
+    margin-bottom:2%;
+    font-size: 18px;
     opacity:1;
 }
-#submit_button:hover{
+#submit_button2{
+    display: block; 
+    margin-left:auto;
+    margin-right: auto;
+    width:40%;
+    height:60%;
+    padding:1.5%;
+    background:#fdc683;
+    color:black;
+    border-radius: 10px;
+    margin-top:0%;
+    margin-bottom:4%;
+    font-size: 18px;
+    opacity:1;
+}
+#submit_button1:hover{
+    box-shadow: 0 18px 22px 0 rgba(0,0,0,0.40)
+}
+#submit_button2:hover{
     box-shadow: 0 18px 22px 0 rgba(0,0,0,0.40)
 }
 .form_element{
-    margin-top:2%;
+    margin-top:10%;
     margin-bottom:1%;
     margin-left:7%;
     width:90%;
@@ -48,11 +69,12 @@ body{
 }
 .input_field{
     border: none;
-    border-bottom: 1px solid #1a1a1a;
+    border-bottom: 1px solid white;
     width:90%;
     background:#000076; 
     filter: alpha(opacity=70);
     color:rgb(158, 156, 156);
+    /* margin-top:-1%; */
    
 }
 .label{
@@ -77,4 +99,22 @@ h6{
     color:#f8901f;
     text-align: center;
     opacity: 1;
+}
+hr {
+    display: block;
+    height: 1.5px;
+    border: 0;
+    border-top: 1px solid rgb(223, 219, 219);
+    padding: 0;
+    width:50%;
+    opacity:0.9;
+    margin-bottom:-1%; 
+}
+p{
+    color: white;
+    /* font-weight: bold; */
+    margin-top:1%;
+    text-align:center;
+    margin-top:2%;
+    font-size:18px;
 }

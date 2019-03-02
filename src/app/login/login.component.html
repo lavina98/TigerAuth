@@ -9,7 +9,7 @@
       <div class="col-md-4">
         <div class="card">
           <div class="card_header">
-            <h4>TigerAuth Login</h4>
+            <h4>Login</h4>
           </div>
           <form [formGroup]="loginForm" >
             <div class="form-group">
@@ -22,12 +22,12 @@
               <br>
               <br>
               <br>
-              <button class="btn btn-secondary" (click)="checkUsername()" id="submit_button">Next</button>
-              <br>
+              <button class="btn btn-secondary" (click)="checkUsername()" id="submit_button1">Next</button>
             </div>
+            <hr>
           </form>
-          <button class="btn btn-secondary" (click)="redirectToRegister()" id="submit_button">Register</button>
-
+          <p>New User?</p>
+          <button class="btn btn-secondary" (click)="redirectToRegister()" id="submit_button2">Register</button>
         </div>
         <div class="col-md-4">
 

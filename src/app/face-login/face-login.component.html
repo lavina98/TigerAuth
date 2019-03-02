@@ -13,26 +13,22 @@
 
         <div class="card">
           <div>
+              <p> Press <span class="orange">Start Recording</span> and blink <span class="orange">{{randomBlinks}}</span> times</p>
+              <button class="submit_button1" *ngIf="!recordingStarted" (click)="recordingStart()">
+                Start Recording
+              </button>
+              <button class="submit_button2" *ngIf="recordingStarted" (click)="recordingStop()">
+                  Stop Recording
+                </button>
             <div><video #video id="video" width="100%" autoplay></video></div>
-            <h1>{{randomBlinks}}</h1>
-            <button class="submitbutton1" *ngIf="!recordingStarted" (click)="recordingStart()">
-              Start Recording
-            </button>
           </div>
           <div>
-            <button class="submit_button2" *ngIf="recordingStarted" (click)="recordingStop()">
-              Stop Recording
-            </button>
+            
           </div>
         </div>
       </div>
       <div class="col-md-3"></div>
     </div>
-  </div>
-  <div>
-    <button *ngIf="recordingStarted" (click)="recordingStop()">
-      Stop recording
-    </button>
   </div>
   <!-- <div><video #video id="video" width="640" height="480" autoplay></video></div>
   <div>
