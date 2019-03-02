@@ -39,7 +39,7 @@ export class VoiceLoginComponent implements OnInit {
     private navBarService: NavBarService) { }
 
   ngOnInit() {
-    this.navBarService.hide();
+    // this.navBarService.hide();
     this.sentence = getSentence() + ' ' + getSentence();
   }
 
