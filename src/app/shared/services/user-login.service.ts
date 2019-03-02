@@ -157,12 +157,12 @@ export class UserLoginService {
      const objToSend = {
        id,
        //add domain name of tiger auth here
-       domainName: 'TigerAuth.com'
+       domainName: 'www.TigerAuth.com'
      };
      const headers = new HttpHeaders({
        'Content-Type': 'application/json',
       // add secret key of Tiger Auth
-      //  'Authorization': 'Bearer ',
+       'Authorization': 'Bearer'
      });
      return this.http.post(ip + '/login/resource', objToSend, {headers});
   }

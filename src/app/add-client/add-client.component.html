@@ -1,4 +1,5 @@
 <!--left to style-->
+
 <body>
   <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
   <div class="container">
@@ -27,39 +28,36 @@
                 <input class="input_field" type="text" formControlName="redirectUrl" placeholder="Redirect URL">
               </div>
               <br>
+              <br>
               <!--this part is pending-->
-              <!-- <div class="tooltip">User Details<span class="tooltiptext">Specify the details you would want to know on
-                  user login</span></div> -->
-              <!--ends here-->
-              <div class="form-control form-check form-check-inline form_element" *ngFor="let field of userData">
-                <label class="label" [for]="field"></label>
-                <br>
-
-                <input class="form-check-input" type="checkbox" [formControlName]="field" />{{ field }}
+              <div class="label1">
+                <p>User Details</p><span class="description">Specify the details you would want to know on
+                  user login</span>
               </div>
-        <br />
-        <p>Select methods of authentication (Can be multiple)</p>
-        <div class="form-control" *ngFor="let auth of authentication">
-          <label [for]="auth"></label>
-          <input type="checkbox" [formControlName]="auth">{{auth}}
+              <!--ends here-->
+              <div class="form-control form-check form-check-inline form_element" *ngFor="let f of userData">
+                <input class="form-check-input tick" type="checkbox" formControlName="{{f.key}}" /><label class="label2"
+                  [for]="field">{{ f.value }}</label>
+              </div>
+              <br />
+              <p>Select methods of authentication (Can be multiple)</p>
+              <div class="form-control" *ngFor="let auth of authentication">
+                <label [for]="auth">
+                <input type="checkbox" formControlName="{{auth.key}}">{{auth.value}}</label>
+              </div>
+            </div>
+            <button class="btn btn-primary" [disabled]="!this.clientRegisterForm.valid" (click)="registerClient()">
+              Register
+            </button>
+            <br/>
+          </form>
         </div>
-      </div>
-        <button
-          class="btn btn-primary"
-          [disabled]="!this.clientRegisterForm.valid"
-          (click)="registerClient()"
-        >
-          Register
-        </button>
-        <br />
-      </form>
-    </div>
 
         <div class="col-md-3"></div>
       </div>
     </div>
-  <div *ngIf="registrationSuccessful">
-    <p>Congrats ! registration Successfull . View dashboard for more details</p>
-  </div>
+    <div *ngIf="registrationSuccessful">
+      <p>Congrats ! registration Successfull . View dashboard for more details</p>
+    </div>
   </div>
 </body>
