@@ -2,16 +2,32 @@ p
 {
     display: inline;
 }
-.table-striped>tbody>tr:nth-child(odd){
-    background-color:#da69f6;
+.table-striped{
+    width: 100%;
 }
-.table-striped>tbody>tr:nth-child(even){
-    background-color:#ebb0fa;
+.card{
+    margin-top: 5%;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.10);
+    width: 100%;
+    border: 1px solid #ffffff;
+    /* margin-top: 1.5%; */
+    margin-bottom:1.5%;
+    font-family: 'Noticia Text', serif;
+    font-size: 18px;
+    background: #ffffff;
 }
-th {
-    background-color: #4b4b4b;
+.card:hover{
+    box-shadow: 0 20px 30px rgba(0,0,0,0.20);
+}
+.name{
+    background-color: #1e91ca;
     color: white;
-} 
-/* .table-striped>tbody>th {
-    background-color:#5e5e5e;
-} */
+    font-weight: bold;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px; 
+    padding: 2%;
+}
+.name_text{
+    margin-left: 2%;
+}

@@ -1,55 +1,58 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-<!-- <div class="card">
-  <div class="name">{{clientName}} requires :</div>
-  <div *ngIf="clientRequiresFace"> <p>Face</p></div>
-  <div *ngIf="clientRequiresOtp"><p>OTP</p></div>
-  <div *ngIf="clientRequiresVoice"><p>Voice</p></div>
-</div> -->
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
 
-<div class="card">
-  <div class="name">{{clientName}} requires:</div>
-  <p>Face</p>
-  <p>Voice</p>
-  <p>OTP</p>
-</div>
+      <div class="card">
+        <div class="name"><span class="name_text">{{clientName}} requires:</span></div>
+        <span class="name_text">
+        <div *ngIf="clientRequiresFace"><img src="../../assets/tick.png" class="img_user">  Face</div>
+        <div *ngIf="!clientRequiresFace"><img src="../../assets/cross.png" class="img_user">  Face</div>
+        <div *ngIf="clientRequiresOtp"><img src="../../assets/tick.png" class="img_user">  OTP</div>
+        <div *ngIf="!clientRequiresOtp"><img src="../../assets/cross.png" class="img_user">  OTP</div>
+        <div *ngIf="clientRequiresVoice"><img src="../../assets/tick.png" class="img_user">  Voice</div>
+        <div *ngIf="!clientRequiresVoice"><img src="../../assets/cross.png" class="img_user">  Voice</div>
+      </span>
+      </div>
 
-<!-- <div *ngFor="let user of userList" (click)="selectUser(user)"  >
-  <li>{{user.username}}</li>0
-  <li> Face - {{user.faceTokenCheck}} Voice - {{user.voiceTokenCheck}}  Otp- {{user.otpTokenCheck}}</li> 
-</div> -->
 
-<div class="card">
-  <table class="table-stripped">
-    <tr>
-      <th>Username</th>
-      <th>Face</th>
-      <th>Voice</th>
-      <th>OTP</th>
-    </tr>
-    <tr>
-      <td>abc</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <td>def</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-  </table>
-  <button (submit)="goToLogin()">Add Account</button>
-</div>
-</div>
-<div class="col-md-1"></div>
-</div>
-</div>
-Try changing value of condition in .ts file
-<div *ngIf="condition"> Will activate when true
+      <div class="card">
+      <div class="name"><span class="name_text">User's specified biometrics:</span></div>
+        <table class="table table-striped">
+          <tr>
+            <th class="usr_name">Username</th>
+            <th class="per">Face</th>
+            <th class="per">Voice</th>
+            <th class="per">OTP</th>
+          </tr>
 
+          <tr *ngFor="let user of userList" (click)="selectUser(user)"  >
+            <td class="usr_name">{{user.username}}</td>
+            <td *ngIf="user.faceTokenCheck" class="per"><img src="../../assets/tick.png" class="img_tbl"></td>
+            <td *ngIf="!user.faceTokenCheck" class="per"><img src="../../assets/cross.png" class="img_tbl"></td>
+            <td *ngIf="user.voiceTokenCheck" class="per"><img src="../../assets/tick.png" class="img_tbl"></td>
+            <td *ngIf="!user.voiceTokenCheck" class="per"><img src="../../assets/cross.png" class="img_tbl"></td>
+            <td *ngIf="user.otpTokenCheck" class="per"><img src="../../assets/tick.png" class="img_tbl"></td>
+            <td *ngIf="!user.otpTokenCheck" class="per"><img src="../../assets/cross.png" class="img_tbl"></td>
+          </tr>
+            
+          
+          <!-- <tr>
+            <td class="usr_name">def</td>
+            <td><img src="../../assets/tick.png" class="img_tbl"></td>
+            <td><img src="../../assets/cross.png" class="img_tbl"></td>
+            <td><img src="../../assets/cross.png" class="img_tbl"></td>
+          </tr>
+          <tr>
+            <td class="usr_name">def</td>
+            <td><img src="../../assets/tick.png" class="img_tbl"></td>
+            <td><img src="../../assets/cross.png" class="img_tbl"></td>
+            <td><img src="../../assets/tick.png" class="img_tbl"></td>
+          </tr> -->
+        </table>
+        <button (submit)="goToLogin()">Add Account</button>
+      </div>
 </div>
-<div *ngIf="!condition"> WIll activate when false since !false = true</div>
+<div class="col-md-2"></div>
+</div>
+</div>
