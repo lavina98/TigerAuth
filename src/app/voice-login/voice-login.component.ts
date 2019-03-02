@@ -37,7 +37,7 @@ export class VoiceLoginComponent implements OnInit {
     private http: HttpClient) { }
 
   ngOnInit() {
-    this.sentence = getSentence() + '. ' + getSentence();
+    this.sentence = getSentence() + ' ' + getSentence();
   }
 
   sanitize(url: string) {

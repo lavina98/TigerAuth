@@ -114,14 +114,22 @@ export class FaceLoginComponent implements OnInit, AfterViewInit {
         const localStorageTokens = JSON.parse(localStorage.getItem('TigerAuth'));
         // send local storage content to server modifies and you store it back to the local storage
         this.userLoginService.sendVideo(dataURL, this.randomBlinks, localStorageTokens).subscribe(
-            (res: {message: string, localStorageContent: any}) => {
+            (res: { message: string, TigerAuth: any }) => {
                 console.log(res);
-                localStorage.setItem('TigerAuth', JSON.parse(res.localStorageContent));
-                this.userLoginService.redirectUserAsPerAuthentication();
+
+                if (res.message === 'valid') {
+                    console.log('Face Verified');
+                    // localStorage.removeItem('TigerAuth');
+                    localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
+                    this.userLoginService.redirectUserAsPerAuthentication();
+                } else {
+                    alert('Please try again');
+                    localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
+                    this.router.navigate(['/face-login']);
+                }
             }
         );
 
     }
-
 }
 
