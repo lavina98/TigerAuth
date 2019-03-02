@@ -10,6 +10,10 @@ import { Router } from '@angular/router';
 })
 export class UserLoginService {
   username: string;
+  faceRequiredByClient = false;
+  voiceRequiredByClient = false;
+  otpRequiredByClient = false;
+
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -44,10 +48,11 @@ export class UserLoginService {
     // otp as response
   }
 
-  sendVoice(voice: string , localStorageTokens: any) {
+  sendVoice(voice: string , localStorageTokens: any, sentence: string) {
     const obj = {
       username: this.username,
       audio: voice,
+      text: sentence,
       localStorageTokens
     };
 
@@ -103,15 +108,19 @@ export class UserLoginService {
         console.log(data);
         if (data.link !== 'self') {
           console.log('redirecting');
+          console.log(data.link);
           window.open(data.link, '_self');
         } else {
           if (data.response.faceRequiredByClient) {
             this.router.navigate(['/face-login']);
           } else if (data.response.voiceRequiredByClient) {
             this.router.navigate(['/voice-login']);
-          } else {
+          } else if ((data.response.otpRequiredByClient)) {
             this.router.navigate(['/otp-login']);
           }
+          // if () {
+
+          // }
         }
       }
     );

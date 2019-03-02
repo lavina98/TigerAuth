@@ -120,7 +120,6 @@ export class FaceLoginComponent implements OnInit, AfterViewInit {
                 this.userLoginService.redirectUserAsPerAuthentication();
             }
         );
-        this.router.navigate(['/otp-login']);
 
     }
 

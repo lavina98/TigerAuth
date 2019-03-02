@@ -31,6 +31,8 @@ export class VoiceLoginComponent implements OnInit {
   constructor(
     private domSanitizer: DomSanitizer,
     private router: Router,
+    private userRegisterService: UserRegisterService,
+    private userService: UserService,
     private userLoginService: UserLoginService,
     private http: HttpClient) { }
 
@@ -93,14 +95,13 @@ export class VoiceLoginComponent implements OnInit {
 
   postData() {
 
-    // const audio = VoiceLoginComponent.str;
-    // this.userLoginService.sendVoice(audio).subscribe();// setUserAudio(audio);
-    // this.userRegisterService.submit().subscribe(
-    //   (res: IResponse) => {
-    //     console.log(res.message);
-    //     this.userService.setLoginStatus('Valid');
-    //   }
-    // );
+    const audio = VoiceLoginComponent.str;
+    const localStorageTokens = JSON.parse(localStorage.getItem('TigerAuth'));
+    this.userLoginService.sendVoice(audio, localStorageTokens, this.sentence).subscribe(
+      (data) => {
+        localStorage.setItem('TigerAuth', JSON.stringify(data));
+        this.userLoginService.redirectUserAsPerAuthentication();
+      });
   }
 
   /**

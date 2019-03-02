@@ -22,7 +22,7 @@ export class ClientDashboardComponent implements OnInit {
     // console.log(this.getCorrectTime(1551323323));
     const date = new Date(1551323323000).toString().split(' ');
     console.log(date);
-    console.log(new Date(1551323323000));
+    console.log(new Date(1551376323000));
   }
 
   getCorrectTime(unix: number) {
