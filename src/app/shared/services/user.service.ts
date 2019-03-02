@@ -10,12 +10,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  static status = 'Invalid';
+  // static status = 'Invalid';
   public audio: string;
   public username: string;
   public user: IUserDetails;
   public userImage: string;
-  public loginStatus = 'Inactive';
+  public loginStatus = 'Invalid';
   headers = {
     headers: new Headers({
       'Content-Type': 'application/json',
@@ -23,7 +23,6 @@ export class UserService {
     })
   };
   constructor(private http: HttpClient) { }
-
   setLoginStatus(status: string) {
     this.loginStatus = status;
   }
@@ -37,6 +36,7 @@ export class UserService {
   }
 
   setUsername(username: string) {
+    sessionStorage.setItem('username', username);
     this.username = username;
   }
 

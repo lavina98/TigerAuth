@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private userLoginService: UserLoginService,
+    private userService: UserService,
     private http: HttpClient,
     private cookie: CookieService
   ) {
@@ -60,6 +61,10 @@ export class LoginComponent implements OnInit {
     //     console.log(data1);
     //   });
     // });
+    this.userService.setLocalStorage().subscribe((data1: {data: any}) => {
+      console.log(data1);
+      localStorage.setItem('TigerAuth', JSON.stringify(data1.data));
+    });
   }
 
   checkUsername() {

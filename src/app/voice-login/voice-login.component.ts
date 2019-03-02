@@ -31,11 +31,13 @@ export class VoiceLoginComponent implements OnInit {
   constructor(
     private domSanitizer: DomSanitizer,
     private router: Router,
+    private userRegisterService: UserRegisterService,
+    private userService: UserService,
     private userLoginService: UserLoginService,
     private http: HttpClient) { }
 
   ngOnInit() {
-    this.sentence = getSentence() + '. ' + getSentence();
+    this.sentence = getSentence() + ' ' + getSentence();
   }
 
   sanitize(url: string) {

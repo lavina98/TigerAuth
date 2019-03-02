@@ -2,28 +2,19 @@
 <body>
   <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
   <div class="container">
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8">
-        <div class="card">
-          <div class="name"><span class="name_text">Permissions Granted:</span></div>
-          <table class="table table-striped">
-            <tr>
-                <th class="website">WEBSITE</th>
-                <th class="per">USER NAME</th>
-                <th class="per">MOBILE</th>
-                <th class="per">AGE (DOB)</th>
-              </tr>
-              <tr *ngFor="let x of clientPermissions">
-                  <td class="website">{{c.ip}}</td>
-                  <td class="per">{{c.client}}</td>
-                  <td class="per">{{c.time}}</td>
-                  <td class="per">{{c.device}}</td>
-                </tr>
-          </table>
-        </div>
-      </div>
-      <div class="col-md-2"></div>
-    </div>
+    <table class="table table-striped">
+        <tr>
+            <th>WEBSITE</th>
+            <th>USER NAME</th>
+            <th>MOBILE</th>
+            <th>AGE (DOB)</th>
+          </tr>
+          <tr class="card1" *ngFor="let x of userPermissions">
+              <td class="spaced_data">{{x.client}}</td>
+              <td>{{x.name}}</td>
+              <td>{{x.dateOfBirth}}</td>
+              <td>{{x.phone}}</td>
+            </tr>
+    </table>
   </div>
 </body>

@@ -16,6 +16,7 @@ export class AddClientComponent implements OnInit {
   clientRegisterForm: FormGroup;
   registrationSuccessful: boolean;
   client: IClient;
+  username: string;
   userData = ['name', 'phone', 'dateOfBirth', 'profilePicture'];
   authentication = [
     'faceAuthentication',
@@ -43,8 +44,6 @@ export class AddClientComponent implements OnInit {
   }
 
   ngOnInit() {
-    // console.log(JSON.parse(this.cookie.get('TigerAuth')));
-    console.log(localStorage.getItem('tok'));
   }
 
   registerClient() {

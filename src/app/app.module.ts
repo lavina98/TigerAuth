@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {WebcamModule} from 'ngx-webcam';
+import { ChartsModule } from '../../node_modules/ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -29,6 +30,7 @@ import { FaceLoginComponent } from './face-login/face-login.component';
 import { FaceRegisterComponent } from './face-register/face-register.component';
 import { OtpLoginComponent } from './otp-login/otp-login.component';
 import { OtpRegisterComponent } from './otp-register/otp-register.component';
+import { RedirectComponent } from './redirect/redirect.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,13 +50,15 @@ import { OtpRegisterComponent } from './otp-register/otp-register.component';
     FaceLoginComponent,
     FaceRegisterComponent,
     OtpLoginComponent,
-    OtpRegisterComponent
+    OtpRegisterComponent,
+    RedirectComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartsModule
   ],
   providers: [
     ClientService,

@@ -10,6 +10,10 @@ import { Router } from '@angular/router';
 })
 export class UserLoginService {
   username: string;
+  faceRequiredByClient = false;
+  voiceRequiredByClient = false;
+  otpRequiredByClient = false;
+
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -26,6 +30,7 @@ export class UserLoginService {
   }
 
   setUsername(username: string) {
+    sessionStorage.setItem('username', username);
     this.username = username;
   }
 
@@ -46,10 +51,12 @@ export class UserLoginService {
 
   sendVoice(voice: string , localStorageTokens: any, sentence: string) {
     const obj = {
-      username: this.username,
+      // username: this.username,
+      username: 'sidbabe',
+
       audio: voice,
       text: sentence,
-      localStorageTokens
+      TigerAuth: localStorageTokens
     };
 
     const url = ip + '/check/voice';
@@ -104,15 +111,19 @@ export class UserLoginService {
         console.log(data);
         if (data.link !== 'self') {
           console.log('redirecting');
+          console.log(data.link);
           window.open(data.link, '_self');
         } else {
           if (data.response.faceRequiredByClient) {
             this.router.navigate(['/face-login']);
           } else if (data.response.voiceRequiredByClient) {
             this.router.navigate(['/voice-login']);
-          } else {
+          } else if ((data.response.otpRequiredByClient)) {
             this.router.navigate(['/otp-login']);
           }
+          // if () {
+
+          // }
         }
       }
     );
@@ -129,7 +140,8 @@ export class UserLoginService {
     const obj = {
       username: this.username,
       blinks: numBlinks,
-      video: Video
+      video: Video,
+      TigerAuth: localStorageTokens
     };
     const url = ip + '/check/videoAndBlinks';
     return this.http.post(url, obj);
@@ -139,5 +151,20 @@ export class UserLoginService {
   setOtpToken() {
     const dataToSend = {localStorageTokens: JSON.parse(localStorage.getItem('TigerAuth'))};
     return this.http.post(ip + '/', dataToSend );
+  }
+
+  getUserDetails(id: string) {
+     //add tiger auth secret key here
+     const objToSend = {
+       id,
+       //add domain name of tiger auth here
+       domainName: 'TigerAuth.com'
+     };
+     const headers = new HttpHeaders({
+       'Content-Type': 'application/json',
+      // add secret key of Tiger Auth
+      //  'Authorization': 'Bearer ',
+     });
+     return this.http.post(ip + '/login/resource', objToSend, {headers});
   }
 }
