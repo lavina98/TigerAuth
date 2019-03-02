@@ -29,6 +29,7 @@ import { FaceLoginComponent } from './face-login/face-login.component';
 import { FaceRegisterComponent } from './face-register/face-register.component';
 import { OtpLoginComponent } from './otp-login/otp-login.component';
 import { OtpRegisterComponent } from './otp-register/otp-register.component';
+import { RedirectComponent } from './redirect/redirect.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import { OtpRegisterComponent } from './otp-register/otp-register.component';
     FaceLoginComponent,
     FaceRegisterComponent,
     OtpLoginComponent,
-    OtpRegisterComponent
+    OtpRegisterComponent,
+    RedirectComponent
   ],
   imports: [
     BrowserModule,

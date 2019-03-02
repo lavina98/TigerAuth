@@ -31,12 +31,9 @@ export class VoiceLoginComponent implements OnInit {
   constructor(
     private domSanitizer: DomSanitizer,
     private router: Router,
-<<<<<<< HEAD
     private userRegisterService: UserRegisterService,
     private userService: UserService,
-=======
     private userLoginService: UserLoginService,
->>>>>>> 026421a260e345951e17c87684fbf79a4038bee7
     private http: HttpClient) { }
 
   ngOnInit() {
