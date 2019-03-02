@@ -6,7 +6,7 @@ import { UserService } from './shared/services/user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'client';
   isLogin: boolean;
   constructor(private userService: UserService) {
@@ -18,6 +18,6 @@ export class AppComponent implements OnInit{
     } else {
       this.isLogin = true;
     }
-    this.isLogin=true;
+    this.isLogin =true;
   }
 }

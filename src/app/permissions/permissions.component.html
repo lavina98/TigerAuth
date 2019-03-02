@@ -2,19 +2,31 @@
 <body>
   <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
   <div class="container">
-    <table class="table table-striped">
-        <tr>
-            <th>CLIENT</th>
-            <th>USER NAME</th>
-            <th>MOBILE</th>
-            <th>AGE (DOB)</th>
-          </tr>
-          <tr class="card1" *ngFor="let x of clientPermissions">
-              <td class="spaced_data">{{c.ip}}</td>
-              <td>{{c.client}}</td>
-              <td>{{c.time}}</td>
-              <td>{{c.device}}</td>
-            </tr>
-    </table>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="card">
+          <div class="name"><span class="name_text">Permission Granted:</span></div>
+          <table class="table table-striped">
+              <tr>
+                  <th class="spaced_data">WEBSITE</th>
+                  <th class="per">USER NAME</th>
+                  <th class="per">MOBILE</th>
+                  <th class="per">AGE (DOB)</th>
+                </tr> 
+                <tr class="table_row" *ngFor="let x of userPermissions">
+                    <td class="spaced_data">{{x.client}}</td>
+                    <td class="per" *ngIf="x.name" class="per"><img src="../../assets/tick.png" class="img_tbl"></td>
+                    <td class="per" *ngIf="!x.name" class="per"><img src="../../assets/cross.png" class="img_tbl"></td>
+                    <td class="per" *ngIf="x.dateOfBirth" class="per"><img src="../../assets/tick.png" class="img_tbl"></td>
+                    <td class="per" *ngIf="!x.dateOfBirth" class="per"><img src="../../assets/cross.png" class="img_tbl"></td>
+                    <td class="per" *ngIf="x.phone" class="per"><img src="../../assets/tick.png" class="img_tbl"></td>
+                    <td class="per" *ngIf="!x.phone" class="per"><img src="../../assets/cross.png" class="img_tbl"></td>
+                  </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
   </div>
 </body>

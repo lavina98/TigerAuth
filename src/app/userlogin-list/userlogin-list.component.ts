@@ -7,6 +7,7 @@ import { UserLoginService } from '../shared/services/user-login.service';
 import { IClient } from '../shared/models/client.model';
 import { ip } from '../shared/backend-ip';
 import { ClientService } from '../shared/services/client.service';
+import { NavBarService } from '../shared/services/navbarservice';
 @Component({
   selector: 'app-userlogin-list',
   templateUrl: './userlogin-list.component.html',
@@ -29,10 +30,12 @@ export class UserloginListComponent implements OnInit {
     private userLoginService: UserLoginService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private clientService: ClientService
+    private clientService: ClientService,
+    private navBarService: NavBarService
   ) {}
 
   ngOnInit() {
+    this.navBarService.hide();
     this.clientName = this.activatedRoute.snapshot.params.clientName;
     this.clientToken = this.activatedRoute.snapshot.params.clientToken;
     this.trusted = this.activatedRoute.snapshot.params.trusted;

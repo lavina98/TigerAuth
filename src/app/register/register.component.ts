@@ -4,6 +4,8 @@ import { UserService } from '../shared/services/user.service';
 import { Router } from '@angular/router';
 import { UserRegisterService } from '../shared/services/user-register.service';
 import { IResponse } from '../shared/models/single-word-response.model';
+import { NavBarService } from '../shared/services/navbarservice';
+
 
 @Component({
   selector: 'app-register',
@@ -24,7 +26,7 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router,
-    private userRegisterService: UserRegisterService) {
+    private userRegisterService: UserRegisterService, private navBarService: NavBarService) {
     this.registerForm = fb.group({
       firstName: this.fb.control('', [Validators.required]),
       lastName: this.fb.control('', [Validators.required]),
@@ -35,7 +37,9 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.navBarService.hide();
+  }
 
   verifyUsername() {
     console.log(this.registerForm.value.username);

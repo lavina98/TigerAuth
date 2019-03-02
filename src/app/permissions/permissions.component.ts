@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavBarService } from '../shared/services/navbarservice';
 
 @Component({
   selector: 'app-permissions',
@@ -7,16 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PermissionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private navBarService: NavBarService) { }
 
-  clientPermissions = [
-   {client: 'hackerrank' , permissions: ['username', 'phone']},
-   {client: 'paytm', permissions: ['username', 'dateOfBirth']},
-   {client: 'github', permissions: ['username', 'dateOfBirth']},
-   {client: 'hotstar', permissions: ['username', 'phone', 'dateOfBirth']}
+  userPermissions = [
+   {client: 'hackerrank' , name: true , dateOfBirth: true , phone: true},
+   {client: 'paytm', name: true , dateOfBirth: false , phone: true},
+   {client: 'github', name: false , dateOfBirth: true , phone: false},
+   {client: 'hotstar', name: false , dateOfBirth: false , phone: true}
   ];
 
   ngOnInit() {
+      this.navBarService.show();
   }
 
   selectClient() {

@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserRegisterService } from '../shared/services/user-register.service';
 import { Router } from '@angular/router';
 import { IResponse } from '../shared/models/single-word-response.model';
+import { NavBarService } from '../shared/services/navbarservice';
+
 
 @Component({
   selector: 'app-otp-register',
@@ -17,6 +19,7 @@ export class OtpRegisterComponent implements OnInit {
   method: string;
 
   constructor(
+    private navBarService: NavBarService,
     private fb: FormBuilder,
     private userRegisterService: UserRegisterService,
     private router: Router) {

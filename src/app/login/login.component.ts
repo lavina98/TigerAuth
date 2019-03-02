@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ip } from '../../app/shared/backend-ip';
 import { CookieService } from 'ngx-cookie-service';
 import { IResponse } from '../shared/models/single-word-response.model';
+import { NavBarService } from '../shared/services/navbarservice';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
     private userLoginService: UserLoginService,
     private userService: UserService,
     private http: HttpClient,
-    private cookie: CookieService
+    private cookie: CookieService,
+    private navBarService: NavBarService
   ) {
     this.loginForm = fb.group({
       username: this.fb.control('', [Validators.required])
@@ -61,6 +63,7 @@ export class LoginComponent implements OnInit {
     //     console.log(data1);
     //   });
     // });
+    this.navBarService.hide();
     this.userService.setLocalStorage().subscribe((data1: {data: any}) => {
       console.log(data1);
       localStorage.setItem('TigerAuth', JSON.stringify(data1.data));
@@ -70,15 +73,6 @@ export class LoginComponent implements OnInit {
   checkUsername() {
     console.log(this.loginForm.value);
     const username = this.loginForm.value.username;
-    // Comment from here
-
-    // if (this.loginForm.value.username === 'a') {
-    //   this.userLoginService.setUsername(username);
-    //   this.router.navigate(['/face-login']);
-    // }
-    // Comment till here
-
-    // Uncomment
     this.userLoginService.verifyUsername(username).subscribe(
       (res: IResponse) => {
         console.log(res);

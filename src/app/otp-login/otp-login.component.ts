@@ -4,7 +4,7 @@ import { UserRegisterService } from '../shared/services/user-register.service';
 import { UserLoginService } from '../shared/services/user-login.service';
 import { Router } from '@angular/router';
 import { IResponse } from '../shared/models/single-word-response.model';
-import { UserService } from '../shared/services/user.service';
+import { NavBarService } from '../shared/services/navbarservice';
 
 @Component({
   selector: 'app-otp-login',
@@ -20,14 +20,15 @@ export class OtpLoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userLoginService: UserLoginService,
-    private userService: UserService,
-    private router: Router) {
+    private router: Router,
+    private navBarService: NavBarService) {
     this.otpForm = fb.group({
       otp: this.fb.control('', [Validators.required]),
     });
   }
 
   ngOnInit() {
+    this.navBarService.hide();
     this.userLoginService.sendOTP().subscribe(
       (res: IResponse) => {
         this.otp = res.message;
