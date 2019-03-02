@@ -6,6 +6,7 @@ import { UserService } from '../shared/services/user.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserRegisterService } from '../shared/services/user-register.service';
 import { IResponse } from '../shared/models/single-word-response.model';
+import { NavBarService } from '../shared/services/navbarservice';
 
 @Component({
   selector: 'app-voice-register',
@@ -40,11 +41,14 @@ export class VoiceRegisterComponent implements OnInit {
     private domSanitizer: DomSanitizer,
     private router: Router,
     private userRegisterService: UserRegisterService,
-    private http: HttpClient) {
+    private http: HttpClient,
+    private navBarService: NavBarService) {
     this.audios = [];
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.navBarService.hide();
+   }
 
   sanitize(url: string) {
     return this.domSanitizer.bypassSecurityTrustUrl(url);

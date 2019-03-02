@@ -34,7 +34,7 @@ export class UserService {
       return 'Invalid';
     }
   }
-
+// setting username till session ends
   setUsername(username: string) {
     sessionStorage.setItem('username', username);
     this.username = username;

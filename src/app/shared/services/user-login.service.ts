@@ -29,14 +29,13 @@ export class UserLoginService {
     return this.http.post(url, obj);
   }
 
-  // setUsername(username: string) {
-  //   sessionStorage.setItem('username', username);
-  //   this.username = username;
-  // }
+  setUsername(username: string) {
+    this.username = username;
+  }
 
-  // getUsername() {
-  //   return this.username;
-  // }
+  getUsername() {
+    return this.username;
+  }
 
 
   sendOTP() {
