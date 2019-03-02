@@ -51,10 +51,12 @@ export class UserLoginService {
 
   sendVoice(voice: string , localStorageTokens: any, sentence: string) {
     const obj = {
-      username: this.username,
+      // username: this.username,
+      username: 'sidbabe',
+
       audio: voice,
       text: sentence,
-      localStorageTokens
+      TigerAuth: localStorageTokens
     };
 
     const url = ip + '/check/voice';
@@ -138,7 +140,8 @@ export class UserLoginService {
     const obj = {
       username: this.username,
       blinks: numBlinks,
-      video: Video
+      video: Video,
+      TigerAuth: localStorageTokens
     };
     const url = ip + '/check/videoAndBlinks';
     return this.http.post(url, obj);

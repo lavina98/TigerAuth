@@ -6,7 +6,7 @@
         <div class="form-group card_header">
           <label for="Website">Select your website:</label>
           <select id="Website" formControlName="clientName" [value]="clients[0]">
-            <option *ngFor="let  client of clients" [value]="client">{{client}}</option>
+            <option *ngFor="let  client of clients" (onchange)="change()" [value]="client">{{client}}</option>
           </select>
         </div>
       </form>
@@ -20,10 +20,11 @@
           <p>112586</p>
         </div>
       </div>
-      <div class="graph">
-        <hr>
-        <img class="image" src="../../assets/graph.png">
-      </div>
+      <canvas #lineChart>{{ chart }}</canvas>
+
+
     </div>
+
+  <!-- </div> -->
   </div>
 </body>

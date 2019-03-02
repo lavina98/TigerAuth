@@ -1,16 +1,16 @@
-<body>
+ <body>
   <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
     </div>
-    <div class="col-md-6" id="app">
+    <div class="col-md-8">
       <div class="card">
+          <div class="button_div"><button id="submit_button" (click)="capture()">Snap Photo</button></div>
         <div><video #video id="video" width="640px" height="480px" autoplay></video></div>
-        <div><button id="submit_button" (click)="capture()">Snap Photo</button></div>
         <canvas #canvas width="640px" height="480px" id="canvas"></canvas>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
     </div>
   </div>
 </body>
