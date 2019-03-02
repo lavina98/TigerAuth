@@ -49,7 +49,6 @@ export class DashboardComponent implements OnInit {
   ];
 
   ngOnInit() {
-    // this.username = this.userService.getUsername();
     this.username = this.userService.getUsername();
     this.userActivityService.getAllUserActivity(this.username).subscribe(
       res => {

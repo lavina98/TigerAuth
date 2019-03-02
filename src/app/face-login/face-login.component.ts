@@ -10,7 +10,7 @@ import * as RecordRTC from 'recordrtc';
 import { ip } from '../shared/backend-ip';
 import { Router } from '@angular/router';
 import { UserLoginService } from '../shared/services/user-login.service';
-
+import {UserService} from '../shared/services/user.service';
 @Component({
     selector: 'app-face-login',
     templateUrl: './face-login.component.html',
@@ -24,13 +24,13 @@ export class FaceLoginComponent implements OnInit, AfterViewInit {
     recordingStarted: boolean;
     randomBlinks: number;
     username: string;
-    constructor(private http: HttpClient, private userLoginService: UserLoginService, private router: Router) { }
+    constructor(private userService:UserService , private http: HttpClient, private userLoginService: UserLoginService, private router: Router) { }
 
     ngOnInit() {
-        // this.username = this.userService.getUsername();
-        // if (this.username === undefined) {
-        //   this.router.navigate(['/']);
-        // }
+        this.username = this.userService.getUsername();
+        if (this.username === undefined) {
+          this.router.navigate(['/']);
+        }
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
                 // console.log(stream);
