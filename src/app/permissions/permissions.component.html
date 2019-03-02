@@ -14,14 +14,14 @@
                   <th class="per">MOBILE</th>
                   <th class="per">AGE (DOB)</th>
                 </tr> 
-                <tr *ngFor="let x of userPermissions">
+                <tr class="table_row" *ngFor="let x of userPermissions">
                     <td class="spaced_data">{{x.client}}</td>
                     <td class="per" *ngIf="x.name" class="per"><img src="../../assets/tick.png" class="img_tbl"></td>
                     <td class="per" *ngIf="!x.name" class="per"><img src="../../assets/cross.png" class="img_tbl"></td>
                     <td class="per" *ngIf="x.dateOfBirth" class="per"><img src="../../assets/tick.png" class="img_tbl"></td>
-                    <td class="per" *ngIf="x.dateOfBirth" class="per"><img src="../../assets/cross.png" class="img_tbl"></td>
+                    <td class="per" *ngIf="!x.dateOfBirth" class="per"><img src="../../assets/cross.png" class="img_tbl"></td>
                     <td class="per" *ngIf="x.phone" class="per"><img src="../../assets/tick.png" class="img_tbl"></td>
-                    <td class="per" *ngIf="x.phone" class="per"><img src="../../assets/cross.png" class="img_tbl"></td>
+                    <td class="per" *ngIf="!x.phone" class="per"><img src="../../assets/cross.png" class="img_tbl"></td>
                   </tr>
           </table>
         </div>
