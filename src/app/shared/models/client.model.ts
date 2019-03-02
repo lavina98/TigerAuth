@@ -1,4 +1,4 @@
-export interface IClient {
+export interface IClientDetails {
     domainName: string;
     callbackUrl: string;
     permissions: IPermission;
@@ -19,9 +19,9 @@ export interface IPermission {
 }
 
 
-export interface IClientDetails {
-    domainName: string;
-    id: string;
-    type: string;
-}
+// export interface IClientDetails {
+//     domainName: string;
+//     id: string;
+//     type: string;
+// }
 

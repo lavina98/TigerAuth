@@ -37,11 +37,11 @@ export class FaceLoginComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit() {
-    this.navBarService.hide();
-    this.username = this.userService.getUsername();
-    if (this.username === undefined) {
-      this.router.navigate(['/']);
-    }
+    // this.navBarService.hide();
+    // this.username = this.userService.getUsername();
+    // if (this.username === undefined) {
+    //   this.router.navigate(['/']);
+    // }
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
         // console.log(stream);
@@ -124,20 +124,20 @@ export class FaceLoginComponent implements OnInit, AfterViewInit {
     console.log('sending req');
     const localStorageTokens = JSON.parse(localStorage.getItem('TigerAuth'));
     // send local storage content to server modifies and you store it back to the local storage
-    this.userLoginService
-      .sendVideo(dataURL, this.randomBlinks, localStorageTokens)
-      .subscribe((res: { message: string; TigerAuth: any }) => {
-        console.log(res);
+    // this.userLoginService
+    //   .sendVideo(dataURL, this.randomBlinks, localStorageTokens)
+    //   .subscribe((res: { message: string; TigerAuth: any }) => {
+      //   console.log(res);
 
-        if (res.message === 'valid') {
-          console.log('Face Verified');
-          localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
-          this.userLoginService.redirectUserAsPerAuthentication();
-        } else {
-          alert('Please try again');
-          localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
-          this.router.navigate(['/face-login']);
-        }
-      });
+      //   if (res.message === 'valid') {
+      //     console.log('Face Verified');
+      //     localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
+      //     this.userLoginService.redirectUserAsPerAuthentication();
+      //   } else {
+      //     alert('Please try again');
+      //     localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
+      //     this.router.navigate(['/face-login']);
+      //   }
+      // });
   }
 }

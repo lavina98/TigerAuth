@@ -138,8 +138,8 @@ export class UserLoginService {
 
   sendVideo(Video: string, numBlinks: number, localStorageTokens: any) {
     const obj = {
-      // username: 'mihir_test',
-      username: this.userService.getUsername(),
+      username: 'mihir_test',
+      // username: this.userService.getUsername(),
       blinks: numBlinks,
       video: Video,
       TigerAuth: localStorageTokens
@@ -159,17 +159,17 @@ export class UserLoginService {
   }
 
   getUserDetails(id: string) {
-     //add tiger auth secret key here
-     const objToSend = {
-       id,
-       //add domain name of tiger auth here
-       domainName: 'TigerAuth.com'
-     };
-     const headers = new HttpHeaders({
-       'Content-Type': 'application/json',
+    // add tiger auth secret key here
+    const objToSend = {
+      id,
+      // add domain name of tiger auth here
+      domainName: 'TigerAuth.com'
+    };
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
       // add secret key of Tiger Auth
       //  'Authorization': 'Bearer ',
-     });
-     return this.http.post(ip + '/login/resource', objToSend, {headers});
+    });
+    return this.http.post(ip + '/login/resource', objToSend, { headers });
   }
 }
