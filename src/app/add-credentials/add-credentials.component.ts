@@ -60,6 +60,8 @@ export class AddCredentialsComponent implements OnInit {
     );
   }
 
-
+  redirect() {
+    this.router.navigate(['/add-credential']);
+  }
 }
 

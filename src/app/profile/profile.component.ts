@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DISABLED } from '@angular/forms/src/model';
 import { NavBarService } from '../shared/services/navbarservice';
 import { UserService } from '../shared/services/user.service';
+import { Router } from '@angular/router';
+import { IUserDetails } from '../shared/models/user-details.model';
+import { IUserModel } from '../shared/models/user.model';
 
 @Component({
   selector: 'app-profile',
@@ -12,6 +15,12 @@ import { UserService } from '../shared/services/user.service';
 export class ProfileComponent implements OnInit {
   public enable = false;
   public buttonValue = 'Edit';
+  username = '';
+  firstName: '';
+  lastName: '';
+  mobile = '';
+  dob = '';
+  img = '';
   public updateProfileForm: FormGroup;
   user = {
     username: 'mihirnd',
@@ -21,7 +30,9 @@ export class ProfileComponent implements OnInit {
     mobile: '8451885129',
     dob: '11-11-1998'
   };
-  constructor(private fb: FormBuilder, private navBarService: NavBarService) {
+
+  user1: IUserModel;
+  constructor(private fb: FormBuilder, private router: Router, private navBarService: NavBarService, private userService: UserService) {
     this.updateProfileForm = fb.group({
       username: this.fb.control({ value: '', disabled: true }, [
         Validators.required
@@ -45,8 +56,24 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.navBarService.show();
     this.userService.getUserProfile().subscribe(
-      res => {
+      (res) => {
         console.log(res);
+        if (res['userData'] === null) {
+          this.router.navigate(['/login']);
+        } else {
+          // this.user1 = res['userData'];
+          console.log('here');
+          const userData = res['userData'];
+          console.log(userData);
+          this.firstName = userData.firstName;
+          this.lastName = userData.lastName;
+          this.mobile = userData.phone;
+          this.dob = userData.dob;
+          this.img = userData.img;
+          this.username = userData.username;
+
+          this.enable = true;
+        }
       }
     );
   }

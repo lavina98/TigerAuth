@@ -13,7 +13,8 @@ export interface IUserActivity {
 }
 
 export interface IUserModel {
-  name: string;
+  firstName: string;
+  lastName: string;
   username: string;
   phone: string;
   dob: string;
