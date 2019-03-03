@@ -119,6 +119,7 @@ export class VoiceRegisterComponent implements OnInit {
         this.sendReq();
       }
     } else {
+      //send list users page
     }
 
 
@@ -128,8 +129,11 @@ export class VoiceRegisterComponent implements OnInit {
   sendReq() {
     this.userRegisterService.setUserAudio(this.audios);
     this.userRegisterService.submit().subscribe(
-      (res: IResponse) => {
+      (res: {message: IResponse, TigerAuth: any}) => {
         console.log(res.message);
+        console.log(res);
+        localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
+        this.router.navigate(['/user-list']);
       }
     );
   }

@@ -64,6 +64,7 @@ export class UserRegisterService {
     const obj = {
       user: user1,
       img: UserRegisterService.image,
+      TigerAuth: JSON.parse(localStorage.getItem('TigerAuth'))
     };
 
     const url = ip + '/register/submit';
