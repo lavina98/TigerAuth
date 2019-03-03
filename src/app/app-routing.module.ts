@@ -17,6 +17,7 @@ import { OtpRegisterComponent } from './otp-register/otp-register.component';
 import { OtpLoginComponent } from './otp-login/otp-login.component';
 import { RedirectComponent } from './redirect/redirect.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { AddCredentialsComponent } from './add-credentials/add-credentials.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'user-list', component: UserloginListComponent},
   { path: 'login/:clientName/:clientToken/:trusted', component: LoginComponent },
   { path: 'redirect/:tigerAuthId' , component: RedirectComponent},
+  { path: 'add-credentials' , component: AddCredentialsComponent},
   { path: 'about-us', component: AboutUsComponent}
 ];
 
