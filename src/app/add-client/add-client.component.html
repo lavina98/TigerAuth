@@ -17,14 +17,14 @@
               <div class="form-control form_element">
                 <label class="label" for="website">Website Name</label>
                 <br>
-                <input class="input_field" type="text" formControlName="website" placeholder="Website Name">
+                <input  type="text" formControlName="website" placeholder="Website Name">
               </div>
               <br>
 
               <div class="form-control form_element">
-                <label class="label" for="redirect_url">Redirect URL</label>
+                <!-- <label class="label" for="redirect_url">Redirect URL</label> -->
                 <br>
-                <input class="input_field" type="text" formControlName="redirectUrl" placeholder="Redirect URL">
+                <input type="text" formControlName="redirectUrl" placeholder="Redirect URL">
               </div>
               <br>
               <!--this part is pending-->
@@ -32,10 +32,9 @@
                   user login</span></div> -->
               <!--ends here-->
               <div class="form-control form-check form-check-inline form_element" *ngFor="let field of userData">
-                <label class="label" [for]="field"></label>
+                <label class="label" for="{{field.key}}"></label>
                 <br>
-
-                <input class="form-check-input" type="checkbox" [formControlName]="field" />{{ field }}
+                <input class="form-check-input" type="checkbox" formControlName="{{field.key}}" />{{ field.value }}
               </div>
         <br />
         <p>Select methods of authentication (Can be multiple)</p>

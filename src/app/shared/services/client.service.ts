@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IClientDetails } from '../models/client.model';
+import { IClientDetails, IClient } from '../models/client.model';
 import { HttpClient } from '@angular/common/http';
 import { ip } from '../backend-ip';
 
