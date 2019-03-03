@@ -55,6 +55,7 @@ export class RegisterComponent implements OnInit {
         }
       }
     );
+    
     // if (username === 'a') {
     //   this.usernameValid = true;
     // }

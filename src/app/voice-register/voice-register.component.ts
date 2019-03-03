@@ -119,7 +119,7 @@ export class VoiceRegisterComponent implements OnInit {
         this.sendReq();
       }
     } else {
-      //send list users page
+      // send list users page
     }
 
 
