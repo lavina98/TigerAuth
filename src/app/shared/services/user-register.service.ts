@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { ip } from '../backend-ip';
 import { IUserDetails } from '../models/user-details.model';
 
@@ -64,6 +64,7 @@ export class UserRegisterService {
     const obj = {
       user: user1,
       img: UserRegisterService.image,
+      TigerAuth: JSON.parse(localStorage.getItem('TigerAuth'))
     };
 
     const url = ip + '/register/submit';

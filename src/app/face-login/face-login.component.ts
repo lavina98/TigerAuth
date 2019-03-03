@@ -3,7 +3,8 @@ import {
   OnInit,
   ViewChild,
   ElementRef,
-  AfterViewInit
+  AfterViewInit,
+  NgZone
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as RecordRTC from 'recordrtc';
@@ -18,6 +19,7 @@ import { NavBarService } from '../shared/services/navbarservice';
   styleUrls: ['./face-login.component.css']
 })
 export class FaceLoginComponent implements OnInit, AfterViewInit {
+
   @ViewChild('video')
   public video: ElementRef;
   private stream: MediaStream;
@@ -29,16 +31,17 @@ export class FaceLoginComponent implements OnInit, AfterViewInit {
     private userService: UserService,
     private http: HttpClient,
     private userLoginService: UserLoginService,
+    private ngZone: NgZone,
     private router: Router,
     private navBarService: NavBarService
-  ) {}
+  ) { }
 
   ngOnInit() {
-    this.navBarService.hide();
-    this.username = this.userLoginService.getUsername();
-    if (this.username === undefined) {
-      this.router.navigate(['/']);
-    }
+    // this.navBarService.hide();
+    // this.username = this.userService.getUsername();
+    // if (this.username === undefined) {
+    //   this.router.navigate(['/']);
+    // }
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
         // console.log(stream);
@@ -128,9 +131,12 @@ export class FaceLoginComponent implements OnInit, AfterViewInit {
 
         if (res.message === 'valid') {
           console.log('Face Verified');
-          // localStorage.removeItem('TigerAuth');
           localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
-          this.userLoginService.redirectUserAsPerAuthentication();
+          // this.userLoginService.redirectUserAsPerAuthentication();
+          // this.router.navigate(['/voice-login']);
+          this.ngZone.run(() => {
+            this.router.navigate(['/voice-login']);
+          });
         } else {
           alert('Please try again');
           localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));

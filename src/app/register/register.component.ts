@@ -24,9 +24,7 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router,
-    private userRegisterService: UserRegisterService,
-    private navBarService: NavBarService
-  ) {
+    private userRegisterService: UserRegisterService, private navBarService: NavBarService) {
     this.registerForm = fb.group({
       firstName: this.fb.control('', [Validators.required]),
       lastName: this.fb.control('', [Validators.required]),
@@ -53,7 +51,8 @@ export class RegisterComponent implements OnInit {
         } else {
           this.usernameValid = false;
         }
-      });
+      }
+    );
     // if (username === 'a') {
     //   this.usernameValid = true;
     // }

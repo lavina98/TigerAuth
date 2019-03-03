@@ -51,6 +51,9 @@ body{
     background-position: left top;
 }
 .img_tbl{
-    width: 20%;
-    height: 70%;
+    width: 22%;
+    height: 4%;
+}
+.table_row{
+    width:100%;
 }

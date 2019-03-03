@@ -19,7 +19,7 @@ export class UserLoginService {
     private router: Router,
     private userService: UserService,
     private clientService: ClientService
-  ) {}
+  ) { }
 
   verifyUsername(uname: string) {
     const obj = {
@@ -29,29 +29,29 @@ export class UserLoginService {
     return this.http.post(url, obj);
   }
 
-  setUsername(username: string) {
-    this.username = username;
-  }
+  // setUsername(username: string) {
+  //   this.username = username;
+  // }
 
-  getUsername() {
-    return this.username;
-  }
+  // getUsername() {
+  //   return this.username;
+  // }
 
   sendOTP() {
     const obj = {
-      username: this.username
+      username: this.userService.getUsername()
+      // username: 'mihir_test'
     };
 
-    const url = ip + '/register/verifyOTP';
+    const url = ip + '/check/verifyOTP';
     return this.http.post(url, obj);
     // otp as response
   }
 
   sendVoice(voice: string, localStorageTokens: any, sentence: string) {
     const obj = {
-      // username: this.username,
-      username: 'sidbabe',
-
+      username: this.userService.getUsername(),
+      // username: 'mihir_test',
       audio: voice,
       text: sentence,
       TigerAuth: localStorageTokens
@@ -87,7 +87,8 @@ export class UserLoginService {
       id: clientToken,
       domainName: clientName,
       type: trusted,
-      username,
+      // username: 'mihir_test',
+      username: this.userService.getUsername(),
       TigerAuth: JSON.parse(localStorage.getItem('TigerAuth'))
     };
     console.log(objToSend);
@@ -141,7 +142,8 @@ export class UserLoginService {
 
   sendVideo(Video: string, numBlinks: number, localStorageTokens: any) {
     const obj = {
-      username: this.username,
+      // username: 'mihir_test',
+      username: this.userService.getUsername(),
       blinks: numBlinks,
       video: Video,
       TigerAuth: localStorageTokens
@@ -152,23 +154,25 @@ export class UserLoginService {
 
   setOtpToken() {
     const dataToSend = {
-      localStorageTokens: JSON.parse(localStorage.getItem('TigerAuth'))
+      username: this.userService.getUsername(),
+      // username: 'mihir_test',
+      TigerAuth: JSON.parse(localStorage.getItem('TigerAuth'))
     };
-    return this.http.post(ip + '/', dataToSend);
+    return this.http.post(ip + '/check/otpToken', dataToSend);
   }
 
   getUserDetails(id: string) {
-    // add tiger auth secret key here
-    const objToSend = {
-      id,
-      // add domain name of tiger auth here
-      domainName: 'TigerAuth.com'
-    };
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+     // add tiger auth secret key here
+     const objToSend = {
+       id,
+       // add domain name of tiger auth here
+       domainName: 'www.TigerAuth.com'
+     };
+     const headers = new HttpHeaders({
+       'Content-Type': 'application/json',
       // add secret key of Tiger Auth
-      //  'Authorization': 'Bearer ',
-    });
-    return this.http.post(ip + '/login/resource', objToSend, { headers });
+      Authorization: 'Bearer'
+     });
+     return this.http.post(ip + '/login/resource', objToSend, {headers});
   }
 }

@@ -26,8 +26,8 @@
             <th class="per">OTP</th>
           </tr>
 
-          <tr *ngFor="let user of userList" (click)="selectUser(user)"  >
-            <td class="usr_name">{{user.username}}</td>
+          <tr *ngFor="let user of userList, let i = index" (click)="selectUser(i)">
+            <td class="usr_name"><a>{{user.username}}</a></td>
             <td *ngIf="user.faceTokenCheck" class="per"><img src="../../assets/tick.png" class="img_tbl"></td>
             <td *ngIf="!user.faceTokenCheck" class="per"><img src="../../assets/cross.png" class="img_tbl"></td>
             <td *ngIf="user.voiceTokenCheck" class="per"><img src="../../assets/tick.png" class="img_tbl"></td>

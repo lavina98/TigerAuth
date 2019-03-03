@@ -18,18 +18,18 @@ export class ClientDashboardComponent implements OnInit {
   selectClient: FormGroup;
   clients = ['site1', 'site2', 'site3'];
 
-  public pieChartLabels: string[] = ['Pending', 'InProgress', 'OnHold', 'Complete', 'Cancelled'];
-  public pieChartData: number[] = [21, 39, 10, 14, 16];
-  public pieChartType = 'pie';
-  public pieChartOptions: any = {
-    backgroundColor: [
-      '#FF6384',
-      '#4BC0C0',
-      '#FFCE56',
-      '#E7E9ED',
-      '#36A2EB'
-    ]
-  };
+  // public pieChartLabels: string[] = ['Pending', 'InProgress', 'OnHold', 'Complete', 'Cancelled'];
+  // public pieChartData: number[] = [21, 39, 10, 14, 16];
+  // public pieChartType = 'pie';
+  // public pieChartOptions: any = {
+  //   backgroundColor: [
+  //     '#FF6384',
+  //     '#4BC0C0',
+  //     '#FFCE56',
+  //     '#E7E9ED',
+  //     '#36A2EB'
+  //   ]
+  // };
 
   constructor(private fb: FormBuilder , private navBarService: NavBarService) { }
 

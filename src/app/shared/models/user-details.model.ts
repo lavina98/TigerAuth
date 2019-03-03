@@ -4,3 +4,10 @@ export interface IUserDetails {
     phone: number;
     dob: string;
 }
+
+export interface ICredentials {
+    username: string;
+    password: string;
+    domainName: string;
+
+}

@@ -1,18 +1,20 @@
-<!-- <body>
+<body>
   <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
   <div class="row">
     <div class="col-md-4">
     </div>
     <div class="col-md-4">
       <div class="card">
-        <p>Please click on the Start button and read out the sentence which will appear on screen.</p>
+        <p>Please click on the Start button and read out the 5 sentences given</p>
+        <hr>
         <p class="sentence">{{sentence}}</p>
-        <a (click)="initiateRecording()" class="btn btn-primary button submit_button" *ngIf="!recording"> Start Recording </a>
-        <a (click)="stopRecording()" class="btn btn-danger button submit_button" *ngIf="recording"> Stop Recording </a>
-        <div class="clearfix"></div>
-       <audio controls="" *ngIf="url">
-          <source [src]="sanitize(url)" type="audio/wav">
-        </audio>
+        <button (click)="initiateRecording()" class="submit_button1" [disabled]="is5TimesDone" *ngIf="!recording"> Start
+          Recording </button>
+        <button (click)="stopRecording()" class="submit_button2" *ngIf="recording"> Stop Recording </button>
+          <div class="clearfix"></div>
+          <audio #audio id="audio" controls="" *ngIf="url">
+            <source [src]="sanitize(url)" type="audio/mp3">
+          </audio>
       </div>
     </div>
     <div class="col-md-4">
@@ -20,13 +22,4 @@
     </div>
   </div>
 
-</body> -->
-{{sentence}}
-
-<button (click)="initiateRecording()" class="btn btn-primary" [disabled]="is5TimesDone" *ngIf="!recording"> Start Recording </button>
-<a (click)="stopRecording()" class="btn btn-danger" *ngIf="recording"> Stop Recording </a>
-<div class="clearfix"></div>
-<audio #audio id="audio" controls="" *ngIf="url">
-  <source [src]="sanitize(url)" type="audio/mp3">
-</audio>
-
+</body>
