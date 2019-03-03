@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserRegisterService } from '../shared/services/user-register.service';
-import { UserLoginService } from '../shared/services/user-login.service';
 import { Router } from '@angular/router';
 import { IResponse } from '../shared/models/single-word-response.model';
 import { NavBarService } from '../shared/services/navbarservice';
@@ -23,9 +22,7 @@ export class OtpRegisterComponent implements OnInit {
     private navBarService: NavBarService,
     private fb: FormBuilder,
     private userRegisterService: UserRegisterService,
-    private userLoginService: UserLoginService,
-    private router: Router,
-    ) {
+    private router: Router) {
     this.otpForm = fb.group({
       otp: this.fb.control('', [Validators.required]),
     });
