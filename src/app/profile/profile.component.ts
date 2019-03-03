@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DISABLED } from '@angular/forms/src/model';
 import { NavBarService } from '../shared/services/navbarservice';
+import { UserService } from '../shared/services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -43,7 +44,11 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.navBarService.show();
-    this.enable = false;
+    this.userService.getUserProfile().subscribe(
+      res => {
+        console.log(res);
+      }
+    );
   }
   enableEdit() {
     this.enable = !this.enable;

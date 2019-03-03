@@ -32,7 +32,6 @@ export class VoiceLoginComponent implements OnInit {
   constructor(
     private domSanitizer: DomSanitizer,
     private router: Router,
-    private userRegisterService: UserRegisterService,
     private userService: UserService,
     private userLoginService: UserLoginService,
     private http: HttpClient,
@@ -112,6 +111,8 @@ export class VoiceLoginComponent implements OnInit {
 
         // this.userLoginService.redirectUserAsPerAuthentication();
       });
+      // this.router.navigate(['/otp-login']);
+
   }
 
   /**

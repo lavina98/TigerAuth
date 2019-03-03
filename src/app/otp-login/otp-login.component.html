@@ -6,19 +6,20 @@
       </div>
       <div class="col-md-4">
         <div class="card">
-          <form [formGroup]="otpForm">
+          <form [formGroup]="otpForm" (ngSubmit)="verify()">
             <div class="form-group">
               <div class="form-control form_element">
                   <label class="label" for="OTP">Enter the OTP sent on your registered mobile number</label>
-                <input class="input_field" type="number" formControlName="otp" placeholder="Enter OTP">
+                <input class="input_field" type="text" formControlName="otp" placeholder="Enter OTP">
               </div>
             </div>
-            <button class="btn btn-primary" id="submit_button1" (click)="verify()"> Verify
+            <button class="btn btn-primary" id="submit_button1" (click)="verify()" type="submit" > Verify
             </button>
             <hr>
-            <button class="btn btn-primary" id="submit_button2" (click)="resendOTP()"> Resend OTP
-            </button>
           </form>
+          <div class="btn btn-primary" id="submit_button2"  type="button" (click)="resendOTP()"> Resend OTP
+          </div>
+
         </div>
       </div>
       <div class="col-md-4">
@@ -26,3 +27,12 @@
     </div>
   </div>
 </body>
+<!-- 
+<form [formGroup]="otpForm" (ngSubmit)="verify()">
+  <label for="otp">Enter OTP</label>
+  <input formControlName="otp">
+  <br>
+  <button>Verify</button>
+</form>
+
+<button type="button" (click)="resendOTP()">resendOTP</button> -->

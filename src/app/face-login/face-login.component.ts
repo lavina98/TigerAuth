@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
 import { UserLoginService } from '../shared/services/user-login.service';
 import { UserService } from '../shared/services/user.service';
 import { NavBarService } from '../shared/services/navbarservice';
+// const changeBrightness = require('node-brightness');
+
 @Component({
   selector: 'app-face-login',
   templateUrl: './face-login.component.html',
@@ -138,9 +140,9 @@ export class FaceLoginComponent implements OnInit, AfterViewInit {
             this.router.navigate(['/voice-login']);
           });
         } else {
-          alert('Please try again');
+          alert('Please go back and try again');
           localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
-          this.router.navigate(['/face-login']);
+          this.router.navigate(['/login']);
         }
       });
   }

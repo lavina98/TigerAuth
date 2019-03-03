@@ -14,8 +14,8 @@ import { NavBarService } from '../shared/services/navbarservice';
 
 export class OtpLoginComponent implements OnInit {
 
-  otpForm: FormGroup;
-  otp: string;
+  public otpForm: FormGroup;
+  public otp: string;
 
   constructor(
     private fb: FormBuilder,
@@ -23,7 +23,7 @@ export class OtpLoginComponent implements OnInit {
     private router: Router,
     private navBarService: NavBarService) {
     this.otpForm = fb.group({
-      otp: this.fb.control('', [Validators.required]),
+      otp: this.fb.control(''),
     });
   }
 
@@ -31,24 +31,43 @@ export class OtpLoginComponent implements OnInit {
     this.navBarService.hide();
     this.userLoginService.sendOTP().subscribe(
       (res: IResponse) => {
+        console.log(res);
         this.otp = res.message;
       }
     );
   }
 
-  verify() {
+  click() {
+    console.log('click');
+  }
 
-    if (this.otp === this.otpForm.value.otp) {
+  public verify() {
+    console.log('here');
+    if (String(this.otp) == this.otpForm.value.otp) {
       console.log('Valid OTP');
       // send local storage to server so it can set its token
       // and request for access token
       this.userLoginService.setOtpToken().subscribe((res: { message: string, TigerAuth: any }) => {
         localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
+        this.userLoginService.afterSuccessfulLogin(res.TigerAuth).subscribe(
+          (res: IResponse) => {
+            if(res.message === 'valid') {
+              this.router.navigate(['/dashboard']);              
+            } else {
+              alert('Login Failed. Please try again');
+              this.router.navigate(['/login']);
+            }
+          }
+        );
         // this.userLoginService.redirectUserAsPerAuthentication();
-        this.router.navigate(['/dashboard']);
+
+
+
       });
     }
-    // else show error and askuser to send otp again
+    else {
+      alert('Enter the right otp');
+    }
 
   }
 

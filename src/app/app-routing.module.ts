@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'otp-register', component: OtpRegisterComponent },
   { path: 'face-register', component: FaceRegisterComponent },
   { path: 'voice-register', component: VoiceRegisterComponent },
-  { path: 'permissions', component: PermissionsComponent },
+  // { path: 'permissions', component: PermissionsComponent },
   { path: 'profile', component: ProfileComponent },
   // { path: 'client-login', component: ClientLoginComponent},
   { path: 'client-dashboard', component: ClientDashboardComponent },

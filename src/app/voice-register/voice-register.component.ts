@@ -130,10 +130,18 @@ export class VoiceRegisterComponent implements OnInit {
     this.userRegisterService.setUserAudio(this.audios);
     this.userRegisterService.submit().subscribe(
       (res: {message: IResponse, TigerAuth: any}) => {
-        console.log(res.message);
+        if(res.message.toString() === 'valid') {
+          console.log(res.message);
         console.log(res);
         localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
-        this.router.navigate(['/user-list']);
+
+        // this.userRegisterService
+
+        this.router.navigate(['/dashboard']);
+        } else {
+          alert('Register Failed. Please try again');
+        }
+        
       }
     );
   }

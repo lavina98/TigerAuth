@@ -175,4 +175,13 @@ export class UserLoginService {
      });
      return this.http.post(ip + '/login/resource', objToSend, {headers});
   }
+
+  afterSuccessfulLogin(tokens) {
+    const url = ip + '/login/tigerauth';
+    const obj = {
+      username: this.userService.getUsername(),
+      TigerAuth: tokens
+    }
+    return this.http.post(url, obj);
+  }
 }

@@ -19,6 +19,7 @@ export class PermissionsComponent implements OnInit {
 
   ngOnInit() {
       this.navBarService.show();
+      
   }
 
   selectClient() {
