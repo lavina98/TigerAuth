@@ -89,5 +89,10 @@ export class UserService {
   setLocalStorage() {
     return this.http.get(ip + '/loginUsers/storeInLocalStorage');
   }
+
+  getUserProfile() {
+    const url = ip + '/userdata';
+    return this.http.get(url);
+  }
 }
 

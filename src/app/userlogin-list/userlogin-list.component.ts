@@ -55,7 +55,11 @@ export class UserloginListComponent implements OnInit {
         this.clientRequiresVoice = data.clientData.voice;
         this.userList = data.usersData;
       });
-    this.clientService.setClientDetails({domainName: this.clientName ,id: this.clientToken, type: this.trusted});
+    this.clientService.setClientDetails({
+      domainName: this.clientName,
+      id: this.clientToken,
+      type: this.trusted
+    });
   }
 
   selectUser(i: number) {
@@ -66,6 +70,11 @@ export class UserloginListComponent implements OnInit {
 
   addAccount() {
     console.log('routing');
-    this.router.navigate(['/login', this.clientName , this.clientToken , this.trusted]);
+    this.router.navigate([
+      '/login',
+      this.clientName,
+      this.clientToken,
+      this.trusted
+    ]);
   }
 }

@@ -37,7 +37,6 @@ export class UserLoginService {
   //   return this.username;
   // }
 
-
   sendOTP() {
     const obj = {
       username: this.userService.getUsername()
@@ -62,7 +61,12 @@ export class UserLoginService {
     return this.http.post(url, obj);
   }
 
-  getUserListAndAuthenticationFactorOfClient(clientName: string, clientToken: string, trusted: string, tigerAuth: any) {
+  getUserListAndAuthenticationFactorOfClient(
+    clientName: string,
+    clientToken: string,
+    trusted: string,
+    tigerAuth: any
+  ) {
     const objToSend = {
       domainName: clientName,
       type: trusted,
@@ -118,7 +122,7 @@ export class UserLoginService {
             this.router.navigate(['/face-login']);
           } else if (data.response.voiceRequiredByClient) {
             this.router.navigate(['/voice-login']);
-          } else if ((data.response.otpRequiredByClient)) {
+          } else if (data.response.otpRequiredByClient) {
             this.router.navigate(['/otp-login']);
           }
           // if () {
@@ -148,7 +152,6 @@ export class UserLoginService {
     return this.http.post(url, obj);
   }
 
-
   setOtpToken() {
     const dataToSend = {
       username: this.userService.getUsername(),
@@ -159,16 +162,16 @@ export class UserLoginService {
   }
 
   getUserDetails(id: string) {
-     //add tiger auth secret key here
+     // add tiger auth secret key here
      const objToSend = {
        id,
-       //add domain name of tiger auth here
+       // add domain name of tiger auth here
        domainName: 'www.TigerAuth.com'
      };
      const headers = new HttpHeaders({
        'Content-Type': 'application/json',
       // add secret key of Tiger Auth
-       'Authorization': 'Bearer'
+      Authorization: 'Bearer'
      });
      return this.http.post(ip + '/login/resource', objToSend, {headers});
   }

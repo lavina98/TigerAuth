@@ -1,4 +1,4 @@
-<body>
+<body *ngIf="enable"> 
   <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet">
   <div class="container">
     <div class="card">
@@ -14,21 +14,14 @@
           <div class="form-control">
             <label class="label" for="first_name">First Name</label>
             <br>
-            <input class="input_field" type="text" formControlName="first_name" value="{{user.first_name}}" placeholder="First Name">
+            <input class="input_field" type="text" formControlName="first_name" value="{{firstName}}" placeholder="{{firstName}}">
           </div>
           <br>
 
           <div class="form-control" style="border: none">
             <label class="label" for="last_name">Last Name</label>
             <br>
-            <input class="input_field" type="text" formControlName="last_name" value="{{user.last_name}}" placeholder="Last Name">
-          </div>
-          <br>
-
-          <div class="form-control">
-            <label class="label" for="email">Email ID</label>
-            <br>
-            <input class="input_field" type="email" formControlName="email" value="{{user.email}}" placeholder="Email ID">
+            <input class="input_field" type="text" formControlName="last_name" value="{{lastName}}" placeholder="Last Name">
           </div>
           <br>
 
@@ -36,7 +29,7 @@
           <div class="form-control">
             <label class="label" for="username">Username</label>
             <br>
-            <input class="input_field" type="text" formControlName="username" value="{{user.username}}" placeholder="Username">
+            <input class="input_field" type="text" formControlName="username" value="{{username}}" placeholder="Username">
           </div>
           <br>
 
@@ -44,14 +37,14 @@
           <div class="form-control">
             <label class="label" for="mobile">Mobile</label>
             <br>
-            <input class="input_field" type="number" formControlName="mobile" value="{{user.mobile}}" placeholder="Mobile">
+            <input class="input_field" type="number" formControlName="mobile" value="{{mobile}}" placeholder="Mobile">
           </div>
           <br>
 
           <div class="form-control">
             <label class="label" for="dob">Date of Birth</label>
             <br>
-            <input class="input_field" type="date" formControlName="dob" value="{{user.dob}}" placeholder="Date of Birth">
+            <input class="input_field" type="date" formControlName="dob" value="{{dob}}" placeholder="Date of Birth">
           </div>
           <br>
 

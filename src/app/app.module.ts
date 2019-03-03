@@ -34,6 +34,7 @@ import { RedirectComponent } from './redirect/redirect.component';
 import { NavBarService } from './shared/services/navbarservice';
 import { AddCredentialsComponent } from './add-credentials/add-credentials.component';
 import { AutoLoginComponent } from './auto-login/auto-login.component';
+import { ViewCredentialsComponent } from './view-credentials/view-credentials.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +58,8 @@ import { AutoLoginComponent } from './auto-login/auto-login.component';
     RedirectComponent,
     NavbarComponent,
     AddCredentialsComponent,
-    AutoLoginComponent
+    AutoLoginComponent,
+    ViewCredentialsComponent
   ],
   imports: [
     BrowserModule,

@@ -8,7 +8,7 @@ import { ip } from '../../app/shared/backend-ip';
 import { CookieService } from 'ngx-cookie-service';
 import { IResponse } from '../shared/models/single-word-response.model';
 import { NavBarService } from '../shared/services/navbarservice';
-import { AddCredentialsService } from '../shared/services/add-credentials.service';
+import { CredentialsService } from '../shared/services/credentials.service';
 
 @Component({
   selector: 'app-add-credentials',
@@ -24,7 +24,7 @@ export class AddCredentialsComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     // private userLoginService: UserLoginService,
-    private addCredentialsService: AddCredentialsService,
+    private credentialsService: CredentialsService,
     private userService: UserService,
     private http: HttpClient,
     private cookie: CookieService,
@@ -48,7 +48,7 @@ export class AddCredentialsComponent implements OnInit {
   insertCredentials() {
     const method = 'register';
     const value = this.addCredentialsForm.value;
-    this.addCredentialsService.addcredentials(value).subscribe(
+    this.credentialsService.addcredentials(value).subscribe(
       (res: IResponse) => {
         console.log(res);
         if (res.message === 'ok') {
@@ -60,6 +60,8 @@ export class AddCredentialsComponent implements OnInit {
     );
   }
 
-
+  redirect() {
+    this.router.navigate(['/add-credential']);
+  }
 }
 

@@ -11,3 +11,12 @@ export interface IUserActivity {
   time: string;
   device: string;
 }
+
+export interface IUserModel {
+  firstName: string;
+  lastName: string;
+  username: string;
+  phone: string;
+  dob: string;
+  img: string;
+}

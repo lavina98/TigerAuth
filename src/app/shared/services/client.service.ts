@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import { IClientDetails } from '../models/client.model';
 import { HttpClient } from '@angular/common/http';
 import { ip } from '../backend-ip';
+import { UserService } from './user.service';
 
 @Injectable()
 export class ClientService {
   public clientDetails: IClientDetails;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private userService: UserService) { }
 
   registerClient(client) {
     const objToSend = {
+      username: this.userService,
       domainName: client.website,
       callbackUrl: client.redirectUrl,
       face: client.faceAuthentication,

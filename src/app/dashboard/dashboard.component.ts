@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserActivityService } from '../shared/services/user-activity.service';
 import { NavBarService } from '../shared/services/navbarservice';
+import { CredentialsService } from '../shared/services/credentials.service';
+import { ICredentials } from '../shared/models/user-details.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,12 +13,14 @@ import { NavBarService } from '../shared/services/navbarservice';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  username: string;
+    credentialData: any[];
+    username: string;
   constructor(
     private userService: UserService,
     private router: Router,
     private http: HttpClient,
     private userActivityService: UserActivityService ,
+    private credentialService: CredentialsService,
     private navBarService: NavBarService) { }
 
   clients = [
@@ -60,4 +64,8 @@ export class DashboardComponent implements OnInit {
     );
   }
 
+  loginUsingCredentials() {
+
+  }
 }
+

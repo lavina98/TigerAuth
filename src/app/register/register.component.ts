@@ -6,14 +6,12 @@ import { UserRegisterService } from '../shared/services/user-register.service';
 import { IResponse } from '../shared/models/single-word-response.model';
 import { NavBarService } from '../shared/services/navbarservice';
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
   usernameValid = false;
   registerForm: FormGroup;
 
@@ -32,8 +30,7 @@ export class RegisterComponent implements OnInit {
       lastName: this.fb.control('', [Validators.required]),
       username: this.fb.control('', [Validators.required]),
       mobile: this.fb.control('', [Validators.required]),
-      dateOfBirth: this.fb.control('', [Validators.required]),
-
+      dateOfBirth: this.fb.control('', [Validators.required])
     });
   }
 
@@ -44,8 +41,9 @@ export class RegisterComponent implements OnInit {
   verifyUsername() {
     console.log(this.registerForm.value.username);
     const username = this.registerForm.value.username;
-    this.userRegisterService.verifyUsername(username).subscribe(
-      (res: IResponse) => {
+    this.userRegisterService
+      .verifyUsername(username)
+      .subscribe((res: IResponse) => {
         const message = res.message;
         if (message === 'VALID') {
           console.log('valid');
@@ -55,7 +53,6 @@ export class RegisterComponent implements OnInit {
         }
       }
     );
-    
     // if (username === 'a') {
     //   this.usernameValid = true;
     // }
@@ -81,5 +78,4 @@ export class RegisterComponent implements OnInit {
     this.userRegisterService.setFormData(user);
     this.router.navigate(['/face-register']);
   }
-
 }
