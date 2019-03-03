@@ -37,6 +37,7 @@ const routes: Routes = [
   { path: 'voice-login', component: VoiceLoginComponent },
   { path: 'transition/:clientName/:clientToken/:trusted', component: TransitionPageComponent },
   { path: 'user-list/:clientName/:clientToken/:trusted', component: UserloginListComponent },
+  { path: 'user-list', component: UserloginListComponent},
   { path: 'login/:clientName/:clientToken/:trusted', component: LoginComponent },
   { path: 'redirect/:tigerAuthId' , component: RedirectComponent},
   { path: 'about-us', component: AboutUsComponent}

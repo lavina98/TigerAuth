@@ -4,7 +4,7 @@ import { IUser } from '../shared/models/user.model';
 import { UserService } from '../shared/services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserLoginService } from '../shared/services/user-login.service';
-import { IClient } from '../shared/models/client.model';
+import { IClientDetails, IClient } from '../shared/models/client.model';
 import { ip } from '../shared/backend-ip';
 import { ClientService } from '../shared/services/client.service';
 import { NavBarService } from '../shared/services/navbarservice';
