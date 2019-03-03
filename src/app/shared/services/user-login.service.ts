@@ -159,17 +159,17 @@ export class UserLoginService {
   }
 
   getUserDetails(id: string) {
-    // add tiger auth secret key here
-    const objToSend = {
-      id,
-      // add domain name of tiger auth here
-      domainName: 'TigerAuth.com'
-    };
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
+     //add tiger auth secret key here
+     const objToSend = {
+       id,
+       //add domain name of tiger auth here
+       domainName: 'www.TigerAuth.com'
+     };
+     const headers = new HttpHeaders({
+       'Content-Type': 'application/json',
       // add secret key of Tiger Auth
-      //  'Authorization': 'Bearer ',
-    });
-    return this.http.post(ip + '/login/resource', objToSend, { headers });
+       'Authorization': 'Bearer'
+     });
+     return this.http.post(ip + '/login/resource', objToSend, {headers});
   }
 }

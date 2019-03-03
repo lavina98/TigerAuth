@@ -32,6 +32,8 @@ import { OtpLoginComponent } from './otp-login/otp-login.component';
 import { OtpRegisterComponent } from './otp-register/otp-register.component';
 import { RedirectComponent } from './redirect/redirect.component';
 import { NavBarService } from './shared/services/navbarservice';
+import { AddCredentialsComponent } from './add-credentials/add-credentials.component';
+import { AutoLoginComponent } from './auto-login/auto-login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +55,9 @@ import { NavBarService } from './shared/services/navbarservice';
     OtpLoginComponent,
     OtpRegisterComponent,
     RedirectComponent,
-    NavbarComponent
+    NavbarComponent,
+    AddCredentialsComponent,
+    AutoLoginComponent
   ],
   imports: [
     BrowserModule,
