@@ -58,8 +58,9 @@ export class UserloginListComponent implements OnInit {
     this.clientService.setClientDetails({domainName: this.clientName ,id: this.clientToken, type: this.trusted});
   }
 
-  selectUser(user: IUser) {
-    this.userService.setUsername(user.username);
+  selectUser(i: number) {
+    const username = this.userList[i].username;
+    this.userService.setUsername(username);
     this.userLoginService.redirectUserAsPerAuthentication();
   }
 

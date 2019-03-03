@@ -83,8 +83,8 @@ export class UserLoginService {
       id: clientToken,
       domainName: clientName,
       type: trusted,
-      username: 'mihir_test',
-      // username: this.userService.getUsername(),
+      // username: 'mihir_test',
+      username: this.userService.getUsername(),
       TigerAuth: JSON.parse(localStorage.getItem('TigerAuth'))
     };
     console.log(objToSend);
@@ -138,8 +138,8 @@ export class UserLoginService {
 
   sendVideo(Video: string, numBlinks: number, localStorageTokens: any) {
     const obj = {
-      username: 'mihir_test',
-      // username: this.userService.getUsername(),
+      // username: 'mihir_test',
+      username: this.userService.getUsername(),
       blinks: numBlinks,
       video: Video,
       TigerAuth: localStorageTokens
