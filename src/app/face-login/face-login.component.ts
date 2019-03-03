@@ -124,20 +124,24 @@ export class FaceLoginComponent implements OnInit, AfterViewInit {
     console.log('sending req');
     const localStorageTokens = JSON.parse(localStorage.getItem('TigerAuth'));
     // send local storage content to server modifies and you store it back to the local storage
-    // this.userLoginService
-    //   .sendVideo(dataURL, this.randomBlinks, localStorageTokens)
-    //   .subscribe((res: { message: string; TigerAuth: any }) => {
-      //   console.log(res);
+    this.userLoginService
+      .sendVideo(dataURL, this.randomBlinks, localStorageTokens)
+      .subscribe((res: { message: string; TigerAuth: any }) => {
+        console.log(res);
 
-      //   if (res.message === 'valid') {
-      //     console.log('Face Verified');
-      //     localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
-      //     this.userLoginService.redirectUserAsPerAuthentication();
-      //   } else {
-      //     alert('Please try again');
-      //     localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
-      //     this.router.navigate(['/face-login']);
-      //   }
-      // });
+        if (res.message === 'valid') {
+          console.log('Face Verified');
+          localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
+          // this.userLoginService.redirectUserAsPerAuthentication();
+          // this.router.navigate(['/voice-login']);
+          this.ngZone.run(() => {
+            this.router.navigate(['/voice-login']);
+          });
+        } else {
+          alert('Please try again');
+          localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
+          this.router.navigate(['/face-login']);
+        }
+      });
   }
 }

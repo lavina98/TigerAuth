@@ -24,4 +24,3 @@ export interface IClientDetails {
     id: string;
     type: string;
 }
-

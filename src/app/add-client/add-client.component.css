@@ -22,33 +22,35 @@ body{
     display:block;
     margin-left:auto;
     margin-right:auto;
+    padding-top:2%;
 
 }
 .card:hover{
     box-shadow: 0 20px 30px rgba(0,0,0,0.40);
 }
-#submit_button{
+.submit_button{
     display: block; 
     margin-left:auto;
     margin-right: auto;
     width:50%;
     padding-top:3%;
     padding-bottom:4%;
-    background:white;
-    color:black;
+    background:rgb(255, 123, 0);
+    color:white;
     border-radius: 10px;
-    margin-top:-8%;
+    border: 1px rgb(255, 123, 0);
+    margin-top:1%;
     margin-bottom:-2%;
     font-size: 20px;
     opacity:1;
 }
-#submit_button:hover{
+.submit_button:hover{
     box-shadow: 0 18px 22px 0 rgba(0,0,0,0.40)
 }
 .form_element{
     margin-top:2%;
     margin-bottom:1%;
-    margin-left:7%;
+    margin-left:5%;
     width:90%;
     background:#000076;
     
@@ -65,9 +67,9 @@ body{
 .label{
     font-weight:600;
     color:white;
-    display: block;
+    /* display: block; */
     position: relative;
-    padding-left: 35px;
+    /* padding-left: 5%; */
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 22px;
@@ -76,13 +78,37 @@ body{
     -ms-user-select: none;
     user-select: none;
 }
-.label input {
+.label1{
+  font-weight:600;
+  color:white;
+  /* display: block; */
+  position: relative;
+  /* padding-left: 5%; */
+  /* margin-bottom:1%; */
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding-top:3%;
+  padding-left:3%;
+  padding-right:3%;
+  margin-left:4%;
+  padding-bottom:-10%;
+}
+.description{
+  color:white;
+  font-size: 18px;
+  font-weight:200;
+}
+/* .label input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0;
-  }
+  } */
   .checkmark {
     position: absolute;
     top: 0;
@@ -137,4 +163,21 @@ h6{
     color:#ee7f09;
     text-align: center;
     opacity: 1;
+}
+h4{
+  font-weight: bold;
+}
+p{
+  margin-bottom:-1%;
+}
+.tick{
+  margin-left:5%;
+  color:white;
+}
+.tick1{
+  color:white;
+}
+.label2{
+  color:white;
+  margin-top:0.5%;
 }
