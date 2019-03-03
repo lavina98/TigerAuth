@@ -18,7 +18,7 @@ export class CredentialsService {
   ) {}
 
   addcredentials(credential: ICredentials) {
-    const url = ip + '';
+    const url = ip + '/credential/store';
     return this.http.post(url, credential);
   }
 
@@ -27,4 +27,5 @@ export class CredentialsService {
     const obj = {username: this.userService.getUsername()};
     return this.http.post(url, obj);
   }
+
 }

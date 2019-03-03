@@ -39,7 +39,7 @@ export class AddCredentialsComponent implements OnInit {
 
   ngOnInit() {
     // this.navBarService.hide();
-    this.userService.setLocalStorage().subscribe((data1: {data: any}) => {
+    this.userService.setLocalStorage().subscribe((data1: { data: any }) => {
       console.log(data1);
       localStorage.setItem('TigerAuth', JSON.stringify(data1.data));
     });
@@ -51,10 +51,13 @@ export class AddCredentialsComponent implements OnInit {
     this.credentialsService.addcredentials(value).subscribe(
       (res: IResponse) => {
         console.log(res);
-        if (res.message === 'ok') {
+        if (res.message === 'valid') {
           this.router.navigate(['/dashboard']);
+        } else if (res.message === 'invalid') {
+          this.router.navigate(['/login']);
         } else {
           alert('Please Try again');
+
         }
       }
     );

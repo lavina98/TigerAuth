@@ -11,7 +11,6 @@ export class ClientService {
 
   registerClient(client) {
     const objToSend = {
-      username: this.userService,
       domainName: client.website,
       callbackUrl: client.redirectUrl,
       face: client.faceAuthentication,
