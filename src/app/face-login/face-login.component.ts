@@ -14,7 +14,6 @@ import { UserLoginService } from '../shared/services/user-login.service';
 import { UserService } from '../shared/services/user.service';
 import { NavBarService } from '../shared/services/navbarservice';
 // const changeBrightness = require('node-brightness');
-import * as changeBrightness from '../../../node_modules/node-brightness';
 
 @Component({
   selector: 'app-face-login',
@@ -45,7 +44,6 @@ export class FaceLoginComponent implements OnInit, AfterViewInit {
     // if (this.username === undefined) {
     //   this.router.navigate(['/']);
     // }
-    changeBrightness(50);
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
         // console.log(stream);
@@ -142,9 +140,9 @@ export class FaceLoginComponent implements OnInit, AfterViewInit {
             this.router.navigate(['/voice-login']);
           });
         } else {
-          alert('Please try again');
+          alert('Please go back and try again');
           localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
-          this.router.navigate(['/face-login']);
+          this.router.navigate(['/login']);
         }
       });
   }

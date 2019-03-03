@@ -36,4 +36,10 @@ export class ClientService {
   setClientDetails(clientDetails: IClientDetails) {
     this.clientDetails = clientDetails;
   }
+
+  getActivityOfClient() {
+
+    const url = ip + '/activity/getStats';
+    // return this.http.post(url, );
+  }
 }
