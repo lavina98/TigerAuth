@@ -78,7 +78,7 @@ export class LoginComponent implements OnInit {
         console.log(res);
         if (res.message.toString() === 'valid') {
           console.log(res);
-          this.userLoginService.setUsername(username);
+          this.userService.setUsername(username);
           this.router.navigate(['/face-login']);
           console.log('Here');
         } else {

@@ -42,9 +42,10 @@ export class OtpLoginComponent implements OnInit {
       console.log('Valid OTP');
       // send local storage to server so it can set its token
       // and request for access token
-      this.userLoginService.setOtpToken().subscribe((data) => {
-        localStorage.setItem('TigerAuth', JSON.stringify(data));
-        this.userLoginService.redirectUserAsPerAuthentication();
+      this.userLoginService.setOtpToken().subscribe((res: { message: string, TigerAuth: any }) => {
+        localStorage.setItem('TigerAuth', JSON.stringify(res.TigerAuth));
+        // this.userLoginService.redirectUserAsPerAuthentication();
+        this.router.navigate(['/dashboard']);
       });
     }
     // else show error and askuser to send otp again

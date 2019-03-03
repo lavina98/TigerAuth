@@ -36,28 +36,31 @@
               </div>
               <!--ends here-->
               <div class="form-control form-check form-check-inline form_element" *ngFor="let f of userData">
-                <input class="form-check-input tick" type="checkbox" formControlName="{{f.key}}" /><label class="label2"
-                  [for]="field">{{ f.value }}</label>
+                <input class="form-check-input tick" type="checkbox" formControlName="{{f.key}}" />
+                <label class="label2" [for]="field">{{ f.value }}</label>
               </div>
               <br />
-              <p>Select methods of authentication (Can be multiple)</p>
-              <div class="form-control" *ngFor="let auth of authentication">
-                <label [for]="auth">
-                <input type="checkbox" formControlName="{{auth.key}}">{{auth.value}}</label>
+              <div class="label1">
+                <p>Authentication Method</p><span class="description">Select methods of authentication</span>
+              </div>
+              <div class="form-control form-check form-check-inline form_element" *ngFor="let auth of authentication">
+                <!-- <label [for]="auth"> -->
+                  <input type="checkbox" class="tick" formControlName="{{auth.key}}" />
+                  <label class="label2" [for]="auth">{{auth.value}}</label>
               </div>
             </div>
-            <button class="btn btn-primary" [disabled]="!this.clientRegisterForm.valid" (click)="registerClient()">
+            <button class="btn submit_button" [disabled]="!this.clientRegisterForm.valid" (click)="registerClient()">
               Register
             </button>
-            <br/>
+            <br>
           </form>
         </div>
-
-        <div class="col-md-3"></div>
       </div>
+      <div class="col-md-3"></div>
+
     </div>
     <div *ngIf="registrationSuccessful">
-      <p>Congrats ! registration Successfull . View dashboard for more details</p>
+      <p>Registration Successful!</p>
     </div>
   </div>
 </body>

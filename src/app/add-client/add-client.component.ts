@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { IClient } from '../shared/models/client.model';
+import { IClientDetails } from '../shared/models/client.model';
 import { ClientService } from '../shared/services/client.service';
 import { saveAs } from 'file-saver';
 import { Router } from '@angular/router';
@@ -16,7 +16,7 @@ import { NavBarService } from '../shared/services/navbarservice';
 export class AddClientComponent implements OnInit {
   clientRegisterForm: FormGroup;
   registrationSuccessful: boolean;
-  client: IClient;
+  client: IClientDetails;
   username: string;
   // userData = ['Name', 'Mobile', 'Date of Birth', 'Profile Picture'];
   userData = [
